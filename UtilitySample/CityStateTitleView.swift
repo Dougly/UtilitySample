@@ -1,5 +1,5 @@
 //
-//  NavigationPlaceTitleView.swift
+//  CityStateTitleView.swift
 //  UtilitySample
 //
 //  Created by Douglas Galante on 11/5/17.
@@ -8,10 +8,13 @@
 
 import UIKit
 
-class NavigationPlaceTitleView: UIView {
+class CityStateTitleView: UIView {
     
+    let arrowSpacing: CGFloat = 10
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var cityStateLabel: UILabel!
+    @IBOutlet weak var downArrowImageView: UIImageView!
+    @IBOutlet weak var cityStateLabelCenterX: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,12 +27,16 @@ class NavigationPlaceTitleView: UIView {
     }
     
     func commonInit() {
-        self.addSubview(contentView)
+        Bundle.main.loadNibNamed("CityStateTitleView", owner: self, options: nil    )
+        self.addSubview(self.contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        
+        let cityStateOffset = arrowSpacing + downArrowImageView.frame.width * -1
+        cityStateLabelCenterX.constant = cityStateOffset
     }
     
     func setTitle(city: String, state: String) {
