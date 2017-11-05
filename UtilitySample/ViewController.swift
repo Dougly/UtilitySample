@@ -10,14 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var thisIsTableMeLabel: UILabel!
+    @IBOutlet weak var signUpWithPhoneNumberButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.isNavigationBarHidden = true
+        adjustFontScales()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func adjustFontScales() {
+        signUpWithPhoneNumberButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        signUpWithPhoneNumberButton.titleLabel?.minimumScaleFactor = 0.5
+        welcomeLabel.font = thisIsTableMeLabel.font
+        
     }
 
 
