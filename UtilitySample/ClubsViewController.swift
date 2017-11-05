@@ -16,6 +16,8 @@ class ClubsViewController: UIViewController {
     }
     
     func setNavigationBar() {
+        guard let navBar = self.navigationController else { return }
+        navBar.isNavigationBarHidden = false
         
     }
     

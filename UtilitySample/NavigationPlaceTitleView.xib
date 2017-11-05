@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationPlaceTitleView" customModule="UtilitySample" customModuleProvider="target">
+            <connections>
+                <outlet property="cityStateLabel" destination="0dX-iB-AHe" id="ZCs-xU-C3I"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="IVx-Lz-JI4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="191" height="46"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miami, FL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0dX-iB-AHe">
+                    <rect key="frame" x="0.0" y="0.0" width="143.5" height="46"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Y-cJ-APC">
+                    <rect key="frame" x="153.5" y="18.5" width="15.5" height="9"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Y8Y-cJ-APC" secondAttribute="height" multiplier="12:7" id="n2f-N7-54W"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Y8Y-cJ-APC" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="4HF-1X-MN0"/>
+                <constraint firstItem="Y8Y-cJ-APC" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="Fu9-ej-DPq"/>
+                <constraint firstItem="0dX-iB-AHe" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="I7Y-Nr-jS7"/>
+                <constraint firstItem="0dX-iB-AHe" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="VhJ-Md-er7"/>
+                <constraint firstItem="Y8Y-cJ-APC" firstAttribute="leading" secondItem="0dX-iB-AHe" secondAttribute="trailing" constant="10" id="bxD-o4-gYM"/>
+                <constraint firstItem="0dX-iB-AHe" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.75" id="iUe-Ol-Onv"/>
+                <constraint firstItem="0dX-iB-AHe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pSU-xX-hu1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-96.5" y="-194"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="downArrow" width="12" height="7"/>
+    </resources>
+</document>
