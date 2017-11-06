@@ -42,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="QVl-Ob-3dG">
-                    <rect key="frame" x="225.5" y="18.5" width="15.5" height="9"/>
+                    <rect key="frame" x="225.5" y="19.5" width="11.5" height="7"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="QVl-Ob-3dG" secondAttribute="height" multiplier="12:7" id="2mP-r2-sVy"/>
                     </constraints>
@@ -68,7 +68,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nm3-6D-Qxz" userLabel="DropDownButton">
-                    <rect key="frame" x="145" y="0.0" width="96" height="46"/>
+                    <rect key="frame" x="145" y="0.0" width="92" height="46"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <connections>
                         <action selector="dropDownButtonTapped:" destination="-1" eventType="touchUpInside" id="quT-iL-PyY"/>
@@ -85,8 +85,8 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9q-j1-zCj">
-                    <rect key="frame" x="164.5" y="12.5" width="32.5" height="20"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <rect key="frame" x="166" y="12.5" width="30" height="20"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -99,7 +99,7 @@
                 <constraint firstItem="R04-Iz-tFI" firstAttribute="height" secondItem="meP-Nk-K5b" secondAttribute="height" id="HYX-Wr-mer"/>
                 <constraint firstItem="Nm3-6D-Qxz" firstAttribute="trailing" secondItem="QVl-Ob-3dG" secondAttribute="trailing" id="P32-29-DYt"/>
                 <constraint firstItem="QVl-Ob-3dG" firstAttribute="leading" secondItem="xKY-8F-vVb" secondAttribute="trailing" constant="10" id="R1F-lV-Mjo"/>
-                <constraint firstItem="QVl-Ob-3dG" firstAttribute="height" secondItem="meP-Nk-K5b" secondAttribute="height" multiplier="0.2" id="Tqu-Ld-Lay"/>
+                <constraint firstItem="QVl-Ob-3dG" firstAttribute="height" secondItem="meP-Nk-K5b" secondAttribute="height" multiplier="0.15" id="Tqu-Ld-Lay"/>
                 <constraint firstItem="tcE-By-uZd" firstAttribute="centerY" secondItem="o6a-FM-XPU" secondAttribute="centerY" id="Ut7-nP-BpW"/>
                 <constraint firstItem="v9q-j1-zCj" firstAttribute="centerY" secondItem="o6a-FM-XPU" secondAttribute="centerY" id="V11-t4-LxS"/>
                 <constraint firstItem="Nm3-6D-Qxz" firstAttribute="leading" secondItem="xKY-8F-vVb" secondAttribute="leading" id="W9E-dT-msI"/>

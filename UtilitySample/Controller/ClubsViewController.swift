@@ -27,6 +27,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     var selectedPlace = 4
     
+    @IBOutlet weak var placesTableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placesTableViewBottomToCityStateBottom: NSLayoutConstraint!
     @IBOutlet weak var cityStateTitleView: CityStateTitleView!
@@ -39,6 +40,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.delegate = self
         cityStateTitleView.delegate = self
+        placesTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
