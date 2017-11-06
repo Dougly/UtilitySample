@@ -193,7 +193,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ebJ-Y4-phr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Explore" image="map" selectedImage="map" id="spE-lg-lfL"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="map" selectedImage="map" id="spE-lg-lfL">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="cityStateTitleView" destination="f5A-R8-oUw" id="ygd-qa-WKK"/>
                         <outlet property="placesTableViewBottomToCityStateBottom" destination="1aN-Cr-ePP" id="N3b-98-1CJ"/>
@@ -214,7 +216,9 @@
                         <color key="backgroundColor" red="0.33725490200000002" green="0.34509803919999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="5Q4-PA-Wvq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Inbox" image="chat" selectedImage="chat" id="c5D-Mb-ueP"/>
+                    <tabBarItem key="tabBarItem" title="Inbox" image="chat" selectedImage="chat" id="c5D-Mb-ueP">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUb-vD-X6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,7 +234,9 @@
                         <color key="backgroundColor" red="0.0" green="0.94509803920000002" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sSK-St-d6Q"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Tables" image="martini" selectedImage="martini" id="z0P-R0-dKB"/>
+                    <tabBarItem key="tabBarItem" title="My Tables" image="martini" selectedImage="martini" id="z0P-R0-dKB">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7w-SN-4Qi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
