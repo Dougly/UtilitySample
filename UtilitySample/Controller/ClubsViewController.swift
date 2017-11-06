@@ -12,11 +12,11 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
     
-    let demoData =
-        [["name" : "Cove Loung", "tables" : "3", "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : "0.5", "image" : #imageLiteral(resourceName: "samplePhoto1")],
-         ["name" : "Purdy Loung", "tables" : "2", "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : "0.2", "image" : #imageLiteral(resourceName: "samplePhoto2")],
-         ["name" : "Fake Place", "tables" : "5", "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, New York, NY 10009", "distance" : "0.2", "image" : #imageLiteral(resourceName: "samplePhoto3")],
-         ["name" : "The Spot", "tables" : "0", "cost" : "$$", "activities" : ["Drinks", "Food", "Karaoke"], "address" : "345 Berkely, Anywhere, NY 10009", "distance" : "1.5", "image" : #imageLiteral(resourceName: "samplePhoto4")]
+    var demoData =
+        [["name" : "Cove Loung", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
+         ["name" : "Purdy Loung", "tables" : 2, "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto2")],
+         ["name" : "Fake Place", "tables" : 5, "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, New York, NY 10009", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto3")],
+         ["name" : "The Spot", "tables" : 0, "cost" : "$$", "activities" : ["Drinks", "Food", "Karaoke"], "address" : "345 Berkely, Anywhere, NY 10009", "distance" : 1.5, "image" : #imageLiteral(resourceName: "samplePhoto4")]
     ]
     
     override var prefersStatusBarHidden: Bool {
@@ -57,14 +57,14 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if tableView.tag == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "clubCell") as! ClubTableViewCell
             let demoDict = demoData[indexPath.row]
-            let tables = demoDict["tables"] as! String
-            let distance = demoDict["distance"] as! String
+            let tables = demoDict["tables"] as! Int
+            let distance = demoDict["distance"] as! Double
             let name = demoDict["name"] as! String
             let cost = demoDict["cost"] as! String
             let activities = demoDict["activities"] as! [String]
             let address = demoDict["address"] as! String
             let image = demoDict["image"] as! UIImage
-            cell.clubTableViewCellView.updateLabelsAndImage(tables: tables, distance: distance, name: name, cost: cost, activities: activities, address: address, image: image)
+            cell.clubTableViewCellView.updateLabelsAndImage(tables: String(tables), distance: String(distance), name: name, cost: cost, activities: activities, address: address, image: image)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell") as! PlaceTableViewCell
@@ -121,15 +121,37 @@ extension ClubsViewController: PlaceUIDelegate {
     
     func showFilter() {
         let alert = UIAlertController(title: "Filter by:", message: nil, preferredStyle: .actionSheet)
+        
         let locationAction = UIAlertAction(title: "Location", style: .default) { (locationAction) in
-            //dismiss?
+            self.demoData.sort(by: { (place1, place2) -> Bool in
+                let place1Address = place1["address"] as! String
+                let place2Address = place2["address"] as! String
+                return place1Address < place2Address
+            })
+            self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+            self.tableView.reloadData()
         }
+        
         let priceAction = UIAlertAction(title: "Price", style: .default) { (priceAction) in
-            //dismiss?
+            self.demoData.sort(by: { (place1, place2) -> Bool in
+                let place1Price = place1["cost"] as! String
+                let place2Price = place2["cost"] as! String
+                return place1Price.count < place2Price.count
+            })
+            self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+            self.tableView.reloadData()
         }
+        
         let distanceAction = UIAlertAction(title: "Distance", style: .default) { (distanceAction) in
-            //dismiss?
+            self.demoData.sort(by: { (place1, place2) -> Bool in
+                let place1Distance = place1["distance"] as! Double
+                let place2Distance = place2["distance"] as! Double
+                return place1Distance < place2Distance
+            })
+            self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+            self.tableView.reloadData()
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
             //dismiss?
         }
@@ -138,7 +160,6 @@ extension ClubsViewController: PlaceUIDelegate {
         alert.addAction(priceAction)
         alert.addAction(distanceAction)
         alert.addAction(cancelAction)
-        
         self.present(alert, animated: true, completion: nil)
     }
     
