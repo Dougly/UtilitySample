@@ -47,20 +47,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKk-nh-Nrn" userLabel="Gradient">
-                                <rect key="frame" x="19" y="557" width="337.5" height="54"/>
+                                <rect key="frame" x="19" y="548" width="337.5" height="72"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpG-AC-faf">
-                                <rect key="frame" x="19" y="557" width="337.5" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mpG-AC-faf" secondAttribute="height" multiplier="327:52" id="jOw-9i-HCG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                <rect key="frame" x="19" y="548" width="337.5" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Sign in with Phone Number" backgroundImage="Button_Gadient">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="psU-w7-7Yp" kind="show" id="DJe-Ri-w27"/>
+                                    <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gab-CK-amE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,9 +86,11 @@
                     <navigationItem key="navigationItem" id="5h0-39-iQl"/>
                     <connections>
                         <outlet property="gradientView" destination="PKk-nh-Nrn" id="bRB-uv-O0X"/>
+                        <outlet property="logoImageView" destination="IkN-lC-mjZ" id="ybe-nX-T5a"/>
                         <outlet property="signUpWithPhoneNumberButton" destination="mpG-AC-faf" id="VSV-Mm-Efv"/>
                         <outlet property="thisIsTableMeLabel" destination="IdI-WL-G2i" id="fzk-VX-YOb"/>
                         <outlet property="welcomeLabel" destination="8UI-68-7Wy" id="tem-xl-RV4"/>
+                        <segue destination="psU-w7-7Yp" kind="presentation" identifier="signIn" modalTransitionStyle="crossDissolve" id="WBn-Zh-yjl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         return true
     }
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var thisIsTableMeLabel: UILabel!
     @IBOutlet weak var signUpWithPhoneNumberButton: UIButton!
@@ -43,6 +44,20 @@ class ViewController: UIViewController {
         welcomeLabel.font = thisIsTableMeLabel.font
         
     }
+    
+    @IBAction func signInButtonTapped(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.logoImageView.alpha = 0
+            self.welcomeLabel.alpha = 0
+            self.thisIsTableMeLabel.alpha = 0
+            self.signUpWithPhoneNumberButton.alpha = 0
+            self.view.layoutIfNeeded()
+        }) { (success) in
+            self.performSegue(withIdentifier: "signIn", sender: self)
+        }
+    }
+    
     
     func applyGradient() {
         let startingColorOfGradient = UIColor(red: 133/255, green: 54/255, blue: 229/255, alpha: 1)
