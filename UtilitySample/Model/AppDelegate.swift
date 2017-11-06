@@ -13,6 +13,14 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let demoData =
+        [
+            "CoveLounge" : ["name" : "Cove Loung", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
+            "PurdyLounge" : ["name" : "Purdy Loung", "tables" : 2, "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto2")],
+            "FakePlace" : ["name" : "Fake Place", "tables" : 5, "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, New York, NY 10009", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto3")],
+            "TheSpot" : ["name" : "The Spot", "tables" : 0, "cost" : "$$", "activities" : ["Drinks", "Food", "Karaoke"], "address" : "345 Berkely, Anywhere, NY 10009", "distance" : 1.5, "image" : #imageLiteral(resourceName: "samplePhoto4")]
+        ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
