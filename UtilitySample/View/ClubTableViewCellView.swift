@@ -37,6 +37,10 @@ class ClubTableViewCellView: UIView {
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds = true
+        
     }
     
     func updateLabelsAndImage(tables: String, distance: String, name: String, cost: String, activities: [String], address: String, image: UIImage) {
@@ -61,5 +65,7 @@ class ClubTableViewCellView: UIView {
     }
     
 }
+
+
 
 

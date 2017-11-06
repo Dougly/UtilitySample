@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var thisIsTableMeLabel: UILabel!
     @IBOutlet weak var signUpWithPhoneNumberButton: UIButton!
@@ -19,6 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         adjustFontScales()
+       
     }
 
     override func didReceiveMemoryWarning() {

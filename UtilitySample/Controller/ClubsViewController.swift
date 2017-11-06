@@ -11,6 +11,13 @@ import UIKit
 class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
+    
+//    override var prefersStatusBarHidden: Bool {
+//        return false
+//    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     var selectedPlace = 4
     
     @IBOutlet weak var tableView: UITableView!
@@ -59,8 +66,8 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.tag == 1 {
             let cell = tableView.cellForRow(at: indexPath) as! ClubTableViewCell
-            cell.clubTableViewCellView.highlightView.alpha = 0.11
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
+            cell.clubTableViewCellView.highlightView.alpha = 0.2
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 cell.clubTableViewCellView.highlightView.alpha = 0.0
                 self.view.layoutIfNeeded()
             }, completion: nil)
