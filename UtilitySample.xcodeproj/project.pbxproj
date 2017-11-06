@@ -17,6 +17,9 @@
 		112A2FEA1FAE54480031FF64 /* UtilitySampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */; };
 		11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */; };
 		11F9003F1FAFB9B600BCDF05 /* CityStateTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */; };
+		11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */; };
+		11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */; };
+		11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		112A2FEB1FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStateTitleView.swift; sourceTree = "<group>"; };
 		11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityStateTitleView.xib; sourceTree = "<group>"; };
+		11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCellView.swift; sourceTree = "<group>"; };
+		11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubTableViewCellView.xib; sourceTree = "<group>"; };
+		11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +91,10 @@
 		112A2FD01FAE54480031FF64 /* UtilitySample */ = {
 			isa = PBXGroup;
 			children = (
-				112A2FD11FAE54480031FF64 /* AppDelegate.swift */,
-				112A2FD31FAE54480031FF64 /* ViewController.swift */,
-				111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */,
-				112A2FD51FAE54480031FF64 /* Main.storyboard */,
-				11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */,
-				11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */,
+				11F900421FAFC50500BCDF05 /* Model */,
+				11F900401FAFC4D900BCDF05 /* View */,
+				11F900411FAFC4F600BCDF05 /* Controller */,
 				112A2FDB1FAE54480031FF64 /* Assets.xcassets */,
-				112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */,
 				112A2FE01FAE54480031FF64 /* Info.plist */,
 				112A2FD81FAE54480031FF64 /* UtilitySample.xcdatamodeld */,
 			);
@@ -106,6 +108,37 @@
 				112A2FEB1FAE54480031FF64 /* Info.plist */,
 			);
 			path = UtilitySampleTests;
+			sourceTree = "<group>";
+		};
+		11F900401FAFC4D900BCDF05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */,
+				112A2FD51FAE54480031FF64 /* Main.storyboard */,
+				11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */,
+				11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */,
+				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
+				11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */,
+				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11F900411FAFC4F600BCDF05 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				112A2FD31FAE54480031FF64 /* ViewController.swift */,
+				111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11F900421FAFC50500BCDF05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				112A2FD11FAE54480031FF64 /* AppDelegate.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +228,7 @@
 				112A2FDF1FAE54480031FF64 /* LaunchScreen.storyboard in Resources */,
 				112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */,
 				112A2FD71FAE54480031FF64 /* Main.storyboard in Resources */,
+				11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
+				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
 				112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,
+				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

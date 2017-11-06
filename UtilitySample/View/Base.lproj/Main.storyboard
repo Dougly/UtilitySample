@@ -101,15 +101,25 @@
                                     <constraint firstAttribute="height" constant="44" id="QRm-ZL-MoG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8k-nF-uNj">
-                                <rect key="frame" x="19" y="64" width="337.5" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8k-nF-uNj">
+                                <rect key="frame" x="19" y="74" width="337.5" height="544"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clubCell" id="ah0-76-5p5">
+                                        <rect key="frame" x="0.0" y="28" width="337.5" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ah0-76-5p5" id="IbA-sv-gBN" customClass="ClubTableViewCellView" customModule="UtilitySample" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="337.5" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="f5A-R8-oUw" firstAttribute="width" secondItem="xX5-As-yIn" secondAttribute="width" multiplier="0.9" id="31H-pC-Oct"/>
-                            <constraint firstItem="x8k-nF-uNj" firstAttribute="top" secondItem="f5A-R8-oUw" secondAttribute="bottom" id="7ts-bK-ZMK"/>
+                            <constraint firstItem="x8k-nF-uNj" firstAttribute="top" secondItem="f5A-R8-oUw" secondAttribute="bottom" constant="10" id="7ts-bK-ZMK"/>
                             <constraint firstItem="ebJ-Y4-phr" firstAttribute="bottom" secondItem="x8k-nF-uNj" secondAttribute="bottom" id="Oc4-iG-JVm"/>
                             <constraint firstItem="f5A-R8-oUw" firstAttribute="centerX" secondItem="ebJ-Y4-phr" secondAttribute="centerX" id="Pcx-dx-NeE"/>
                             <constraint firstItem="x8k-nF-uNj" firstAttribute="width" secondItem="xX5-As-yIn" secondAttribute="width" multiplier="0.9" id="QcD-w0-P2W"/>
@@ -119,6 +129,9 @@
                         <viewLayoutGuide key="safeArea" id="ebJ-Y4-phr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Explore" image="map" selectedImage="map" id="spE-lg-lfL"/>
+                    <connections>
+                        <outlet property="tableView" destination="x8k-nF-uNj" id="kAv-b9-Do6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYk-em-rW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,7 +144,7 @@
                     <view key="view" contentMode="scaleToFill" id="P7S-tV-UXl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.24089747299382716" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.33725490200000002" green="0.34509803919999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="5Q4-PA-Wvq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Inbox" image="chat" selectedImage="chat" id="c5D-Mb-ueP"/>
@@ -147,7 +160,7 @@
                     <view key="view" contentMode="scaleToFill" id="w8j-eu-hP2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.29235387731481483" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.94509803920000002" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sSK-St-d6Q"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Tables" image="martini" selectedImage="martini" id="z0P-R0-dKB"/>
@@ -165,7 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
