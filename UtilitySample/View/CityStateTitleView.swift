@@ -46,7 +46,7 @@ class CityStateTitleView: UIView {
     }
     
     @IBAction func filterButtonTapped(_ sender: Any) {
-        print("tapped Filter")
+        delegate?.showFilter()
     }
     
     @IBAction func profileButtonTapped(_ sender: Any) {

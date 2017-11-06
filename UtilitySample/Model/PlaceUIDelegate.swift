@@ -11,4 +11,5 @@ import Foundation
 protocol PlaceUIDelegate {
     func revealPlaces()
     func hidePlaces()
+    func showFilter()
 }

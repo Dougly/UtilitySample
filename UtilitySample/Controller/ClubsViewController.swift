@@ -94,6 +94,29 @@ extension ClubsViewController: PlaceUIDelegate {
         }
     }
     
+    func showFilter() {
+        let alert = UIAlertController(title: "Filter by:", message: nil, preferredStyle: .actionSheet)
+        let locationAction = UIAlertAction(title: "Location", style: .default) { (locationAction) in
+            //dismiss?
+        }
+        let priceAction = UIAlertAction(title: "Price", style: .default) { (priceAction) in
+            //dismiss?
+        }
+        let distanceAction = UIAlertAction(title: "Distance", style: .default) { (distanceAction) in
+            //dismiss?
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
+            //dismiss?
+        }
+        
+        alert.addAction(locationAction)
+        alert.addAction(priceAction)
+        alert.addAction(distanceAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 

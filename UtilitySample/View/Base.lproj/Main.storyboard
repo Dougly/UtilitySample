@@ -107,10 +107,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="clubCell" id="ah0-76-5p5">
-                                        <rect key="frame" x="0.0" y="28" width="337.5" height="300"/>
+                                        <rect key="frame" x="0.0" y="28" width="338" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ah0-76-5p5" id="IbA-sv-gBN" customClass="ClubTableViewCellView" customModule="UtilitySample" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="337.5" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="338" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -121,10 +121,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeCell" id="bkF-bD-SAj" customClass="PlaceTableViewCell" customModule="UtilitySample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="355.5" height="75"/>
+                                        <rect key="frame" x="0.0" y="28" width="356" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bkF-bD-SAj" id="1OF-M5-7e6">
-                                            <rect key="frame" x="0.0" y="0.0" width="355.5" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="356" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6U-ma-riN">
