@@ -39,6 +39,14 @@ class CityStateTitleView: UIView {
         cityStateLabelCenterX.constant = cityStateOffset
     }
     
+    @IBAction func filterButtonTapped(_ sender: Any) {
+        print("tapped Filter")
+    }
+    
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        print("tapped Profile")
+    }
+    
     func setTitle(city: String, state: String) {
         self.cityStateLabel.text = "\(city.capitalized), \(state.uppercased())"
     }

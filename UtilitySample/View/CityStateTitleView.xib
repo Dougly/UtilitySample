@@ -48,6 +48,9 @@
                         <constraint firstAttribute="width" secondItem="tcE-By-uZd" secondAttribute="height" multiplier="1:1" id="Wig-jp-SsA"/>
                     </constraints>
                     <state key="normal" image="filter"/>
+                    <connections>
+                        <action selector="filterButtonTapped:" destination="-1" eventType="touchUpInside" id="Rsb-xC-vhj"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R04-Iz-tFI" userLabel="ProfileButton">
                     <rect key="frame" x="314.5" y="0.5" width="45.5" height="46"/>
@@ -55,6 +58,9 @@
                         <constraint firstAttribute="width" secondItem="R04-Iz-tFI" secondAttribute="height" multiplier="1:1" id="hHg-Hc-BGk"/>
                     </constraints>
                     <state key="normal" image="profile"/>
+                    <connections>
+                        <action selector="profileButtonTapped:" destination="-1" eventType="touchUpInside" id="QV8-Uw-hG4"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
