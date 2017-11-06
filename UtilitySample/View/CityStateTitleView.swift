@@ -40,7 +40,6 @@ class CityStateTitleView: UIView {
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        
         let cityStateOffset = arrowSpacing + downArrowImageView.frame.width * -1
         cityStateLabelCenterX.constant = cityStateOffset
     }
@@ -59,10 +58,6 @@ class CityStateTitleView: UIView {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         changeViews()
-    }
-    
-    func setTitle(city: String, state: String) {
-        self.cityStateLabel.text = "\(city.capitalized), \(state.uppercased())"
     }
     
     func changeViews() {

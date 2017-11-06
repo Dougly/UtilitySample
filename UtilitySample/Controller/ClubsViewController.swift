@@ -10,8 +10,8 @@ import UIKit
 
 class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // Demo Data
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
-    
     var demoData =
         [["name" : "Cove Loung", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
          ["name" : "Purdy Loung", "tables" : 2, "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto2")],
@@ -26,12 +26,10 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return .lightContent
     }
     var selectedPlace = 4
-    
     @IBOutlet weak var placesTableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placesTableViewBottomToCityStateBottom: NSLayoutConstraint!
     @IBOutlet weak var cityStateTitleView: CityStateTitleView!
-    
     
     
     override func viewDidLoad() {
@@ -41,6 +39,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         cityStateTitleView.delegate = self
         placesTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
+        placesTableView.tableFooterView = UIView()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,6 +98,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    
 }
 
 extension ClubsViewController: PlaceUIDelegate {
@@ -110,7 +110,6 @@ extension ClubsViewController: PlaceUIDelegate {
             self.placesTableViewBottomToCityStateBottom.constant = distance
             self.view.layoutIfNeeded()
         }
-        
     }
     
     func hidePlaces() {
@@ -164,6 +163,7 @@ extension ClubsViewController: PlaceUIDelegate {
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
     
 }
 

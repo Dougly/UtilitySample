@@ -31,6 +31,7 @@ class ClubTableViewCell: UITableViewCell {
         clubTableViewCellView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         clubTableViewCellView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
         clubTableViewCellView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        
     }
+    
+    
 }

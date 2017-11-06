@@ -47,14 +47,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKk-nh-Nrn" userLabel="Gradient">
-                                <rect key="frame" x="19" y="548" width="337.5" height="72"/>
+                                <rect key="frame" x="28.5" y="558.5" width="318.5" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpG-AC-faf">
-                                <rect key="frame" x="19" y="548" width="337.5" height="72"/>
+                                <rect key="frame" x="28.5" y="558.5" width="318.5" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mpG-AC-faf" secondAttribute="height" multiplier="327:52" id="q3n-WI-4hV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Sign in with Phone Number" backgroundImage="Button_Gadient">
+                                <state key="normal" title="Sign in with Phone Number">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gab-CK-amE"/>
@@ -75,7 +79,7 @@
                             <constraint firstItem="mpG-AC-faf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ULt-Ub-oRt"/>
                             <constraint firstItem="8UI-68-7Wy" firstAttribute="width" secondItem="IdI-WL-G2i" secondAttribute="width" id="Wh5-lj-wAj"/>
                             <constraint firstItem="PKk-nh-Nrn" firstAttribute="centerY" secondItem="mpG-AC-faf" secondAttribute="centerY" id="exh-LZ-EYA"/>
-                            <constraint firstItem="mpG-AC-faf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="fHu-25-AEg"/>
+                            <constraint firstItem="mpG-AC-faf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="fHu-25-AEg"/>
                             <constraint firstItem="PKk-nh-Nrn" firstAttribute="width" secondItem="mpG-AC-faf" secondAttribute="width" id="g3J-Oc-1JG"/>
                             <constraint firstItem="IkN-lC-mjZ" firstAttribute="bottom" secondItem="8UI-68-7Wy" secondAttribute="top" multiplier="0.9" id="n7q-dP-B40"/>
                             <constraint firstItem="IdI-WL-G2i" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.75" id="t6J-oU-mce"/>
@@ -266,7 +270,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Button_Gadient" width="347" height="72"/>
         <image name="Tableme_logo" width="59" height="55"/>
         <image name="chat" width="20" height="19"/>
         <image name="check" width="22" height="17"/>

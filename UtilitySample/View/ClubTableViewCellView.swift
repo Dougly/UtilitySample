@@ -39,11 +39,9 @@ class ClubTableViewCellView: UIView {
         
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
-        
     }
     
     func updateLabelsAndImage(tables: String, distance: String, name: String, cost: String, activities: [String], address: String, image: UIImage) {
-        
         self.tablesAvailableLabel.text = "\(tables) TABLES AVAILABLE"
         self.distanceLabel.text = "\(distance)mi"
         self.nameLabel.text = name.capitalized
@@ -58,6 +56,7 @@ class ClubTableViewCellView: UIView {
                 }
             }
         }
+        
         self.costAndActivitiesLabel.text = costAndActivitiesString
         self.addressLabel.text = address
         self.imageView.image = image
