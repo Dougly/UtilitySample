@@ -17,6 +17,7 @@ lane :beta do
   # build your iOS app
   gym(
     scheme: "UtilitySample",
+    export_method: "ad-hoc"
   )
 
   # upload to Beta by Crashlytics
