@@ -11,10 +11,16 @@ import UIKit
 class CityStateTitleView: UIView {
     
     let arrowSpacing: CGFloat = 10
+    var delegate: PlaceUIDelegate?
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var cityStateLabel: UILabel!
     @IBOutlet weak var downArrowImageView: UIImageView!
     @IBOutlet weak var cityStateLabelCenterX: NSLayoutConstraint!
+    @IBOutlet weak var dropDownButton: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cityLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,8 +53,41 @@ class CityStateTitleView: UIView {
         print("tapped Profile")
     }
     
+    @IBAction func dropDownButtonTapped(_ sender: Any) {
+        changeViews()
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        changeViews()
+    }
+    
     func setTitle(city: String, state: String) {
         self.cityStateLabel.text = "\(city.capitalized), \(state.uppercased())"
+    }
+    
+    func changeViews() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: {
+            if self.cityStateLabel.alpha == 1.0 {
+                self.delegate?.revealPlaces()
+                self.cityStateLabel.alpha = 0
+                self.filterButton.alpha = 0
+                self.profileButton.alpha = 0
+                self.downArrowImageView.alpha = 0
+                self.dropDownButton.alpha = 0
+                self.cityLabel.alpha = 1
+                self.cancelButton.alpha = 1
+            } else {
+                self.delegate?.hidePlaces()
+                self.cityStateLabel.alpha = 1
+                self.filterButton.alpha = 1
+                self.profileButton.alpha = 1
+                self.downArrowImageView.alpha = 1
+                self.dropDownButton.alpha = 1
+                self.cityLabel.alpha = 0
+                self.cancelButton.alpha = 0
+            }
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     
 }

@@ -20,6 +20,8 @@
 		11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */; };
 		11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */; };
 		11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */; };
+		11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */; };
+		11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCellView.swift; sourceTree = "<group>"; };
 		11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubTableViewCellView.xib; sourceTree = "<group>"; };
 		11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCell.swift; sourceTree = "<group>"; };
+		11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceUIDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
 				11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */,
 				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
+				11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				112A2FD11FAE54480031FF64 /* AppDelegate.swift */,
+				11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,8 +255,10 @@
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
+				11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */,
 				112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,
+				11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */,
 				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
 			);
