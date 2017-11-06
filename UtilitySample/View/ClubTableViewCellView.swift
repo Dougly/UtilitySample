@@ -16,7 +16,6 @@ class ClubTableViewCellView: UIView {
     @IBOutlet weak var costAndActivitiesLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var highlightView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
     override init(frame: CGRect) {

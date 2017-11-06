@@ -12,12 +12,12 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
     
-//    override var prefersStatusBarHidden: Bool {
-//        return false
-//    }
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     var selectedPlace = 4
     
     @IBOutlet weak var tableView: UITableView!
@@ -54,9 +54,9 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell") as! PlaceTableViewCell
             cell.label.text = demoPlaces[indexPath.row]
             cell.checkImageView.isHidden = true
-            cell.label.textColor = UIColor(red: 117/255, green: 117/255, blue: 117/255, alpha: 1)
+            cell.label.alpha = 0.4
             if indexPath.row == selectedPlace {
-                cell.label.textColor = .white
+                cell.label.alpha = 1.0
                 cell.checkImageView.isHidden = false
             }
             return cell
@@ -66,9 +66,9 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.tag == 1 {
             let cell = tableView.cellForRow(at: indexPath) as! ClubTableViewCell
-            cell.clubTableViewCellView.highlightView.alpha = 0.2
+            cell.clubTableViewCellView.contentView.alpha = 0.5
             UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
-                cell.clubTableViewCellView.highlightView.alpha = 0.0
+                cell.clubTableViewCellView.contentView.alpha = 1.0
                 self.view.layoutIfNeeded()
             }, completion: nil)
         } else {
@@ -86,6 +86,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 extension ClubsViewController: PlaceUIDelegate {
     
     func revealPlaces() {
+        self.tabBarController?.tabBar.isHidden = true
         UIView.animate(withDuration: 0.3) {
             let distance = self.view.frame.maxY - self.cityStateTitleView.bounds.maxY
             self.placesTableViewBottomToCityStateBottom.constant = distance
@@ -95,6 +96,7 @@ extension ClubsViewController: PlaceUIDelegate {
     }
     
     func hidePlaces() {
+        self.tabBarController?.tabBar.isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.placesTableViewBottomToCityStateBottom.constant = 0
             self.view.layoutIfNeeded()

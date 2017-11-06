@@ -24,6 +24,7 @@ class ClubTableViewCell: UITableViewCell {
     
     func commonInit() {
         self.selectionStyle = .none
+        self.contentView.backgroundColor = .black
         self.contentView.addSubview(clubTableViewCellView)
         clubTableViewCellView.translatesAutoresizingMaskIntoConstraints = false
         clubTableViewCellView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
