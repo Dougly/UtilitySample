@@ -12,6 +12,13 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
     
+    let demoData =
+        [["name" : "Cove Loung", "tables" : "3", "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : "0.5", "image" : #imageLiteral(resourceName: "samplePhoto1")],
+         ["name" : "Purdy Loung", "tables" : "2", "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : "0.2", "image" : #imageLiteral(resourceName: "samplePhoto2")],
+         ["name" : "Fake Place", "tables" : "5", "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, New York, NY 10009", "distance" : "0.2", "image" : #imageLiteral(resourceName: "samplePhoto3")],
+         ["name" : "The Spot", "tables" : "0", "cost" : "$$", "activities" : ["Drinks", "Food", "Karaoke"], "address" : "345 Berkely, Anywhere, NY 10009", "distance" : "1.5", "image" : #imageLiteral(resourceName: "samplePhoto4")]
+    ]
+    
     override var prefersStatusBarHidden: Bool {
         return false
     }
@@ -40,7 +47,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1 {
-            return 3
+            return demoData.count
         } else {
             return demoPlaces.count
         }
@@ -49,6 +56,15 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "clubCell") as! ClubTableViewCell
+            let demoDict = demoData[indexPath.row]
+            let tables = demoDict["tables"] as! String
+            let distance = demoDict["distance"] as! String
+            let name = demoDict["name"] as! String
+            let cost = demoDict["cost"] as! String
+            let activities = demoDict["activities"] as! [String]
+            let address = demoDict["address"] as! String
+            let image = demoDict["image"] as! UIImage
+            cell.clubTableViewCellView.updateLabelsAndImage(tables: tables, distance: distance, name: name, cost: cost, activities: activities, address: address, image: image)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell") as! PlaceTableViewCell
