@@ -22,6 +22,8 @@
 		11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */; };
 		11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */; };
 		11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */; };
+		D6E7AF834A38B67539316085 /* Pods_TableMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410A93A9DA72D9AC9B6DE607 /* Pods_TableMeTests.framework */; };
+		EFD8FC8E467F4C81DE32AD3C /* Pods_TableMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E2C675FA515553DDAB917C /* Pods_TableMe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,12 @@
 		11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCell.swift; sourceTree = "<group>"; };
 		11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceUIDelegate.swift; sourceTree = "<group>"; };
+		1264A81E497BD166267EB0D1 /* Pods-TableMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableMe/Pods-TableMe.release.xcconfig"; sourceTree = "<group>"; };
+		410A93A9DA72D9AC9B6DE607 /* Pods_TableMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53F00FDDDD4ED38127B02591 /* Pods-TableMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableMeTests/Pods-TableMeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8198749946DB7F0466205CB3 /* Pods-TableMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableMe/Pods-TableMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A6E2C675FA515553DDAB917C /* Pods_TableMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D54F117A3603AE9851A868A9 /* Pods-TableMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableMeTests/Pods-TableMeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD8FC8E467F4C81DE32AD3C /* Pods_TableMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E7AF834A38B67539316085 /* Pods_TableMeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +90,8 @@
 				112A2FD01FAE54480031FF64 /* TableMe */,
 				112A2FE81FAE54480031FF64 /* TableMeTests */,
 				112A2FCF1FAE54480031FF64 /* Products */,
+				28C417B57E9E6DE9ADB1DEC0 /* Pods */,
+				2290C7CC2A7D6D2E4A3453B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +159,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2290C7CC2A7D6D2E4A3453B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6E2C675FA515553DDAB917C /* Pods_TableMe.framework */,
+				410A93A9DA72D9AC9B6DE607 /* Pods_TableMeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28C417B57E9E6DE9ADB1DEC0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8198749946DB7F0466205CB3 /* Pods-TableMe.debug.xcconfig */,
+				1264A81E497BD166267EB0D1 /* Pods-TableMe.release.xcconfig */,
+				53F00FDDDD4ED38127B02591 /* Pods-TableMeTests.debug.xcconfig */,
+				D54F117A3603AE9851A868A9 /* Pods-TableMeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 112A2FEE1FAE54480031FF64 /* Build configuration list for PBXNativeTarget "TableMe" */;
 			buildPhases = (
+				E1C0F596245A1B6E51D7057C /* [CP] Check Pods Manifest.lock */,
 				112A2FCA1FAE54480031FF64 /* Sources */,
 				112A2FCB1FAE54480031FF64 /* Frameworks */,
 				112A2FCC1FAE54480031FF64 /* Resources */,
+				17723218D780D6EE2D757357 /* [CP] Embed Pods Frameworks */,
+				EE0DF1EA873DC45E53E6CA1C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 112A2FF11FAE54480031FF64 /* Build configuration list for PBXNativeTarget "TableMeTests" */;
 			buildPhases = (
+				19B8BA1D558F16DCA24E01F1 /* [CP] Check Pods Manifest.lock */,
 				112A2FE11FAE54480031FF64 /* Sources */,
 				112A2FE21FAE54480031FF64 /* Frameworks */,
 				112A2FE31FAE54480031FF64 /* Resources */,
+				3B48DE2ECF0E9BA9ABCA33AD /* [CP] Embed Pods Frameworks */,
+				49BB55133446EDD500A211B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +284,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17723218D780D6EE2D757357 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableMe/Pods-TableMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19B8BA1D558F16DCA24E01F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B48DE2ECF0E9BA9ABCA33AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableMeTests/Pods-TableMeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49BB55133446EDD500A211B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableMeTests/Pods-TableMeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1C0F596245A1B6E51D7057C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE0DF1EA873DC45E53E6CA1C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableMe/Pods-TableMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		112A2FCA1FAE54480031FF64 /* Sources */ = {
@@ -411,6 +542,7 @@
 		};
 		112A2FEF1FAE54480031FF64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8198749946DB7F0466205CB3 /* Pods-TableMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -431,6 +563,7 @@
 		};
 		112A2FF01FAE54480031FF64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1264A81E497BD166267EB0D1 /* Pods-TableMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -451,6 +584,7 @@
 		};
 		112A2FF21FAE54480031FF64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53F00FDDDD4ED38127B02591 /* Pods-TableMeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +602,7 @@
 		};
 		112A2FF31FAE54480031FF64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D54F117A3603AE9851A868A9 /* Pods-TableMeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
