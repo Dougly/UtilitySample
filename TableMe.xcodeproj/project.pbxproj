@@ -559,7 +559,7 @@
 			baseConfigurationReference = 8198749946DB7F0466205CB3 /* Pods-TableMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Douglas Galante (N7BV4Q3V46)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -569,8 +569,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "73ee64c0-85d3-456b-81fb-0f0f36736c18";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDevProvProf;
+				PROVISIONING_PROFILE = "aac7be7d-8a17-4efe-85c6-9ba0e3efa982";
+				PROVISIONING_PROFILE_SPECIFIER = TableMeDev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -581,7 +581,7 @@
 			baseConfigurationReference = 1264A81E497BD166267EB0D1 /* Pods-TableMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Douglas Galante (N7BV4Q3V46)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
@@ -590,8 +590,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "73ee64c0-85d3-456b-81fb-0f0f36736c18";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDevProvProf;
+				PROVISIONING_PROFILE = "3af34a84-8c8a-4e83-a7d9-ead1812cb74a";
+				PROVISIONING_PROFILE_SPECIFIER = TableMeDev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
