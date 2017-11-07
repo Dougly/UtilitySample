@@ -16,8 +16,8 @@ default_platform :ios
 lane :beta do
   # build your iOS app
   gym(
-    scheme: "UtilitySample",
-    export_method: "ad-hoc"
+    scheme: "TableMe",
+    # export_method: "ad-hoc"
   )
 
   # upload to Beta by Crashlytics

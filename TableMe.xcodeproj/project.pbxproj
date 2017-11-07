@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
-		112A2FCE1FAE54480031FF64 /* UtilitySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtilitySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		112A2FD31FAE54480031FF64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		112A2FD61FAE54480031FF64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		112A2FDB1FAE54480031FF64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		112A2FDE1FAE54480031FF64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		112A2FE01FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		112A2FE51FAE54480031FF64 /* UtilitySampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilitySampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		112A2FE51FAE54480031FF64 /* TableMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitySampleTests.swift; sourceTree = "<group>"; };
 		112A2FEB1FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStateTitleView.swift; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 		112A2FC51FAE54470031FF64 = {
 			isa = PBXGroup;
 			children = (
-				112A2FD01FAE54480031FF64 /* UtilitySample */,
-				112A2FE81FAE54480031FF64 /* UtilitySampleTests */,
+				112A2FD01FAE54480031FF64 /* TableMe */,
+				112A2FE81FAE54480031FF64 /* TableMeTests */,
 				112A2FCF1FAE54480031FF64 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,13 +86,13 @@
 		112A2FCF1FAE54480031FF64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				112A2FCE1FAE54480031FF64 /* UtilitySample.app */,
-				112A2FE51FAE54480031FF64 /* UtilitySampleTests.xctest */,
+				112A2FCE1FAE54480031FF64 /* TableMe.app */,
+				112A2FE51FAE54480031FF64 /* TableMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		112A2FD01FAE54480031FF64 /* UtilitySample */ = {
+		112A2FD01FAE54480031FF64 /* TableMe */ = {
 			isa = PBXGroup;
 			children = (
 				11F900421FAFC50500BCDF05 /* Model */,
@@ -102,16 +102,16 @@
 				112A2FE01FAE54480031FF64 /* Info.plist */,
 				112A2FD81FAE54480031FF64 /* UtilitySample.xcdatamodeld */,
 			);
-			path = UtilitySample;
+			path = TableMe;
 			sourceTree = "<group>";
 		};
-		112A2FE81FAE54480031FF64 /* UtilitySampleTests */ = {
+		112A2FE81FAE54480031FF64 /* TableMeTests */ = {
 			isa = PBXGroup;
 			children = (
 				112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */,
 				112A2FEB1FAE54480031FF64 /* Info.plist */,
 			);
-			path = UtilitySampleTests;
+			path = TableMeTests;
 			sourceTree = "<group>";
 		};
 		11F900401FAFC4D900BCDF05 /* View */ = {
@@ -150,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		112A2FCD1FAE54480031FF64 /* UtilitySample */ = {
+		112A2FCD1FAE54480031FF64 /* TableMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 112A2FEE1FAE54480031FF64 /* Build configuration list for PBXNativeTarget "UtilitySample" */;
+			buildConfigurationList = 112A2FEE1FAE54480031FF64 /* Build configuration list for PBXNativeTarget "TableMe" */;
 			buildPhases = (
 				112A2FCA1FAE54480031FF64 /* Sources */,
 				112A2FCB1FAE54480031FF64 /* Frameworks */,
@@ -162,14 +162,14 @@
 			);
 			dependencies = (
 			);
-			name = UtilitySample;
+			name = TableMe;
 			productName = UtilitySample;
-			productReference = 112A2FCE1FAE54480031FF64 /* UtilitySample.app */;
+			productReference = 112A2FCE1FAE54480031FF64 /* TableMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		112A2FE41FAE54480031FF64 /* UtilitySampleTests */ = {
+		112A2FE41FAE54480031FF64 /* TableMeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 112A2FF11FAE54480031FF64 /* Build configuration list for PBXNativeTarget "UtilitySampleTests" */;
+			buildConfigurationList = 112A2FF11FAE54480031FF64 /* Build configuration list for PBXNativeTarget "TableMeTests" */;
 			buildPhases = (
 				112A2FE11FAE54480031FF64 /* Sources */,
 				112A2FE21FAE54480031FF64 /* Frameworks */,
@@ -180,9 +180,9 @@
 			dependencies = (
 				112A2FE71FAE54480031FF64 /* PBXTargetDependency */,
 			);
-			name = UtilitySampleTests;
+			name = TableMeTests;
 			productName = UtilitySampleTests;
-			productReference = 112A2FE51FAE54480031FF64 /* UtilitySampleTests.xctest */;
+			productReference = 112A2FE51FAE54480031FF64 /* TableMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -206,7 +206,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 112A2FC91FAE54480031FF64 /* Build configuration list for PBXProject "UtilitySample" */;
+			buildConfigurationList = 112A2FC91FAE54480031FF64 /* Build configuration list for PBXProject "TableMe" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -219,8 +219,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				112A2FCD1FAE54480031FF64 /* UtilitySample */,
-				112A2FE41FAE54480031FF64 /* UtilitySampleTests */,
+				112A2FCD1FAE54480031FF64 /* TableMe */,
+				112A2FE41FAE54480031FF64 /* TableMeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,7 +277,7 @@
 /* Begin PBXTargetDependency section */
 		112A2FE71FAE54480031FF64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 112A2FCD1FAE54480031FF64 /* UtilitySample */;
+			target = 112A2FCD1FAE54480031FF64 /* TableMe */;
 			targetProxy = 112A2FE61FAE54480031FF64 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -413,15 +413,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = UtilitySample/Info.plist;
+				INFOPLIST_FILE = TableMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.utility.tableme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4037aea3-f297-4701-8b55-b1c92f372b03";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDevProvProfile;
+				PROVISIONING_PROFILE = "556b6a96-dfb5-4352-92d3-7b3b44a9e43f";
+				PROVISIONING_PROFILE_SPECIFIER = TableMeDistributionProvProf;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -431,15 +433,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = UtilitySample/Info.plist;
+				INFOPLIST_FILE = TableMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.utility.tableme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4037aea3-f297-4701-8b55-b1c92f372b03";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDevProvProfile;
+				PROVISIONING_PROFILE = "dd263c66-1fc9-4828-b5e4-58eecbc7e230";
+				PROVISIONING_PROFILE_SPECIFIER = TableMeDistributionProvProf;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -458,7 +462,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UtilitySample.app/UtilitySample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableMe.app/TableMe";
 			};
 			name = Debug;
 		};
@@ -475,14 +479,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UtilitySample.app/UtilitySample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableMe.app/TableMe";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		112A2FC91FAE54480031FF64 /* Build configuration list for PBXProject "UtilitySample" */ = {
+		112A2FC91FAE54480031FF64 /* Build configuration list for PBXProject "TableMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				112A2FEC1FAE54480031FF64 /* Debug */,
@@ -491,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		112A2FEE1FAE54480031FF64 /* Build configuration list for PBXNativeTarget "UtilitySample" */ = {
+		112A2FEE1FAE54480031FF64 /* Build configuration list for PBXNativeTarget "TableMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				112A2FEF1FAE54480031FF64 /* Debug */,
@@ -500,7 +504,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		112A2FF11FAE54480031FF64 /* Build configuration list for PBXNativeTarget "UtilitySampleTests" */ = {
+		112A2FF11FAE54480031FF64 /* Build configuration list for PBXNativeTarget "TableMeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				112A2FF21FAE54480031FF64 /* Debug */,

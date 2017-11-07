@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "112A2FCD1FAE54480031FF64"
-               BuildableName = "UtilitySample.app"
-               BlueprintName = "UtilitySample"
-               ReferencedContainer = "container:UtilitySample.xcodeproj">
+               BuildableName = "TableMe.app"
+               BlueprintName = "TableMe"
+               ReferencedContainer = "container:TableMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "112A2FE41FAE54480031FF64"
-               BuildableName = "UtilitySampleTests.xctest"
-               BlueprintName = "UtilitySampleTests"
-               ReferencedContainer = "container:UtilitySample.xcodeproj">
+               BuildableName = "TableMeTests.xctest"
+               BlueprintName = "TableMeTests"
+               ReferencedContainer = "container:TableMe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "112A2FCD1FAE54480031FF64"
-            BuildableName = "UtilitySample.app"
-            BlueprintName = "UtilitySample"
-            ReferencedContainer = "container:UtilitySample.xcodeproj">
+            BuildableName = "TableMe.app"
+            BlueprintName = "TableMe"
+            ReferencedContainer = "container:TableMe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "112A2FCD1FAE54480031FF64"
-            BuildableName = "UtilitySample.app"
-            BlueprintName = "UtilitySample"
-            ReferencedContainer = "container:UtilitySample.xcodeproj">
+            BuildableName = "TableMe.app"
+            BlueprintName = "TableMe"
+            ReferencedContainer = "container:TableMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -87,9 +87,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "112A2FCD1FAE54480031FF64"
-            BuildableName = "UtilitySample.app"
-            BlueprintName = "UtilitySample"
-            ReferencedContainer = "container:UtilitySample.xcodeproj">
+            BuildableName = "TableMe.app"
+            BlueprintName = "TableMe"
+            ReferencedContainer = "container:TableMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
