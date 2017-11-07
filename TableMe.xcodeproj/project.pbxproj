@@ -422,8 +422,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "556b6a96-dfb5-4352-92d3-7b3b44a9e43f";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDistributionProvProf;
+				PROVISIONING_PROFILE = "73ee64c0-85d3-456b-81fb-0f0f36736c18";
+				PROVISIONING_PROFILE_SPECIFIER = TableMeDevProvProf;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -442,8 +442,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd263c66-1fc9-4828-b5e4-58eecbc7e230";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDistributionProvProf;
+				PROVISIONING_PROFILE = "73ee64c0-85d3-456b-81fb-0f0f36736c18";
+				PROVISIONING_PROFILE_SPECIFIER = TableMeDevProvProf;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

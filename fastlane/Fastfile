@@ -18,6 +18,7 @@ lane :beta do
   gym(
     scheme: "TableMe",
     # export_method: "ad-hoc"
+    export_method: "development"
   )
 
   # upload to Beta by Crashlytics
