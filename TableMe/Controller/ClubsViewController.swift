@@ -13,9 +13,9 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Demo Data
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
     var demoData =
-        [["name" : "Cove Loung", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
-         ["name" : "Purdy Loung", "tables" : 2, "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto2")],
-         ["name" : "Fake Place", "tables" : 5, "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, New York, NY 10009", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto3")],
+        [["name" : "Cove Lounge", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
+         ["name" : "Purdy Lounge", "tables" : 2, "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto2")],
+         ["name" : "E11even Niki Beach Miami Super Club", "tables" : 5, "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, Miami, FL 10009", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto3")],
          ["name" : "The Spot", "tables" : 0, "cost" : "$$", "activities" : ["Drinks", "Food", "Karaoke"], "address" : "345 Berkely, Anywhere, NY 10009", "distance" : 1.5, "image" : #imageLiteral(resourceName: "samplePhoto4")]
     ]
     
@@ -40,6 +40,11 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cityStateTitleView.delegate = self
         placesTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
         placesTableView.tableFooterView = UIView()
+        self.view.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        openingAnimation()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,6 +56,19 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return demoData.count
         } else {
             return demoPlaces.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView.tag == 1 {
+            let clubName = demoData[indexPath.row]["name"] as! String
+            if clubName.count > 25 {
+                return 330
+            } else {
+                return 300
+            }
+        } else {
+            return 67
         }
     }
     
@@ -164,6 +182,13 @@ extension ClubsViewController: PlaceUIDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func openingAnimation() {
+        UIView.animate(withDuration: 0.2) {
+            self.view.alpha = 1
+            self.tabBarController?.tabBar.isHidden = false
+            self.view.layoutIfNeeded()
+        }
+    }
     
 }
 

@@ -131,10 +131,10 @@
 			children = (
 				112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */,
 				112A2FD51FAE54480031FF64 /* Main.storyboard */,
-				11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */,
 				11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */,
-				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
 				11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */,
+				11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */,
+				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
 				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
 				11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */,
 			);
