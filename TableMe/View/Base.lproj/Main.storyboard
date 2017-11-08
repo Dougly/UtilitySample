@@ -196,6 +196,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="cityStateTitleView" destination="f5A-R8-oUw" id="ygd-qa-WKK"/>
+                        <outlet property="clubsTableViewBottomConstraint" destination="DfE-95-34d" id="Kig-JX-Sbl"/>
                         <outlet property="placesTableView" destination="j7i-7k-nBe" id="WO6-Ki-PTF"/>
                         <outlet property="placesTableViewBottomToCityStateBottom" destination="1aN-Cr-ePP" id="N3b-98-1CJ"/>
                         <outlet property="tableView" destination="x8k-nF-uNj" id="kAv-b9-Do6"/>
@@ -244,7 +245,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="10C-d6-KW9">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="psU-w7-7Yp" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="psU-w7-7Yp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dIa-1T-owk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

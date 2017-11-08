@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         applyGradient()
+        
     }
 
     func adjustFontScales() {
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
         let thisIsTableMeAnimationDistance = ((screenWidth / 2) - (thisIsTableMeLabel.frame.width / 2) - 15) * -1
         
         UIView.animateKeyframes(withDuration: 1.2, delay: 0, options: [], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
                 self.logoCenterXConstraint.constant = logoAnimationDistance
             })
             

@@ -30,6 +30,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var placesTableViewBottomToCityStateBottom: NSLayoutConstraint!
     @IBOutlet weak var cityStateTitleView: CityStateTitleView!
+    @IBOutlet weak var clubsTableViewBottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -41,10 +42,13 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         placesTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
         placesTableView.tableFooterView = UIView()
         self.view.alpha = 0
+        self.tabBarController?.tabBar.isHidden = true
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         openingAnimation()
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -109,10 +113,16 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             let cell = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
             self.selectedPlace = indexPath.row
-            tableView.reloadData()
-            cityStateTitleView.cityStateLabel.text = cell.label.text ?? "error"
-            hidePlaces()
-            cityStateTitleView.changeViews()
+            cell.contentView.backgroundColor = .gray
+            UIView.animate(withDuration: 0.2, animations: {
+                cell.contentView.backgroundColor = .black
+                self.view.layoutIfNeeded()
+            }, completion: { (success) in
+                tableView.reloadData()
+                self.cityStateTitleView.cityStateLabel.text = cell.label.text ?? "error"
+                self.hidePlaces()
+                self.cityStateTitleView.changeViews()
+            })
         }
     }
 
@@ -183,10 +193,15 @@ extension ClubsViewController: PlaceUIDelegate {
     }
     
     func openingAnimation() {
-        UIView.animate(withDuration: 0.2) {
+        
+        UIView.animate(withDuration: 0.3, animations: {
             self.view.alpha = 1
             self.tabBarController?.tabBar.isHidden = false
             self.view.layoutIfNeeded()
+        }) { (success) in
+            if let tabBarHeight = self.tabBarController?.tabBar.frame.height {
+                self.clubsTableViewBottomConstraint.constant = tabBarHeight * -1
+            }
         }
     }
     
