@@ -15,6 +15,9 @@
 		112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDB1FAE54480031FF64 /* Assets.xcassets */; };
 		112A2FDF1FAE54480031FF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */; };
 		112A2FEA1FAE54480031FF64 /* UtilitySampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */; };
+		118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */; };
+		118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */; };
+		118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */; };
 		11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */; };
 		11F9003F1FAFB9B600BCDF05 /* CityStateTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */; };
 		11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */; };
@@ -49,6 +52,9 @@
 		112A2FE51FAE54480031FF64 /* TableMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitySampleTests.swift; sourceTree = "<group>"; };
 		112A2FEB1FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
+		118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTableCell.swift; sourceTree = "<group>"; };
 		11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStateTitleView.swift; sourceTree = "<group>"; };
 		11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityStateTitleView.xib; sourceTree = "<group>"; };
 		11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCellView.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
 				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
 				11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */,
+				118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,8 +151,10 @@
 		11F900411FAFC4F600BCDF05 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */,
 				112A2FD31FAE54480031FF64 /* ViewController.swift */,
 				111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */,
+				118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */,
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
@@ -404,6 +414,8 @@
 				112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,
 				11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */,
+				118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */,
+				118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */,
 				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
 			);

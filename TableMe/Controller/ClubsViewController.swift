@@ -43,12 +43,17 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         placesTableView.tableFooterView = UIView()
         self.view.alpha = 0
         self.tabBarController?.tabBar.isHidden = true
+        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true 
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         openingAnimation()
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -106,10 +111,14 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if tableView.tag == 1 {
             let cell = tableView.cellForRow(at: indexPath) as! ClubTableViewCell
             cell.clubTableViewCellView.contentView.alpha = 0.5
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 cell.clubTableViewCellView.contentView.alpha = 1.0
                 self.view.layoutIfNeeded()
-            }, completion: nil)
+            }, completion: { success in
+                let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailVC") as! ClubDetailViewController
+                destVC.selectedCell = cell
+                self.presentDetail(destVC)
+            })
         } else {
             let cell = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
             self.selectedPlace = indexPath.row
