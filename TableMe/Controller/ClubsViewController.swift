@@ -13,7 +13,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Demo Data
     let demoPlaces = ["Boston, MA", "Chicago, IL", "Las Vegas, NV", "Los Angeles, CA", "Miami, FL", "Orlando, FL", "San Francisco, CA"]
     var demoData =
-        [["name" : "Cove Lounge", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
+        [["name" : "Cove Lounge", "tables" : 3, "cost" : "$$$", "activities" : ["Drinks", "Food", "Music"], "address" : "305 Willows Roaders, Longname, FL 33132", "distance" : 0.5, "image" : #imageLiteral(resourceName: "samplePhoto1")],
          ["name" : "Purdy Lounge", "tables" : 2, "cost" : "$$", "activities" : ["Drinks", "Food", "Music"], "address" : "34 NE 11th St,  Miami, FL 33132", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto2")],
          ["name" : "E11even Niki Beach Miami Super Club", "tables" : 5, "cost" : "$$$$", "activities" : ["Drinks", "Food"], "address" : "555 NE 7th ave, Miami, FL 10009", "distance" : 0.2, "image" : #imageLiteral(resourceName: "samplePhoto3")],
          ["name" : "The Spot", "tables" : 0, "cost" : "$$", "activities" : ["Drinks", "Food", "Karaoke"], "address" : "345 Berkely, Anywhere, NY 10009", "distance" : 1.5, "image" : #imageLiteral(resourceName: "samplePhoto4")]

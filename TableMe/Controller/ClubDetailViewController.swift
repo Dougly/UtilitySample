@@ -21,26 +21,31 @@ class ClubDetailViewController: UIViewController {
     }
     
     var selectedCell: ClubTableViewCell?
+    var startingYPosition: CGFloat = 0
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var costAndActivitesLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var gradientView: UIView!
     
+    @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
         setupView()
         applyGradient()
+        addGesture()
     }
     
     
@@ -64,7 +69,14 @@ class ClubDetailViewController: UIViewController {
             imageView.image = cellView.imageView.image
             nameLabel.text = cellView.nameLabel.text
             costAndActivitesLabel.text = cellView.costAndActivitiesLabel.text
-            addressLabel.text = cellView.addressLabel.text
+            
+            if let splitAddress = cellView.addressLabel.text?.components(separatedBy: ",") {
+                let address = splitAddress[0] + ","
+                let cityStatZip = splitAddress[1].trimmingCharacters(in: .whitespacesAndNewlines) + "," + splitAddress[2]
+                cityLabel.text = cityStatZip
+                addressLabel.text = address
+            }
+            
             distanceLabel.text = cellView.distanceLabel.text
         }
     }
@@ -73,14 +85,39 @@ class ClubDetailViewController: UIViewController {
         let startingColorOfGradient = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0).cgColor
         let endingColorOFGradient = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1).cgColor
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = imageView.bounds
-        gradient.bounds = imageView.bounds
+        gradient.frame = gradientView.bounds
+        gradient.bounds = gradientView.bounds
         gradient.colors = [startingColorOfGradient , endingColorOFGradient]
         gradient.startPoint = CGPoint(x: 1, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
-        self.imageView.layer.insertSublayer(gradient, at: 0)
+        self.gradientView.layer.insertSublayer(gradient, at: 0)
     }
     
+    func addGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(scaleImage))
+        self.gradientView.addGestureRecognizer(panGesture)
+    }
+    
+    @objc func scaleImage(_ gestureRecognizer: UIPanGestureRecognizer) {
+        let translation = gestureRecognizer.translation(in: self.imageView)
+        if gestureRecognizer.state == .began {
+            startingYPosition = gestureRecognizer.translation(in: self.imageView).y
+        }
+        if gestureRecognizer.state == .changed {
+            if translation.y > startingYPosition {
+                imageViewWidthConstraint.constant = translation.y - startingYPosition
+            }
+        }
+        if gestureRecognizer.state == .ended {
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: [.curveEaseInOut], animations: {
+                self.imageViewWidthConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }, completion: { (success) in
+                self.startingYPosition = 0
+            })
+        }
+        
+    }
     
 }
 
@@ -107,7 +144,24 @@ extension ClubDetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell.numSeatsLabel.text = seats
         cell.cellImageView.layer.cornerRadius = 20
         cell.cellImageView.clipsToBounds = true
+        
+        if indexPath.row == demoData.count - 1 {
+            cell.separatorInset = UIEdgeInsetsMake(0, cell.bounds.size.width, 0, 0);
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! AvailableTableCell
+        cell.contentView.alpha = 0.5
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            cell.contentView.alpha = 1.0
+            self.view.layoutIfNeeded()
+        }, completion: { success in
+//            let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailVC") as! ClubDetailViewController
+//            destVC.selectedCell = cell
+//            self.presentDetail(destVC)
+        })
     }
     
 }
