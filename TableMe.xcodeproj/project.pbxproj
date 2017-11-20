@@ -15,6 +15,13 @@
 		112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDB1FAE54480031FF64 /* Assets.xcassets */; };
 		112A2FDF1FAE54480031FF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */; };
 		112A2FEA1FAE54480031FF64 /* UtilitySampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */; };
+		11589AB41FC3275B00DDD3BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11589AB31FC3275B00DDD3BD /* GoogleService-Info.plist */; };
+		11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */; };
+		11589AB91FC3552100DDD3BD /* SignInWithPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */; };
+		11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABA1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift */; };
+		11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */; };
+		11589ABF1FC367D800DDD3BD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABE1FC367D800DDD3BD /* UIColorExtension.swift */; };
+		11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589AC01FC373E000DDD3BD /* UITextFieldExtension.swift */; };
 		118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */; };
 		118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */; };
 		118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */; };
@@ -52,6 +59,14 @@
 		112A2FE51FAE54480031FF64 /* TableMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitySampleTests.swift; sourceTree = "<group>"; };
 		112A2FEB1FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11589AB31FC3275B00DDD3BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11589AB51FC32AA800DDD3BD /* TableMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TableMe.entitlements; sourceTree = "<group>"; };
+		11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithPhoneView.xib; sourceTree = "<group>"; };
+		11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithPhoneView.swift; sourceTree = "<group>"; };
+		11589ABA1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberViewController.swift; sourceTree = "<group>"; };
+		11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		11589ABE1FC367D800DDD3BD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		11589AC01FC373E000DDD3BD /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTableCell.swift; sourceTree = "<group>"; };
@@ -116,9 +131,12 @@
 				11F900421FAFC50500BCDF05 /* Model */,
 				11F900401FAFC4D900BCDF05 /* View */,
 				11F900411FAFC4F600BCDF05 /* Controller */,
+				11589AAF1FC323FB00DDD3BD /* Extensions */,
 				112A2FDB1FAE54480031FF64 /* Assets.xcassets */,
 				112A2FE01FAE54480031FF64 /* Info.plist */,
 				112A2FD81FAE54480031FF64 /* UtilitySample.xcdatamodeld */,
+				11589AB31FC3275B00DDD3BD /* GoogleService-Info.plist */,
+				11589AB51FC32AA800DDD3BD /* TableMe.entitlements */,
 			);
 			path = TableMe;
 			sourceTree = "<group>";
@@ -132,18 +150,58 @@
 			path = TableMeTests;
 			sourceTree = "<group>";
 		};
+		11589AAF1FC323FB00DDD3BD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */,
+				11589ABE1FC367D800DDD3BD /* UIColorExtension.swift */,
+				11589AC01FC373E000DDD3BD /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		11589AB01FC3247000DDD3BD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		11589AB11FC3249200DDD3BD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				112A2FD31FAE54480031FF64 /* ViewController.swift */,
+				111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */,
+				118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */,
+				11589ABA1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift */,
+				11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		11589AB21FC3250F00DDD3BD /* Xib Files */ = {
+			isa = PBXGroup;
+			children = (
+				11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */,
+				11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */,
+				11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */,
+			);
+			path = "Xib Files";
+			sourceTree = "<group>";
+		};
 		11F900401FAFC4D900BCDF05 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */,
 				112A2FD51FAE54480031FF64 /* Main.storyboard */,
-				11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */,
-				11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */,
 				11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */,
 				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
 				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
 				11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */,
 				118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */,
+				11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */,
+				11589AB21FC3250F00DDD3BD /* Xib Files */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,10 +209,8 @@
 		11F900411FAFC4F600BCDF05 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */,
-				112A2FD31FAE54480031FF64 /* ViewController.swift */,
-				111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */,
-				118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */,
+				11589AB11FC3249200DDD3BD /* View Controllers */,
+				11589AB01FC3247000DDD3BD /* Protocols */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				112A2FD11FAE54480031FF64 /* AppDelegate.swift */,
-				11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +301,11 @@
 					112A2FCD1FAE54480031FF64 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					112A2FE41FAE54480031FF64 = {
 						CreatedOnToolsVersion = 9.1;
@@ -283,6 +343,8 @@
 				112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */,
 				112A2FD71FAE54480031FF64 /* Main.storyboard in Resources */,
 				11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */,
+				11589AB41FC3275B00DDD3BD /* GoogleService-Info.plist in Resources */,
+				11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,15 +471,20 @@
 				118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */,
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
+				11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
+				11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */,
 				11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */,
 				112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,
 				11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */,
 				118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */,
+				11589AB91FC3552100DDD3BD /* SignInWithPhoneView.swift in Sources */,
+				11589ABF1FC367D800DDD3BD /* UIColorExtension.swift in Sources */,
 				118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */,
 				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
+				11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +638,7 @@
 			baseConfigurationReference = 8198749946DB7F0466205CB3 /* Pods-TableMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TableMe/TableMe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Douglas Galante (N7BV4Q3V46)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -593,6 +661,7 @@
 			baseConfigurationReference = 1264A81E497BD166267EB0D1 /* Pods-TableMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TableMe/TableMe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Douglas Galante (N7BV4Q3V46)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;

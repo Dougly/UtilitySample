@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import Fabric
 import Crashlytics
+import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,12 +20,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         UIApplication.shared.statusBarStyle = .lightContent
         Fabric.with([Crashlytics.self])
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        setWindowAndRootNavigationController()
         return true
     }
 
+    
+    func setWindowAndRootNavigationController() {
+        window = UIWindow()
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let navController = main.instantiateViewController(withIdentifier: "initialNavController") as! UINavigationController
+        let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
+        let loginVC: ViewController = main.instantiateViewController(withIdentifier: "loginVC") as! ViewController
+        
+        navController.navigationBar.isHidden = true
+        //auth.navController = navController
+        
+        if Auth.auth().currentUser != nil {
+            let controllers = [loginVC, tabBarController]
+            navController.setViewControllers(controllers, animated: false)
+            //self.currentView = .list
+        } else {
+            navController.setViewControllers([loginVC], animated: false)
+            //self.currentView = .login
+        }
+        
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
+    }
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
