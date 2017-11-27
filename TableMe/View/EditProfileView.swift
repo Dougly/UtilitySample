@@ -10,6 +10,7 @@ import UIKit
 
 class EditProfileView: UIView {
     
+    var delegate: PresentPickerDelegate?
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
@@ -42,5 +43,22 @@ class EditProfileView: UIView {
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        setViewValues()
     }
+    
+    func setViewValues() {
+        profileImageView.layer.cornerRadius = 45
+        checkBoxView.layer.cornerRadius = 2
+        checkBoxView.layer.borderWidth = 1
+        checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
+    }
+
+    @IBAction func presentGenderPicker(_ sender: Any) {
+        delegate?.presentPicker(type: .gender)
+    }
+    
+    @IBAction func presentDatePicker(_ sender: Any) {
+        delegate?.presentPicker(type: .date)
+    }
+    
 }

@@ -24,10 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
-        setWindowAndRootNavigationController()
+        //setWindowAndRootNavigationController()
+        setRootVCForTest()
         return true
     }
-
+    
+    func setRootVCForTest() {
+        window = UIWindow()
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let testVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC")
+        window?.rootViewController = testVC
+        window?.makeKeyAndVisible()
+    }
     
     func setWindowAndRootNavigationController() {
         window = UIWindow()
