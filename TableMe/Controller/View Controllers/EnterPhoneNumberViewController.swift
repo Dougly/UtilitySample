@@ -25,20 +25,20 @@ class EnterPhoneNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.becomeFirstResponder()
-        textField.addTarget(self, action: #selector(textFieldDidChange),
-                            for: .editingChanged)
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
+    
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         presentAlert()
     }
     
+    
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        print("tapped back button")
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+
     @objc func textFieldDidChange(_ textField: UITextField) {
         underlineView.backgroundColor = .themePurple
         phoneNumberLabel.textColor = .white
@@ -66,9 +66,7 @@ class EnterPhoneNumberViewController: UIViewController {
         let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply", preferredStyle: .alert)
         
         let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
-           
             var phoneNumber = "+1"
-            
             let chars = Array(self.textField.text!)
             for char in chars {
                 switch char {
@@ -78,33 +76,22 @@ class EnterPhoneNumberViewController: UIViewController {
                     break
                 }
             }
-            print(phoneNumber)
-            
             
             if phoneNumber.count == 12 {
-                
-                
-                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil, completion: { (verificationID, error) in
+                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
                     if let error = error {
                         print(error.localizedDescription)
-                        print(error)
                         return
                     }
-                    
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                    print(verificationID)
-                    // present and pass id to verification page
                     let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
                     self.navigationController?.pushViewController(destVC, animated: true)
-                })
-                //send number to firebase
-                
+                }
             }
-            
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (cancelAction) in
-            //dismiss?
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
+            self.navigationController?.popToRootViewController(animated: true)
         }
         
         alert.addAction(cancelAction)
