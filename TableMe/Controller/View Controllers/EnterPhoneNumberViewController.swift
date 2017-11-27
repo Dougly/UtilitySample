@@ -67,7 +67,7 @@ class EnterPhoneNumberViewController: UIViewController {
         
         let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
            
-            var phoneNumber = ""
+            var phoneNumber = "+1"
             
             let chars = Array(self.textField.text!)
             for char in chars {
@@ -78,17 +78,21 @@ class EnterPhoneNumberViewController: UIViewController {
                     break
                 }
             }
+            print(phoneNumber)
             
             
-            if phoneNumber.count == 10 {
-                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, completion: { (verificationID, error) in
+            if phoneNumber.count == 12 {
+                
+                
+                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil, completion: { (verificationID, error) in
                     if let error = error {
                         print(error.localizedDescription)
+                        print(error)
                         return
                     }
                     
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                    
+                    print(verificationID)
                     // present and pass id to verification page
                     let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
                     self.navigationController?.pushViewController(destVC, animated: true)

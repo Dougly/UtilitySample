@@ -15,7 +15,6 @@
 		112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDB1FAE54480031FF64 /* Assets.xcassets */; };
 		112A2FDF1FAE54480031FF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */; };
 		112A2FEA1FAE54480031FF64 /* UtilitySampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */; };
-		11589AB41FC3275B00DDD3BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11589AB31FC3275B00DDD3BD /* GoogleService-Info.plist */; };
 		11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */; };
 		11589AB91FC3552100DDD3BD /* SignInWithPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */; };
 		11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABA1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift */; };
@@ -25,6 +24,7 @@
 		118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */; };
 		118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */; };
 		118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */; };
+		11D4DA011FCC5760009FAD98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */; };
 		11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */; };
 		11F9003F1FAFB9B600BCDF05 /* CityStateTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */; };
 		11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */; };
@@ -59,7 +59,6 @@
 		112A2FE51FAE54480031FF64 /* TableMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitySampleTests.swift; sourceTree = "<group>"; };
 		112A2FEB1FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11589AB31FC3275B00DDD3BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11589AB51FC32AA800DDD3BD /* TableMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TableMe.entitlements; sourceTree = "<group>"; };
 		11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithPhoneView.xib; sourceTree = "<group>"; };
 		11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithPhoneView.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTableCell.swift; sourceTree = "<group>"; };
+		11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStateTitleView.swift; sourceTree = "<group>"; };
 		11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityStateTitleView.xib; sourceTree = "<group>"; };
 		11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCellView.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 				112A2FDB1FAE54480031FF64 /* Assets.xcassets */,
 				112A2FE01FAE54480031FF64 /* Info.plist */,
 				112A2FD81FAE54480031FF64 /* UtilitySample.xcdatamodeld */,
-				11589AB31FC3275B00DDD3BD /* GoogleService-Info.plist */,
+				11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */,
 				11589AB51FC32AA800DDD3BD /* TableMe.entitlements */,
 			);
 			path = TableMe;
@@ -343,8 +343,8 @@
 				112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */,
 				112A2FD71FAE54480031FF64 /* Main.storyboard in Resources */,
 				11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */,
-				11589AB41FC3275B00DDD3BD /* GoogleService-Info.plist in Resources */,
 				11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */,
+				11D4DA011FCC5760009FAD98 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +649,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aac7be7d-8a17-4efe-85c6-9ba0e3efa982";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDev;
+				PROVISIONING_PROFILE = "ea73049d-d745-48bf-9dde-7a4acee364a7";
+				PROVISIONING_PROFILE_SPECIFIER = TableMePushProvProf;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -671,8 +671,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.utility.TableMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3af34a84-8c8a-4e83-a7d9-ead1812cb74a";
-				PROVISIONING_PROFILE_SPECIFIER = TableMeDev;
+				PROVISIONING_PROFILE = "ea73049d-d745-48bf-9dde-7a4acee364a7";
+				PROVISIONING_PROFILE_SPECIFIER = TableMePushProvProf;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
