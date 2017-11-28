@@ -68,7 +68,7 @@
                     <rect key="frame" x="0.0" y="274" width="375" height="20"/>
                     <color key="textColor" red="0.42352941179999998" green="0.44705882349999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldL-mV-Cpm" userLabel="Email Underline">
                     <rect key="frame" x="0.0" y="299" width="375" height="1"/>
