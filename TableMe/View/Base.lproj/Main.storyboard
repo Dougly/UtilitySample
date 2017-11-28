@@ -770,10 +770,10 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbB-Mr-Zdf" customClass="EditProfileView" customModule="TableMe" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="0.0" width="337.5" height="540"/>
+                                        <rect key="frame" x="19" y="0.0" width="337.5" height="550"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="540" id="2R7-Is-Hro"/>
+                                            <constraint firstAttribute="height" constant="550" id="2R7-Is-Hro"/>
                                         </constraints>
                                     </view>
                                 </subviews>

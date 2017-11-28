@@ -24,16 +24,16 @@ class AdditionalDetailsViewController: UIViewController {
         scrollView.alwaysBounceVertical = true
         setupDatePicker()
         setupGenderPicker()
-        additionalDetailsView.fullNameTextField.delegate = self
-        additionalDetailsView.emailTextField.delegate = self
-        additionalDetailsView.genderTextField.delegate = self
-        additionalDetailsView.birthdayTextField.delegate = self
-        additionalDetailsView.fullNameTextField.becomeFirstResponder()
+        setDelegates()
+        //additionalDetailsView.fullNameTMTextField.textField.becomeFirstResponder()
         
-        
-        
-
-        
+    }
+    
+    func setDelegates() {
+        additionalDetailsView.fullNameTMTextField.textField.delegate = self
+        additionalDetailsView.emailTMTextField.textField.delegate = self
+        additionalDetailsView.genderTMTextField.textField.delegate = self
+        additionalDetailsView.birthdayTMTextField.textField.delegate = self
     }
     
    
@@ -67,10 +67,15 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     func offsetScrollViewFor(textfield: UITextField) {
-        let textFieldYPosition = textfield.frame.minY
-        //194 based on constraints in EditProfileView.xib
-        let yOffset = textFieldYPosition - 194
-    
+        var yOffset: CGFloat = 0
+        switch textfield.tag {
+        case 1: yOffset = 0
+        case 2: yOffset = 86.5
+        case 3: yOffset = 173
+        case 4: yOffset = 259.5
+        default: break
+        }
+        
         UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: {
             self.scrollView.contentOffset = CGPoint(x: 0.0, y: yOffset)
             self.view.layoutIfNeeded()
@@ -85,11 +90,11 @@ extension AdditionalDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
         case 1:
-            additionalDetailsView.emailTextField.becomeFirstResponder()
-            offsetScrollViewFor(textfield: additionalDetailsView.emailTextField)
+            additionalDetailsView.emailTMTextField.textField.becomeFirstResponder()
+            offsetScrollViewFor(textfield: additionalDetailsView.emailTMTextField.textField)
         case 2:
-            additionalDetailsView.genderTextField.becomeFirstResponder()
-            offsetScrollViewFor(textfield: additionalDetailsView.genderTextField)
+            additionalDetailsView.genderTMTextField.textField.becomeFirstResponder()
+            offsetScrollViewFor(textfield: additionalDetailsView.genderTMTextField.textField)
         default: break
         }
         return true
@@ -115,7 +120,7 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         datePicker.setValue(false, forKeyPath: "highlightsToday")
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
-        additionalDetailsView.birthdayTextField.inputView = datePicker
+        additionalDetailsView.birthdayTMTextField.textField.inputView = datePicker
         
         var components = DateComponents()
         components.year = -21
@@ -131,17 +136,17 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         birthdayToolBar.setItems([spaceButton, doneButton], animated: false)
         birthdayToolBar.isUserInteractionEnabled = true
-        additionalDetailsView.birthdayTextField.inputAccessoryView = birthdayToolBar
+        additionalDetailsView.birthdayTMTextField.textField.inputAccessoryView = birthdayToolBar
     }
     
     @objc func handleBirthdayDoneButton(_ sender: UIButton) {
-        additionalDetailsView.birthdayTextField.resignFirstResponder()
+        additionalDetailsView.birthdayTMTextField.textField.resignFirstResponder()
     }
     
     @objc func dateChanged(_ sender: UIDatePicker) {
         let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = componenets.day, let month = componenets.month, let year = componenets.year {
-            additionalDetailsView.birthdayTextField.text = "\(month) / \(day) / \(year)"
+            additionalDetailsView.birthdayTMTextField.textField.text = "\(month) / \(day) / \(year)"
         }
     }
     
@@ -153,7 +158,7 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         genderPicker.delegate = self
         genderPicker.backgroundColor = .black
         genderPicker.setValue(UIColor.white, forKeyPath: "textColor")
-        additionalDetailsView.genderTextField.inputView = genderPicker
+        additionalDetailsView.genderTMTextField.textField.inputView = genderPicker
         
         //Done Button
         let genderToolBar = UIToolbar()
@@ -163,12 +168,12 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         genderToolBar.setItems([spaceButton, nextButton], animated: false)
         genderToolBar.isUserInteractionEnabled = true
-        additionalDetailsView.genderTextField.inputAccessoryView = genderToolBar
+        additionalDetailsView.genderTMTextField.textField.inputAccessoryView = genderToolBar
     }
     
     @objc func handleGenderNextButton() {
-        additionalDetailsView.birthdayTextField.becomeFirstResponder()
-        offsetScrollViewFor(textfield: additionalDetailsView.birthdayTextField)
+        additionalDetailsView.birthdayTMTextField.textField.becomeFirstResponder()
+        offsetScrollViewFor(textfield: additionalDetailsView.birthdayTMTextField.textField)
     }
     
     //MARK: Picker Datasource and Delegate functions
@@ -187,7 +192,7 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        additionalDetailsView.genderTextField.text = genderOptions[row]
+        additionalDetailsView.genderTMTextField.textField.text = genderOptions[row]
     }
     
 }

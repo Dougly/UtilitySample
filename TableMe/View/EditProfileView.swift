@@ -11,21 +11,16 @@ import UIKit
 class EditProfileView: UIView {
     
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var fullNameTMTextField: TableMeTextFieldView!
-    
+    @IBOutlet weak var emailTMTextField: TableMeTextFieldView!
+    @IBOutlet weak var genderTMTextField: TableMeTextFieldView!
+    @IBOutlet weak var birthdayTMTextField: TableMeTextFieldView!
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
-    @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var fullNameUnderline: UIView!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var emailUnderline: UIView!
-    @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var genderSelectionButton: UIButton!
-    @IBOutlet weak var genderUnderline: UIView!
-    @IBOutlet weak var birthdayTextField: UITextField!
-    @IBOutlet weak var birthdayUnderline: UIView!
     @IBOutlet weak var birthdaySelectionButton: UIButton!
     @IBOutlet weak var checkBoxView: UIView!
     
@@ -56,24 +51,20 @@ class EditProfileView: UIView {
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
         
-        //fullNameTextField.attributedPlaceholder =
-        fullNameTMTextField.setText("Full Name", labelText: "Name")
-        fullNameTMTextField.setTextFieldProperties(.name, capitalization: .none, correction: .no, keyboardType: .default, keyboardAppearance: .dark, inputView: nil)
-
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
-
-        genderTextField.attributedPlaceholder = NSAttributedString(string: "Choose Gender", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+        fullNameTMTextField.setText("Full Name", labelText: "Full Name")
+        fullNameTMTextField.textField.tag = 1
+        fullNameTMTextField.setTextFieldProperties(.name, capitalization: .none, correction: .no, keyboardType: .default, keyboardAppearance: .dark, returnKey: .next)
         
-        birthdayTextField.attributedPlaceholder = NSAttributedString(string: "Choose Birthday", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+        emailTMTextField.setText("Email Address", labelText: "Email Address")
+        emailTMTextField.textField.tag = 2
+        emailTMTextField.setTextFieldProperties(.emailAddress, capitalization: .none, correction: .no, keyboardType: .emailAddress, keyboardAppearance: .dark, returnKey: .next)
         
-    }
-
-    @IBAction func presentGenderPicker(_ sender: Any) {
-        genderTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func presentDatePicker(_ sender: Any) {
-        birthdayTextField.becomeFirstResponder()
+        genderTMTextField.setText("Choose Gender", labelText: "Choose Gender")
+        genderTMTextField.textField.tag = 3
+        
+        birthdayTMTextField.setText("Choose Birthday", labelText: "Choose Birthday")
+        birthdayTMTextField.textField.tag = 4
+        
     }
     
 }
