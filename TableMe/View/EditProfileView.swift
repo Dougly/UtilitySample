@@ -10,7 +10,6 @@ import UIKit
 
 class EditProfileView: UIView {
     
-    var delegate: PresentPickerDelegate?
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
@@ -18,11 +17,14 @@ class EditProfileView: UIView {
     @IBOutlet weak var fullNameUnderline: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailUnderline: UIView!
-    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var genderSelectionButton: UIButton!
     @IBOutlet weak var genderUnderline: UIView!
-    @IBOutlet weak var birthdayLabel: UILabel!
+    
+    @IBOutlet weak var birthdayTextField: UITextField!
+    @IBOutlet weak var birthdayUnderline: UIView!
     @IBOutlet weak var birthdaySelectionButton: UIButton!
+    
     @IBOutlet weak var checkBoxView: UIView!
     
     override init(frame: CGRect) {
@@ -51,14 +53,23 @@ class EditProfileView: UIView {
         checkBoxView.layer.cornerRadius = 2
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
+        
+        fullNameTextField.attributedPlaceholder = NSAttributedString(string: "Full Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+
+        genderTextField.attributedPlaceholder = NSAttributedString(string: "Choose Gender", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+        
+        birthdayTextField.attributedPlaceholder = NSAttributedString(string: "Choose Birthday", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+        
     }
 
     @IBAction func presentGenderPicker(_ sender: Any) {
-        delegate?.presentPicker(type: .gender)
+        genderTextField.becomeFirstResponder()
     }
     
     @IBAction func presentDatePicker(_ sender: Any) {
-        delegate?.presentPicker(type: .date)
+        birthdayTextField.becomeFirstResponder()
     }
     
 }

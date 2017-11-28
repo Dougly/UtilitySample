@@ -27,7 +27,6 @@
 		11D4DA011FCC5760009FAD98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */; };
 		11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D4DA021FCC9447009FAD98 /* EditProfileView.swift */; };
 		11D4DA051FCC947D009FAD98 /* EditProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D4DA041FCC947D009FAD98 /* EditProfileView.xib */; };
-		11D4DA071FCCB250009FAD98 /* PresentPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D4DA061FCCB250009FAD98 /* PresentPickerDelegate.swift */; };
 		11D4DA091FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D4DA081FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift */; };
 		11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */; };
 		11F9003F1FAFB9B600BCDF05 /* CityStateTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */; };
@@ -76,7 +75,6 @@
 		11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11D4DA021FCC9447009FAD98 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		11D4DA041FCC947D009FAD98 /* EditProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileView.xib; sourceTree = "<group>"; };
-		11D4DA061FCCB250009FAD98 /* PresentPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentPickerDelegate.swift; sourceTree = "<group>"; };
 		11D4DA081FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalDetailsViewController.swift; sourceTree = "<group>"; };
 		11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStateTitleView.swift; sourceTree = "<group>"; };
 		11F9003E1FAFB9B600BCDF05 /* CityStateTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityStateTitleView.xib; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */,
-				11D4DA061FCCB250009FAD98 /* PresentPickerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -484,7 +481,6 @@
 				11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */,
 				118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */,
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
-				11D4DA071FCCB250009FAD98 /* PresentPickerDelegate.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,

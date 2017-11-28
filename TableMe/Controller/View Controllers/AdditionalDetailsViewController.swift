@@ -15,9 +15,38 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var additionalDetailsView: EditProfileView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .black
+        datePicker.setValue(false, forKeyPath: "highlightsToday")
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        additionalDetailsView.emailTextField.inputView = datePicker
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .blackTranslucent
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Select", style: .done, target: self, action: #selector(handleDoneButton))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelButton))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        additionalDetailsView.emailTextField.inputAccessoryView = toolBar
+        
+        
+    }
+    
+    @objc func handleCancelButton() {
+    
+    }
+    
+    
+    @objc func handleDoneButton() {
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +55,6 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     @objc func keyboardWillAppear(notification: NSNotification) {
-        print("keyboard appeared")
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
@@ -36,7 +64,6 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     @objc func keyboardWillDisappear() {
-         print("keyboard dissapeared")
         scrollViewBottomConstraint.constant = 0
     }
     
