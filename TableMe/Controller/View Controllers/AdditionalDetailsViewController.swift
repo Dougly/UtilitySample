@@ -25,9 +25,28 @@ class AdditionalDetailsViewController: UIViewController {
         setupDatePicker()
         setupGenderPicker()
         setDelegates()
+        //setGestures()
         //additionalDetailsView.fullNameTMTextField.textField.becomeFirstResponder()
         
     }
+    
+//    func setGestures() {
+//        let tapGR = UIGestureRecognizer(target: self, action: #selector(checkBoxTapped))
+//        additionalDetailsView.checkBoxView.addGestureRecognizer(tapGR)
+//        additionalDetailsView.checkBoxView.isUserInteractionEnabled = true
+//    }
+//
+//    @objc func checkBoxTapped(_ sender: UITapGestureRecognizer) {
+//        print("tapped")
+//        switch additionalDetailsView.checkBoxSelected {
+//        case true:
+//            additionalDetailsView.checkBoxView.backgroundColor = UIColor.clear
+//            additionalDetailsView.checkBoxSelected = false
+//        case false:
+//            additionalDetailsView.checkBoxView.backgroundColor = UIColor.themePurple
+//            additionalDetailsView.checkBoxSelected = true
+//        }
+//    }
     
     func setDelegates() {
         additionalDetailsView.fullNameTMTextField.textField.delegate = self

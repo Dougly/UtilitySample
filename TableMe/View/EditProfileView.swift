@@ -10,19 +10,19 @@ import UIKit
 
 class EditProfileView: UIView {
     
-    
+    var checkBoxSelected = false
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var fullNameTMTextField: TableMeTextFieldView!
     @IBOutlet weak var emailTMTextField: TableMeTextFieldView!
     @IBOutlet weak var genderTMTextField: TableMeTextFieldView!
     @IBOutlet weak var birthdayTMTextField: TableMeTextFieldView!
-    
-    @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
-    @IBOutlet weak var genderSelectionButton: UIButton!
-    @IBOutlet weak var birthdaySelectionButton: UIButton!
     @IBOutlet weak var checkBoxView: UIView!
+    @IBOutlet weak var certifyLabel: UILabel!
+    @IBOutlet weak var certifyView: UIView!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +43,7 @@ class EditProfileView: UIView {
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         setViewValues()
+        setGestures()
     }
     
     func setViewValues() {
@@ -65,6 +66,30 @@ class EditProfileView: UIView {
         birthdayTMTextField.setText("Choose Birthday", labelText: "Choose Birthday")
         birthdayTMTextField.textField.tag = 4
         
+    }
+    
+    func setGestures() {
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
+//        let labelTapGR = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
+        checkBoxView.addGestureRecognizer(tapGR)
+        certifyLabel.addGestureRecognizer(tapGR)
+        certifyView.addGestureRecognizer(tapGR)
+        checkBoxView.isUserInteractionEnabled = true
+        certifyLabel.isUserInteractionEnabled = true
+        certifyView.isUserInteractionEnabled = true
+    }
+    
+    @objc func checkBoxTapped(_ sender: UITapGestureRecognizer) {
+        switch checkBoxSelected {
+        case true:
+            checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
+            checkBoxView.backgroundColor = UIColor.clear
+            checkBoxSelected = false
+        case false:
+            checkBoxView.layer.borderColor = UIColor.themePurple.cgColor
+            checkBoxView.backgroundColor = UIColor.themePurple
+            checkBoxSelected = true
+        }
     }
     
 }
