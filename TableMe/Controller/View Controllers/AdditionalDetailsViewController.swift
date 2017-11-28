@@ -29,7 +29,14 @@ class AdditionalDetailsViewController: UIViewController {
         additionalDetailsView.genderTextField.delegate = self
         additionalDetailsView.birthdayTextField.delegate = self
         additionalDetailsView.fullNameTextField.becomeFirstResponder()
+        
+        
+        
+
+        
     }
+    
+   
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
@@ -91,6 +98,8 @@ extension AdditionalDetailsViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         offsetScrollViewFor(textfield: textField)
     }
+    
+    
 }
 
 

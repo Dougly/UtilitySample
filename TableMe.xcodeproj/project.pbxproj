@@ -15,6 +15,8 @@
 		112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDB1FAE54480031FF64 /* Assets.xcassets */; };
 		112A2FDF1FAE54480031FF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */; };
 		112A2FEA1FAE54480031FF64 /* UtilitySampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */; };
+		1140402B1FCDD3650040E286 /* TableMeTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140402A1FCDD3650040E286 /* TableMeTextFieldView.swift */; };
+		1140402D1FCDD37F0040E286 /* TableMeTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1140402C1FCDD37F0040E286 /* TableMeTextFieldView.xib */; };
 		11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */; };
 		11589AB91FC3552100DDD3BD /* SignInWithPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */; };
 		11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABA1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift */; };
@@ -62,6 +64,8 @@
 		112A2FE51FAE54480031FF64 /* TableMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FE91FAE54480031FF64 /* UtilitySampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitySampleTests.swift; sourceTree = "<group>"; };
 		112A2FEB1FAE54480031FF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1140402A1FCDD3650040E286 /* TableMeTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeTextFieldView.swift; sourceTree = "<group>"; };
+		1140402C1FCDD37F0040E286 /* TableMeTextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableMeTextFieldView.xib; sourceTree = "<group>"; };
 		11589AB51FC32AA800DDD3BD /* TableMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TableMe.entitlements; sourceTree = "<group>"; };
 		11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInWithPhoneView.xib; sourceTree = "<group>"; };
 		11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithPhoneView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				11F900451FAFC5C700BCDF05 /* ClubTableViewCellView.xib */,
 				11589AB61FC3551300DDD3BD /* SignInWithPhoneView.xib */,
 				11D4DA041FCC947D009FAD98 /* EditProfileView.xib */,
+				1140402C1FCDD37F0040E286 /* TableMeTextFieldView.xib */,
 			);
 			path = "Xib Files";
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */,
 				11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */,
 				11D4DA021FCC9447009FAD98 /* EditProfileView.swift */,
+				1140402A1FCDD3650040E286 /* TableMeTextFieldView.swift */,
 				11589AB21FC3250F00DDD3BD /* Xib Files */,
 			);
 			path = View;
@@ -350,6 +356,7 @@
 				11F9003F1FAFB9B600BCDF05 /* CityStateTitleView.xib in Resources */,
 				112A2FDF1FAE54480031FF64 /* LaunchScreen.storyboard in Resources */,
 				112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */,
+				1140402D1FCDD37F0040E286 /* TableMeTextFieldView.xib in Resources */,
 				112A2FD71FAE54480031FF64 /* Main.storyboard in Resources */,
 				11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */,
 				11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */,
@@ -485,6 +492,7 @@
 				11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
 				11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */,
+				1140402B1FCDD3650040E286 /* TableMeTextFieldView.swift in Sources */,
 				11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */,
 				112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */,
 				11D4DA091FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift in Sources */,

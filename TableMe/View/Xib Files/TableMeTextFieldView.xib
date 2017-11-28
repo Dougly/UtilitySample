@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableMeTextFieldView" customModule="TableMe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="eOO-mY-UV8"/>
+                <outlet property="label" destination="aOA-NT-wMV" id="ULL-XI-XRs"/>
+                <outlet property="labelBottomConstraint" destination="YY7-mw-z64" id="Lfh-gz-MQy"/>
+                <outlet property="textField" destination="06e-JD-XJp" id="ldG-x7-b72"/>
+                <outlet property="underlineView" destination="Dq7-2B-pIR" id="cDX-EU-CSK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="173" height="51"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOA-NT-wMV">
+                    <rect key="frame" x="0.0" y="24" width="35.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06e-JD-XJp" userLabel="Text Field">
+                    <rect key="frame" x="0.0" y="26" width="173" height="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq7-2B-pIR" userLabel="Underline">
+                    <rect key="frame" x="0.0" y="50" width="173" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Hcb-o6-VdR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Dq7-2B-pIR" secondAttribute="bottom" id="1ax-6Z-n0Y"/>
+                <constraint firstItem="06e-JD-XJp" firstAttribute="centerX" secondItem="Dq7-2B-pIR" secondAttribute="centerX" id="EzN-cg-tPc"/>
+                <constraint firstItem="aOA-NT-wMV" firstAttribute="leading" secondItem="06e-JD-XJp" secondAttribute="leading" id="J35-03-dBt"/>
+                <constraint firstItem="06e-JD-XJp" firstAttribute="width" secondItem="Dq7-2B-pIR" secondAttribute="width" id="Rlr-sz-qDX"/>
+                <constraint firstItem="aOA-NT-wMV" firstAttribute="bottom" secondItem="06e-JD-XJp" secondAttribute="top" constant="15" id="YY7-mw-z64"/>
+                <constraint firstItem="Dq7-2B-pIR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="mgq-ZU-Yg1"/>
+                <constraint firstItem="Dq7-2B-pIR" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="xSm-gm-1D3"/>
+                <constraint firstItem="06e-JD-XJp" firstAttribute="bottom" secondItem="Dq7-2B-pIR" secondAttribute="bottom" constant="-5" id="zu0-vD-hUS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="23.5" y="-245.5"/>
+        </view>
+    </objects>
+</document>

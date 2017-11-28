@@ -10,6 +10,10 @@ import UIKit
 
 class EditProfileView: UIView {
     
+    
+    @IBOutlet weak var fullNameTMTextField: TableMeTextFieldView!
+    
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
@@ -20,11 +24,9 @@ class EditProfileView: UIView {
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var genderSelectionButton: UIButton!
     @IBOutlet weak var genderUnderline: UIView!
-    
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var birthdayUnderline: UIView!
     @IBOutlet weak var birthdaySelectionButton: UIButton!
-    
     @IBOutlet weak var checkBoxView: UIView!
     
     override init(frame: CGRect) {
@@ -54,7 +56,9 @@ class EditProfileView: UIView {
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
         
-        fullNameTextField.attributedPlaceholder = NSAttributedString(string: "Full Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+        //fullNameTextField.attributedPlaceholder =
+        fullNameTMTextField.setText("Full Name", labelText: "Name")
+        fullNameTMTextField.setTextFieldProperties(.name, capitalization: .none, correction: .no, keyboardType: .default, keyboardAppearance: .dark, inputView: nil)
 
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
 
