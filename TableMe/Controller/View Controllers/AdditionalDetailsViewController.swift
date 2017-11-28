@@ -15,7 +15,6 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     let genderOptions = ["Male", "Female", "Other"]
-    
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var additionalDetailsView: EditProfileView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -25,6 +24,11 @@ class AdditionalDetailsViewController: UIViewController {
         scrollView.alwaysBounceVertical = true
         setupDatePicker()
         setupGenderPicker()
+        additionalDetailsView.fullNameTextField.delegate = self
+        additionalDetailsView.emailTextField.delegate = self
+        additionalDetailsView.genderTextField.delegate = self
+        additionalDetailsView.birthdayTextField.delegate = self
+        additionalDetailsView.fullNameTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,28 +42,64 @@ class AdditionalDetailsViewController: UIViewController {
     
     @objc func keyboardWillAppear(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            scrollViewBottomConstraint.constant = keyboardHeight * -1
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height
+                self.scrollViewBottomConstraint.constant = keyboardHeight * -1
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            
         }
     }
     
     @objc func keyboardWillDisappear() {
-        scrollViewBottomConstraint.constant = 0
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+            self.scrollViewBottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
- 
+    func offsetScrollViewFor(textfield: UITextField) {
+        let textFieldYPosition = textfield.frame.minY
+        //194 based on constraints in EditProfileView.xib
+        let yOffset = textFieldYPosition - 194
     
-   
-  
-    
+        UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: {
+            self.scrollView.contentOffset = CGPoint(x: 0.0, y: yOffset)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+
 }
+
+
+extension AdditionalDetailsViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField.tag {
+        case 1:
+            additionalDetailsView.emailTextField.becomeFirstResponder()
+            offsetScrollViewFor(textfield: additionalDetailsView.emailTextField)
+        case 2:
+            additionalDetailsView.genderTextField.becomeFirstResponder()
+            offsetScrollViewFor(textfield: additionalDetailsView.genderTextField)
+        default: break
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        offsetScrollViewFor(textfield: textField)
+    }
+}
+
 
 // MARK: PickerViews
 extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
    
     //Date Picker
     func setupDatePicker() {
+        //Picker
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.backgroundColor = .black
@@ -68,6 +108,13 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         additionalDetailsView.birthdayTextField.inputView = datePicker
         
+        var components = DateComponents()
+        components.year = -21
+        let maxDate = Calendar.current.date(byAdding: components, to: Date())
+        datePicker.maximumDate = maxDate
+
+        
+        //Done Button
         let birthdayToolBar = UIToolbar()
         birthdayToolBar.barStyle = .blackTranslucent
         birthdayToolBar.sizeToFit()
@@ -91,6 +138,7 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
     
     //Gender Picker
     func setupGenderPicker() {
+        //Picker
         let genderPicker = UIPickerView()
         genderPicker.dataSource = self
         genderPicker.delegate = self
@@ -98,24 +146,23 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         genderPicker.setValue(UIColor.white, forKeyPath: "textColor")
         additionalDetailsView.genderTextField.inputView = genderPicker
         
+        //Done Button
         let genderToolBar = UIToolbar()
         genderToolBar.barStyle = .blackTranslucent
         genderToolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleGenderDoneButton))
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(handleGenderNextButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        //let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelButton))
-        genderToolBar.setItems([spaceButton, doneButton], animated: false)
+        genderToolBar.setItems([spaceButton, nextButton], animated: false)
         genderToolBar.isUserInteractionEnabled = true
         additionalDetailsView.genderTextField.inputAccessoryView = genderToolBar
-        
     }
     
-    @objc func handleGenderDoneButton() {
-        additionalDetailsView.genderTextField.resignFirstResponder()
+    @objc func handleGenderNextButton() {
         additionalDetailsView.birthdayTextField.becomeFirstResponder()
+        offsetScrollViewFor(textfield: additionalDetailsView.birthdayTextField)
     }
     
+    //MARK: Picker Datasource and Delegate functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -134,5 +181,6 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         additionalDetailsView.genderTextField.text = genderOptions[row]
     }
     
-    
 }
+
+
