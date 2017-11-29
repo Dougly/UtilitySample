@@ -69,23 +69,28 @@ class TableMeTextFieldView: UIView {
     @objc func raiseLabel() {
         if !textFieldIsRisen {
             let halfWidth = self.underlineView.frame.width / 2
-            UIView.animate(withDuration: 0.6, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 self.underlineHighlightTrailingConstraint.constant = halfWidth
                 self.underlineHighlightLeadingConstraint.constant = -1 * halfWidth
                 self.layoutIfNeeded()
             })
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
                 self.labelBottomConstraint.constant = -10
+                self.label.font = UIFont.systemFont(ofSize: 14)
                 self.layoutIfNeeded()
             }, completion: { succes in
                 self.textFieldIsRisen = true
             })
             
         } else if textField.text!.count == 0 {
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 self.underlineHighlightTrailingConstraint.constant = 0
                 self.underlineHighlightLeadingConstraint.constant = 0
+                self.layoutIfNeeded()
+            })
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
                 self.labelBottomConstraint.constant = 15
+                self.label.font = UIFont.systemFont(ofSize: 16)
                 self.layoutIfNeeded()
             }, completion:{ succes in
                 self.textFieldIsRisen = false
