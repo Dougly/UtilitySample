@@ -18,6 +18,7 @@ class TableMeTextFieldView: UIView {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var labelBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var underlineHighlightTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var underlineHighlightLeadingConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,8 +68,10 @@ class TableMeTextFieldView: UIView {
     
     @objc func raiseLabel() {
         if !textFieldIsRisen {
+            let halfWidth = self.underlineView.frame.width / 2
             UIView.animate(withDuration: 0.6, animations: {
-                self.underlineHighlightTrailingConstraint.constant = self.underlineView.frame.width
+                self.underlineHighlightTrailingConstraint.constant = halfWidth
+                self.underlineHighlightLeadingConstraint.constant = -1 * halfWidth
                 self.layoutIfNeeded()
             })
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
@@ -79,11 +82,9 @@ class TableMeTextFieldView: UIView {
             })
             
         } else if textField.text!.count == 0 {
-            UIView.animate(withDuration: 0.4, animations: {
-                self.underlineHighlightTrailingConstraint.constant = 0
-                self.layoutIfNeeded()
-            })
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+                self.underlineHighlightTrailingConstraint.constant = 0
+                self.underlineHighlightLeadingConstraint.constant = 0
                 self.labelBottomConstraint.constant = 15
                 self.layoutIfNeeded()
             }, completion:{ succes in

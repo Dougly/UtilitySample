@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +17,7 @@
                 <outlet property="label" destination="aOA-NT-wMV" id="ULL-XI-XRs"/>
                 <outlet property="labelBottomConstraint" destination="YY7-mw-z64" id="Lfh-gz-MQy"/>
                 <outlet property="textField" destination="06e-JD-XJp" id="ldG-x7-b72"/>
+                <outlet property="underlineHighlightLeadingConstraint" destination="NVw-1h-Z08" id="flj-ai-Zjm"/>
                 <outlet property="underlineHighlightTrailingConstraint" destination="hre-me-bkn" id="YMd-1T-co4"/>
                 <outlet property="underlineHighlightView" destination="pIo-uR-a42" id="hKC-xM-CDJ"/>
                 <outlet property="underlineView" destination="Dq7-2B-pIR" id="cDX-EU-CSK"/>
@@ -46,7 +48,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIo-uR-a42">
-                    <rect key="frame" x="0.0" y="50" width="0.0" height="1"/>
+                    <rect key="frame" x="86.5" y="50" width="0.0" height="1"/>
                     <color key="backgroundColor" red="0.52156862749999999" green="0.21176470589999999" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
@@ -57,10 +59,10 @@
                 <constraint firstItem="pIo-uR-a42" firstAttribute="height" secondItem="Dq7-2B-pIR" secondAttribute="height" id="G4R-Jx-ES9"/>
                 <constraint firstItem="aOA-NT-wMV" firstAttribute="leading" secondItem="06e-JD-XJp" secondAttribute="leading" id="J35-03-dBt"/>
                 <constraint firstItem="pIo-uR-a42" firstAttribute="centerY" secondItem="Dq7-2B-pIR" secondAttribute="centerY" id="M9f-H2-vdd"/>
-                <constraint firstItem="pIo-uR-a42" firstAttribute="leading" secondItem="Dq7-2B-pIR" secondAttribute="leading" id="NVw-1h-Z08"/>
+                <constraint firstItem="pIo-uR-a42" firstAttribute="leading" secondItem="Dq7-2B-pIR" secondAttribute="centerX" id="NVw-1h-Z08"/>
                 <constraint firstItem="06e-JD-XJp" firstAttribute="width" secondItem="Dq7-2B-pIR" secondAttribute="width" id="Rlr-sz-qDX"/>
                 <constraint firstItem="aOA-NT-wMV" firstAttribute="bottom" secondItem="06e-JD-XJp" secondAttribute="top" constant="25" id="YY7-mw-z64"/>
-                <constraint firstItem="pIo-uR-a42" firstAttribute="trailing" secondItem="Dq7-2B-pIR" secondAttribute="leading" id="hre-me-bkn"/>
+                <constraint firstItem="pIo-uR-a42" firstAttribute="trailing" secondItem="Dq7-2B-pIR" secondAttribute="centerX" id="hre-me-bkn"/>
                 <constraint firstItem="Dq7-2B-pIR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="mgq-ZU-Yg1"/>
                 <constraint firstItem="Dq7-2B-pIR" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="xSm-gm-1D3"/>
                 <constraint firstItem="06e-JD-XJp" firstAttribute="bottom" secondItem="Dq7-2B-pIR" secondAttribute="bottom" constant="-10" id="zu0-vD-hUS"/>
