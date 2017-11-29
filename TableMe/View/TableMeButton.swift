@@ -14,7 +14,7 @@ enum TableMeButtonState {
 
 class TableMeButton: UIView {
     
-    
+    var delegate: TableMeButtonDelegate?
     var longTouchStartingPoint = CGPoint(x: 0, y: 0)
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var buttonEdgesView: UIView!
@@ -55,60 +55,42 @@ class TableMeButton: UIView {
         longGR.minimumPressDuration = 0.1
         contentView.addGestureRecognizer(tapGR)
         contentView.addGestureRecognizer(longGR)
-        
-        
-//        let panGR = UIPanGestureRecognizer(target: self, action: #selector(pan))
-//        contentView.addGestureRecognizer(panGR)
-        
     }
     
     @objc func longHold(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
+        switch sender.state {
+        case .began:
             self.longTouchStartingPoint = sender.location(in: self)
             UIView.animate(withDuration: 0.2, animations: {
                 self.alpha = 0.5
-                self.buttonEdgeTopConstraint.constant = 5
-                self.buttonEdgeBottomConstraint.constant = -5
-                self.buttonEdgeLeadingConstraint.constant = 5
-                self.buttonEdgeTrailingConstraint.constant = -5
+                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 self.layoutIfNeeded()
             })
-        }
-        
-        if sender.state == .changed {
+        case .changed:
             let xLocation = sender.location(in: self).x
             let yLocation = sender.location(in: self).y
-            
             let maxXOffset = self.frame.width + 40
             let minXOffset: CGFloat = -40
-            
             let maxYOffset = self.frame.height + 40
             let minYOffset: CGFloat = -40
-            
             if xLocation > maxXOffset || xLocation < minXOffset || yLocation > maxYOffset || yLocation < minYOffset {
                 sender.isEnabled = false
             }
-        }
-
-        
-        if sender.state == .cancelled {
+        case .cancelled:
             animateToStartingPosition()
             sender.isEnabled = true
-        }
-        
-        if sender.state == .ended {
+        case .ended:
             animateToStartingPosition()
-            //perfrom action
+            self.delegate?.buttonActivted()
+        case .failed, .possible:
+            break
         }
     }
     
     func animateToStartingPosition() {
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 1
-            self.buttonEdgeTopConstraint.constant = 0
-            self.buttonEdgeBottomConstraint.constant = 0
-            self.buttonEdgeLeadingConstraint.constant = 0
-            self.buttonEdgeTrailingConstraint.constant = 0
+            self.transform = CGAffineTransform.identity
             self.layoutIfNeeded()
         })
     }
@@ -116,32 +98,28 @@ class TableMeButton: UIView {
     @objc func tappedButton(_ sender: UITapGestureRecognizer) {
         UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: [.calculationModeCubicPaced], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1, animations: {
-                self.buttonEdgeTopConstraint.constant = 5
-                self.buttonEdgeBottomConstraint.constant = -5
-                self.buttonEdgeLeadingConstraint.constant = 5
-                self.buttonEdgeTrailingConstraint.constant = -5
-                self.layoutIfNeeded()
+                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             })
-
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.1, animations: {
-                self.buttonEdgeTopConstraint.constant = 0
-                self.buttonEdgeBottomConstraint.constant = 0
-                self.buttonEdgeLeadingConstraint.constant = 0
-                self.buttonEdgeTrailingConstraint.constant = 0
-                self.layoutIfNeeded()
+                self.transform = CGAffineTransform.identity
             })
         }) { (success) in
-            //potentially do something
+            self.delegate?.buttonActivted()
         }
     }
     
     
     
-    func setProperties(title: String, icon: UIImage, backgroundImage: UIImage, backgroundColor: UIColor) {
+    func setProperties(title: String?, icon: UIImage?, backgroundImage: UIImage?, backgroundColor: UIColor, cornerRadius: CGFloat?) {
         self.titleLabel.text = title
         self.iconImageView.image = icon
         self.backgroundImageView.image = backgroundImage
         self.buttonEdgesView.backgroundColor = backgroundColor
+        if let cornerRadius = cornerRadius {
+            print("setting corener radius")
+            self.layer.cornerRadius = cornerRadius
+            self.clipsToBounds = true
+        }
     }
 
     

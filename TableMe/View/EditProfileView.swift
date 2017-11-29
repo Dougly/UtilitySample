@@ -12,12 +12,12 @@ class EditProfileView: UIView {
     
     var checkBoxSelected = false
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var profilePictureButtonView: TableMeButton!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var fullNameTMTextField: TableMeTextFieldView!
     @IBOutlet weak var emailTMTextField: TableMeTextFieldView!
     @IBOutlet weak var genderTMTextField: TableMeTextFieldView!
     @IBOutlet weak var birthdayTMTextField: TableMeTextFieldView!
-    //@IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var checkBoxView: UIView!
     @IBOutlet weak var certifyLabel: UILabel!
     @IBOutlet weak var certifyView: UIView!
@@ -46,8 +46,8 @@ class EditProfileView: UIView {
     }
     
     func setViewValues() {
-//        profileImageButton.layer.cornerRadius = 45
-//        profileImageButton.clipsToBounds = true
+        //profilePictureButtonView.layer.cornerRadius = 45
+        //profilePictureButtonView.clipsToBounds = true
         checkBoxView.layer.cornerRadius = 2
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
@@ -65,6 +65,8 @@ class EditProfileView: UIView {
         
         birthdayTMTextField.setText("Choose Birthday", labelText: "Choose Birthday")
         birthdayTMTextField.textField.tag = 4
+        
+        profilePictureButtonView.setProperties(title: "", icon: #imageLiteral(resourceName: "camera"), backgroundImage: nil, backgroundColor: .themeGreen, cornerRadius: 45)
     }
     
     func setGesturesAndTargets() {

@@ -32,6 +32,7 @@ class AdditionalDetailsViewController: UIViewController {
         additionalDetailsView.emailTMTextField.textField.delegate = self
         additionalDetailsView.genderTMTextField.textField.delegate = self
         additionalDetailsView.birthdayTMTextField.textField.delegate = self
+        additionalDetailsView.profilePictureButtonView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +80,61 @@ class AdditionalDetailsViewController: UIViewController {
 
 }
 
+//MARK: Camera
+extension AdditionalDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, TableMeButtonDelegate {
+    
+    func buttonActivted() {
+        presentPhotoAlert()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        additionalDetailsView.profilePictureButtonView.iconImageView.image = nil
+        picker.dismiss(animated: true, completion: nil)
+        //picker.popViewController(animated: true)
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.additionalDetailsView.profilePictureButtonView.backgroundImageView.image = image
+    }
+    
+    func presentPhotoAlert() {
+        let alert = UIAlertController(title: "Profile Photo", message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { (takePhotoAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+                //self.navigationController?.pushViewController(imagePicker, animated: true)
+            }
+        }
+        
+        let choosePhotoAction = UIAlertAction(title: "Choose From Library", style: .default) { (choosePhotoAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let photoLib = UIImagePickerController()
+                photoLib.delegate = self
+                photoLib.sourceType = .photoLibrary
+                photoLib.allowsEditing = true
+                self.present(photoLib, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
+            //dismiss?
+        }
+        
+        alert.addAction(takePhotoAction)
+        alert.addAction(choosePhotoAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+}
 
+
+
+
+//MARK: UITextField Delegate
 extension AdditionalDetailsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

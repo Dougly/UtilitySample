@@ -20,6 +20,7 @@
                 <outlet property="emailTMTextField" destination="GUz-HN-Qvf" id="Emh-Yp-5x2"/>
                 <outlet property="fullNameTMTextField" destination="XRh-pI-wId" id="2es-qD-eWE"/>
                 <outlet property="genderTMTextField" destination="mRF-2A-wiz" id="1Oe-2c-0Lk"/>
+                <outlet property="profilePictureButtonView" destination="EgD-Ps-Qrd" id="jaf-Ek-sCs"/>
                 <outlet property="stackView" destination="bMH-Js-jc2" id="kan-Ke-JRn"/>
             </connections>
         </placeholder>

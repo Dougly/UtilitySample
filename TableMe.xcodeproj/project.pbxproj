@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11155E8B1FCF06B8008ADE72 /* TableMeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */; };
 		11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */; };
+		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
 		111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */; };
 		112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD11FAE54480031FF64 /* AppDelegate.swift */; };
 		112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableMeButton.xib; sourceTree = "<group>"; };
 		11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButton.swift; sourceTree = "<group>"; };
+		11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButtonDelegate.swift; sourceTree = "<group>"; };
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */,
+				11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */,
+				11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */,
 				118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */,
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
