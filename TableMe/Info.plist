@@ -71,8 +71,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>To Take Photo</string>
+	<string>$(PRODUCT_NAME) Camera Use</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To Show Photo</string>
+	<string>$(PRODUCT_NAME) Photo Library Use</string>
 </dict>
 </plist>

@@ -66,6 +66,8 @@ class EnterPhoneNumberViewController: UIViewController {
         let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply", preferredStyle: .alert)
         
         let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
+            self.activityIndicator.startAnimating()
+
             var phoneNumber = "+1"
             let chars = Array(self.textField.text!)
             for char in chars {
@@ -80,12 +82,14 @@ class EnterPhoneNumberViewController: UIViewController {
             if phoneNumber.count == 12 {
                 PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
                     if let error = error {
+                        self.activityIndicator.stopAnimating()
                         print(error.localizedDescription)
                         return
                     }
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                     let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
                     self.navigationController?.pushViewController(destVC, animated: true)
+                    self.activityIndicator.stopAnimating()
                 }
             }
         }

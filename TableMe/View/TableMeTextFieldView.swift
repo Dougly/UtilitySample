@@ -39,6 +39,7 @@ class TableMeTextFieldView: UIView {
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         setGesturesAndTargets()
+
     }
     
     func setGesturesAndTargets() {

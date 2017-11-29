@@ -80,10 +80,18 @@ class AdditionalDetailsViewController: UIViewController {
 
 }
 
-//MARK: Camera
+//MARK: Camera And Photo
 extension AdditionalDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, TableMeButtonDelegate {
     
     func buttonActivted() {
+        let textFields = [additionalDetailsView.fullNameTMTextField.textField, additionalDetailsView.emailTMTextField.textField, additionalDetailsView.genderTMTextField.textField, additionalDetailsView.birthdayTMTextField.textField ]
+        for textField in textFields {
+            if let textField = textField {
+                if textField.isFirstResponder {
+                    textField.resignFirstResponder()
+                }
+            }
+        }
         presentPhotoAlert()
     }
     

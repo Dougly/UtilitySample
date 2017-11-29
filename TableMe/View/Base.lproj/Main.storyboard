@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Phone #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga3-JA-wuN">
-                                <rect key="frame" x="15" y="86" width="345" height="39"/>
+                                <rect key="frame" x="15" y="86" width="268.5" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Mli-fL-8b1">
-                                <rect key="frame" x="177.5" y="333.5" width="20" height="20"/>
+                                <rect key="frame" x="298.5" y="95.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -100,13 +100,12 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ga3-JA-wuN" secondAttribute="trailing" constant="15" id="SiK-Dd-N8o"/>
                             <constraint firstItem="vu6-x3-2ui" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n4d-aE-Pju" secondAttribute="leading" constant="20" symbolic="YES" id="UMX-gV-mvK"/>
                             <constraint firstItem="Ga3-JA-wuN" firstAttribute="top" secondItem="Jfx-qf-OoY" secondAttribute="centerY" multiplier="0.25" id="UUv-Xw-fai"/>
-                            <constraint firstItem="Mli-fL-8b1" firstAttribute="centerX" secondItem="Jfx-qf-OoY" secondAttribute="centerX" id="Wfp-hp-ceu"/>
                             <constraint firstItem="D5E-KG-Tge" firstAttribute="leading" secondItem="Jfx-qf-OoY" secondAttribute="leading" constant="15" id="Ycy-HO-Wsf"/>
+                            <constraint firstItem="Mli-fL-8b1" firstAttribute="leading" secondItem="Ga3-JA-wuN" secondAttribute="trailing" constant="15" id="aht-zN-XgY"/>
+                            <constraint firstItem="Mli-fL-8b1" firstAttribute="centerY" secondItem="Ga3-JA-wuN" secondAttribute="centerY" id="amn-rz-EhE"/>
                             <constraint firstItem="ZEh-n0-DGu" firstAttribute="top" secondItem="iIJ-MX-91g" secondAttribute="bottom" constant="10" id="apN-u7-ZA8"/>
-                            <constraint firstItem="Mli-fL-8b1" firstAttribute="centerY" secondItem="Jfx-qf-OoY" secondAttribute="centerY" id="j11-cW-cFb"/>
                             <constraint firstItem="D5E-KG-Tge" firstAttribute="centerY" secondItem="vu6-x3-2ui" secondAttribute="centerY" id="qTh-4S-4b1"/>
                             <constraint firstItem="Ga3-JA-wuN" firstAttribute="leading" secondItem="Jfx-qf-OoY" secondAttribute="leading" constant="15" id="wBS-s3-oMW"/>
-                            <constraint firstItem="Ga3-JA-wuN" firstAttribute="width" secondItem="n4d-aE-Pju" secondAttribute="width" constant="-30" id="ydl-oZ-muY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jfx-qf-OoY"/>
                     </view>
@@ -195,6 +194,9 @@
                                     <action selector="resendCodeButtonTapped:" destination="att-mI-6gu" eventType="touchUpInside" id="UN7-At-JF7"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-Di-i1r">
+                                <rect key="frame" x="273" y="95.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -217,14 +219,17 @@
                             <constraint firstItem="CHS-ae-Fnv" firstAttribute="leading" secondItem="3DB-Jg-PuF" secondAttribute="leading" id="mzI-Ow-3Cp"/>
                             <constraint firstItem="28w-Sq-D88" firstAttribute="top" secondItem="6fT-xh-1QJ" secondAttribute="bottom" constant="10" id="nD4-33-FmF"/>
                             <constraint firstItem="Yn8-SK-gep" firstAttribute="leading" secondItem="CHS-ae-Fnv" secondAttribute="leading" id="nDP-6V-NIK"/>
+                            <constraint firstItem="2fX-Di-i1r" firstAttribute="leading" secondItem="3DB-Jg-PuF" secondAttribute="trailing" constant="15" id="oXt-5a-mM5"/>
                             <constraint firstItem="V1y-kJ-gUn" firstAttribute="leading" secondItem="3DB-Jg-PuF" secondAttribute="leading" id="pSY-70-t2W"/>
                             <constraint firstItem="CHS-ae-Fnv" firstAttribute="top" secondItem="V1y-kJ-gUn" secondAttribute="bottom" constant="30" id="qFF-sw-lot"/>
                             <constraint firstItem="qUX-aW-hpX" firstAttribute="trailing" secondItem="0La-FC-1Zz" secondAttribute="trailing" constant="-15" id="sPq-Mq-BWQ"/>
                             <constraint firstItem="qUX-aW-hpX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ixh-uy-IYo" secondAttribute="leading" constant="20" symbolic="YES" id="x9k-qh-Ckt"/>
+                            <constraint firstItem="2fX-Di-i1r" firstAttribute="centerY" secondItem="3DB-Jg-PuF" secondAttribute="centerY" id="zYB-aW-c9J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0La-FC-1Zz"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="2fX-Di-i1r" id="shC-77-aZU"/>
                         <outlet property="fiveDigitCodeLabel" destination="CHS-ae-Fnv" id="mvL-fn-fBr"/>
                         <outlet property="nextButton" destination="qUX-aW-hpX" id="vHY-Rd-Uhk"/>
                         <outlet property="textField" destination="Yn8-SK-gep" id="b37-ko-ZfD"/>
