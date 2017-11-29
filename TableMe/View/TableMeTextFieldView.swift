@@ -37,6 +37,10 @@ class TableMeTextFieldView: UIView {
         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        setGesturesAndTargets()
+    }
+    
+    func setGesturesAndTargets() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tappedView))
         self.addGestureRecognizer(tapGR)
         self.isUserInteractionEnabled = true
@@ -63,7 +67,7 @@ class TableMeTextFieldView: UIView {
     
     @objc func raiseLabel() {
         if !textFieldIsRisen {
-            UIView.animate(withDuration: 0.4, animations: {
+            UIView.animate(withDuration: 0.6, animations: {
                 self.underlineHighlightTrailingConstraint.constant = self.underlineView.frame.width
                 self.layoutIfNeeded()
             })

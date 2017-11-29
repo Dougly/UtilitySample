@@ -17,8 +17,7 @@ class EditProfileView: UIView {
     @IBOutlet weak var emailTMTextField: TableMeTextFieldView!
     @IBOutlet weak var genderTMTextField: TableMeTextFieldView!
     @IBOutlet weak var birthdayTMTextField: TableMeTextFieldView!
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var profileImageButton: UIButton!
+    //@IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var checkBoxView: UIView!
     @IBOutlet weak var certifyLabel: UILabel!
     @IBOutlet weak var certifyView: UIView!
@@ -43,11 +42,12 @@ class EditProfileView: UIView {
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         setViewValues()
-        setGestures()
+        setGesturesAndTargets()
     }
     
     func setViewValues() {
-        profileImageView.layer.cornerRadius = 45
+//        profileImageButton.layer.cornerRadius = 45
+//        profileImageButton.clipsToBounds = true
         checkBoxView.layer.cornerRadius = 2
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
@@ -65,18 +65,22 @@ class EditProfileView: UIView {
         
         birthdayTMTextField.setText("Choose Birthday", labelText: "Choose Birthday")
         birthdayTMTextField.textField.tag = 4
-        
     }
     
-    func setGestures() {
+    func setGesturesAndTargets() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
-//        let labelTapGR = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
         checkBoxView.addGestureRecognizer(tapGR)
         certifyLabel.addGestureRecognizer(tapGR)
         certifyView.addGestureRecognizer(tapGR)
         checkBoxView.isUserInteractionEnabled = true
         certifyLabel.isUserInteractionEnabled = true
         certifyView.isUserInteractionEnabled = true
+        
+        //self.profileImageButton.addTarget(self, action: #selector(buttonTouched), for: [.allTouchEvents])
+    }
+    
+    @objc func buttonTouched(_ sender: UIButton) {
+        
     }
     
     @objc func checkBoxTapped(_ sender: UITapGestureRecognizer) {

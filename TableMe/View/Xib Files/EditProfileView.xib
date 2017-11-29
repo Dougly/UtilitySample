@@ -20,8 +20,6 @@
                 <outlet property="emailTMTextField" destination="GUz-HN-Qvf" id="Emh-Yp-5x2"/>
                 <outlet property="fullNameTMTextField" destination="XRh-pI-wId" id="2es-qD-eWE"/>
                 <outlet property="genderTMTextField" destination="mRF-2A-wiz" id="1Oe-2c-0Lk"/>
-                <outlet property="profileImageButton" destination="etK-PF-RGZ" id="bgP-xB-D5Y"/>
-                <outlet property="profileImageView" destination="XN0-lS-1Os" id="n6d-HW-Njr"/>
                 <outlet property="stackView" destination="bMH-Js-jc2" id="kan-Ke-JRn"/>
             </connections>
         </placeholder>
@@ -36,18 +34,14 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XN0-lS-1Os">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgD-Ps-Qrd" customClass="TableMeButton" customModule="TableMe" customModuleProvider="target">
                     <rect key="frame" x="150" y="83.5" width="90" height="90"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="90" id="a4r-oI-lqq"/>
-                        <constraint firstAttribute="height" constant="90" id="kdO-5L-Y7w"/>
+                        <constraint firstAttribute="width" constant="90" id="ESm-hT-Icc"/>
+                        <constraint firstAttribute="height" constant="90" id="xGT-DW-t3e"/>
                     </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etK-PF-RGZ">
-                    <rect key="frame" x="150" y="84" width="90" height="90"/>
-                    <state key="normal" image="camera"/>
-                </button>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-UP-FFD">
                     <rect key="frame" x="374" y="384" width="16" height="22"/>
                     <state key="normal" image="DownSelectionArrow"/>
@@ -116,30 +110,26 @@
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
+                <constraint firstItem="EgD-Ps-Qrd" firstAttribute="top" secondItem="Xdc-Kh-coZ" secondAttribute="bottom" constant="25" id="1RV-Yo-sBS"/>
                 <constraint firstItem="yb4-SF-TmK" firstAttribute="centerY" secondItem="nAA-pt-IRF" secondAttribute="centerY" id="3Od-JY-u9P"/>
                 <constraint firstItem="nAA-pt-IRF" firstAttribute="leading" secondItem="bMH-Js-jc2" secondAttribute="leading" id="86O-CN-gH4"/>
-                <constraint firstItem="bMH-Js-jc2" firstAttribute="top" secondItem="XN0-lS-1Os" secondAttribute="bottom" id="HCv-a7-w3m"/>
                 <constraint firstItem="b9x-1U-MxO" firstAttribute="centerY" secondItem="nAA-pt-IRF" secondAttribute="centerY" id="KCA-AJ-yNg"/>
                 <constraint firstItem="b9x-1U-MxO" firstAttribute="leading" secondItem="nAA-pt-IRF" secondAttribute="trailing" constant="10" id="Lfg-HF-uLk"/>
-                <constraint firstItem="XN0-lS-1Os" firstAttribute="top" secondItem="Xdc-Kh-coZ" secondAttribute="bottom" constant="25" id="MXT-1U-nzP"/>
                 <constraint firstItem="Xdc-Kh-coZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OeP-lz-ylH"/>
                 <constraint firstItem="bMH-Js-jc2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Qc4-O3-tL5"/>
                 <constraint firstItem="8uD-UP-FFD" firstAttribute="trailing" secondItem="mRF-2A-wiz" secondAttribute="trailing" id="Uqc-CG-cT5"/>
                 <constraint firstItem="fWG-1p-tbu" firstAttribute="trailing" secondItem="M3Q-Je-xgu" secondAttribute="trailing" id="VJf-hm-Epj"/>
-                <constraint firstItem="etK-PF-RGZ" firstAttribute="centerY" secondItem="XN0-lS-1Os" secondAttribute="centerY" id="WTY-5W-lKq"/>
                 <constraint firstItem="yb4-SF-TmK" firstAttribute="trailing" secondItem="b9x-1U-MxO" secondAttribute="trailing" id="XpM-Ik-3lc"/>
                 <constraint firstItem="Xdc-Kh-coZ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="at3-ad-X5h"/>
                 <constraint firstItem="nAA-pt-IRF" firstAttribute="top" secondItem="bMH-Js-jc2" secondAttribute="bottom" constant="25" id="bLD-I0-Nzs"/>
                 <constraint firstItem="b9x-1U-MxO" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-5" id="bX0-CQ-etu"/>
-                <constraint firstItem="etK-PF-RGZ" firstAttribute="centerX" secondItem="XN0-lS-1Os" secondAttribute="centerX" id="byk-M1-gq8"/>
                 <constraint firstItem="fWG-1p-tbu" firstAttribute="bottom" secondItem="M3Q-Je-xgu" secondAttribute="bottom" constant="-11" id="h5A-Vh-PH9"/>
                 <constraint firstItem="8uD-UP-FFD" firstAttribute="bottom" secondItem="mRF-2A-wiz" secondAttribute="bottom" constant="-11" id="mxI-Jv-B2Y"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bMH-Js-jc2" secondAttribute="trailing" id="n1A-FK-ISu"/>
+                <constraint firstItem="bMH-Js-jc2" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="n1A-FK-ISu"/>
                 <constraint firstItem="yb4-SF-TmK" firstAttribute="leading" secondItem="nAA-pt-IRF" secondAttribute="leading" id="nd6-ew-LXP"/>
-                <constraint firstItem="XN0-lS-1Os" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="qdy-c1-kFf"/>
                 <constraint firstItem="Xdc-Kh-coZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="rY4-HL-p6k"/>
-                <constraint firstItem="etK-PF-RGZ" firstAttribute="width" secondItem="XN0-lS-1Os" secondAttribute="width" id="uoe-Hj-bZS"/>
-                <constraint firstItem="etK-PF-RGZ" firstAttribute="height" secondItem="XN0-lS-1Os" secondAttribute="height" id="x7g-wE-MgR"/>
+                <constraint firstItem="EgD-Ps-Qrd" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="wOt-D7-eXS"/>
+                <constraint firstItem="bMH-Js-jc2" firstAttribute="top" secondItem="EgD-Ps-Qrd" secondAttribute="bottom" id="wuF-Ft-LSP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -149,6 +139,5 @@
     <resources>
         <image name="DownSelectionArrow" width="16" height="8"/>
         <image name="calendar" width="20" height="22"/>
-        <image name="camera" width="30" height="25"/>
     </resources>
 </document>

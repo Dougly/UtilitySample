@@ -25,37 +25,14 @@ class AdditionalDetailsViewController: UIViewController {
         setupDatePicker()
         setupGenderPicker()
         setDelegates()
-        //setGestures()
-        //additionalDetailsView.fullNameTMTextField.textField.becomeFirstResponder()
-        
     }
-    
-//    func setGestures() {
-//        let tapGR = UIGestureRecognizer(target: self, action: #selector(checkBoxTapped))
-//        additionalDetailsView.checkBoxView.addGestureRecognizer(tapGR)
-//        additionalDetailsView.checkBoxView.isUserInteractionEnabled = true
-//    }
-//
-//    @objc func checkBoxTapped(_ sender: UITapGestureRecognizer) {
-//        print("tapped")
-//        switch additionalDetailsView.checkBoxSelected {
-//        case true:
-//            additionalDetailsView.checkBoxView.backgroundColor = UIColor.clear
-//            additionalDetailsView.checkBoxSelected = false
-//        case false:
-//            additionalDetailsView.checkBoxView.backgroundColor = UIColor.themePurple
-//            additionalDetailsView.checkBoxSelected = true
-//        }
-//    }
-    
+
     func setDelegates() {
         additionalDetailsView.fullNameTMTextField.textField.delegate = self
         additionalDetailsView.emailTMTextField.textField.delegate = self
         additionalDetailsView.genderTMTextField.textField.delegate = self
         additionalDetailsView.birthdayTMTextField.textField.delegate = self
     }
-    
-   
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
@@ -74,7 +51,6 @@ class AdditionalDetailsViewController: UIViewController {
                 self.scrollViewBottomConstraint.constant = keyboardHeight * -1
                 self.view.layoutIfNeeded()
             }, completion: nil)
-            
         }
     }
     
@@ -132,7 +108,6 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
    
     //Date Picker
     func setupDatePicker() {
-        //Picker
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.backgroundColor = .black
@@ -140,19 +115,16 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         additionalDetailsView.birthdayTMTextField.textField.inputView = datePicker
-        
         var components = DateComponents()
         components.year = -21
         let maxDate = Calendar.current.date(byAdding: components, to: Date())
         datePicker.maximumDate = maxDate
 
-        
-        //Done Button
         let birthdayToolBar = UIToolbar()
-        birthdayToolBar.barStyle = .blackTranslucent
-        birthdayToolBar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleBirthdayDoneButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        birthdayToolBar.barStyle = .blackTranslucent
+        birthdayToolBar.sizeToFit()
         birthdayToolBar.setItems([spaceButton, doneButton], animated: false)
         birthdayToolBar.isUserInteractionEnabled = true
         additionalDetailsView.birthdayTMTextField.textField.inputAccessoryView = birthdayToolBar
@@ -171,7 +143,6 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
     
     //Gender Picker
     func setupGenderPicker() {
-        //Picker
         let genderPicker = UIPickerView()
         genderPicker.dataSource = self
         genderPicker.delegate = self
@@ -179,12 +150,11 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         genderPicker.setValue(UIColor.white, forKeyPath: "textColor")
         additionalDetailsView.genderTMTextField.textField.inputView = genderPicker
         
-        //Done Button
         let genderToolBar = UIToolbar()
-        genderToolBar.barStyle = .blackTranslucent
-        genderToolBar.sizeToFit()
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(handleGenderNextButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        genderToolBar.barStyle = .blackTranslucent
+        genderToolBar.sizeToFit()
         genderToolBar.setItems([spaceButton, nextButton], animated: false)
         genderToolBar.isUserInteractionEnabled = true
         additionalDetailsView.genderTMTextField.textField.inputAccessoryView = genderToolBar
