@@ -29,6 +29,7 @@
 		1165E84B1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165E84A1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift */; };
 		1173E2EF1FD08FA500B34C96 /* CheckBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173E2EE1FD08FA500B34C96 /* CheckBoxDelegate.swift */; };
 		1173E2F11FD093D000B34C96 /* TableMeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173E2F01FD093D000B34C96 /* TableMeTextFieldDelegate.swift */; };
+		1173E2F31FD0989E00B34C96 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173E2F21FD0989E00B34C96 /* StringExtension.swift */; };
 		118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */; };
 		118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */; };
 		118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */; };
@@ -85,6 +86,7 @@
 		1165E84A1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseFacade.swift; sourceTree = "<group>"; };
 		1173E2EE1FD08FA500B34C96 /* CheckBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxDelegate.swift; sourceTree = "<group>"; };
 		1173E2F01FD093D000B34C96 /* TableMeTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		1173E2F21FD0989E00B34C96 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTableCell.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				118FD0611FB4BB1C009E8B89 /* UIViewControllerExtension.swift */,
 				11589ABE1FC367D800DDD3BD /* UIColorExtension.swift */,
 				11589AC01FC373E000DDD3BD /* UITextFieldExtension.swift */,
+				1173E2F21FD0989E00B34C96 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */,
 				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
+				1173E2F31FD0989E00B34C96 /* StringExtension.swift in Sources */,
 				11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

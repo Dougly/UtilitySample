@@ -13,8 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileView" customModule="TableMe" customModuleProvider="target">
             <connections>
                 <outlet property="birthdayTMTextField" destination="M3Q-Je-xgu" id="MXH-pd-Pxt"/>
-                <outlet property="certifyLabel" destination="b9x-1U-MxO" id="0Ko-ly-FDn"/>
-                <outlet property="certifyView" destination="yb4-SF-TmK" id="nHT-W3-aPw"/>
                 <outlet property="checkBoxView" destination="nAA-pt-IRF" id="DpZ-x1-qCg"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="cbB-if-rap"/>
                 <outlet property="emailTMTextField" destination="GUz-HN-Qvf" id="Emh-Yp-5x2"/>
@@ -43,16 +41,24 @@
                         <constraint firstAttribute="height" constant="90" id="xGT-DW-t3e"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-UP-FFD">
-                    <rect key="frame" x="374" y="384" width="16" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-UP-FFD">
+                    <rect key="frame" x="374" y="388" width="16" height="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="DownSelectionArrow"/>
+                    <connections>
+                        <action selector="genderButtonTapped:" destination="-1" eventType="touchUpInside" id="gj8-U2-lwE"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWG-1p-tbu">
-                    <rect key="frame" x="370" y="470.5" width="20" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWG-1p-tbu">
+                    <rect key="frame" x="370" y="470" width="20" height="22"/>
+                    <color key="tintColor" red="0.42352941179999998" green="0.44705882349999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" image="calendar"/>
+                    <connections>
+                        <action selector="dateButtonTapped:" destination="-1" eventType="touchUpInside" id="ZOd-2N-OpX"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bMH-Js-jc2">
-                    <rect key="frame" x="0.0" y="173.5" width="390" height="330"/>
+                    <rect key="frame" x="0.0" y="173" width="390" height="330"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRh-pI-wId" customClass="TableMeTextFieldView" customModule="TableMe" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
@@ -87,32 +93,24 @@
                         <constraint firstAttribute="height" constant="330" id="GnY-5p-FfU"/>
                     </constraints>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yb4-SF-TmK">
-                    <rect key="frame" x="0.0" y="520" width="385" height="30"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="MWm-0f-iOM"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I certify that I am at least 21 years of age." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b9x-1U-MxO">
-                    <rect key="frame" x="25" y="530" width="360" height="12"/>
+                    <rect key="frame" x="30" y="532.5" width="355" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAA-pt-IRF" userLabel="checkBox">
-                    <rect key="frame" x="0.0" y="528" width="15" height="15"/>
+                    <rect key="frame" x="0.0" y="528" width="20" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="6WL-fn-Rlj"/>
-                        <constraint firstAttribute="width" constant="15" id="Bv1-zT-idJ"/>
+                        <constraint firstAttribute="height" constant="20" id="6WL-fn-Rlj"/>
+                        <constraint firstAttribute="width" constant="20" id="Bv1-zT-idJ"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="EgD-Ps-Qrd" firstAttribute="top" secondItem="Xdc-Kh-coZ" secondAttribute="bottom" constant="25" id="1RV-Yo-sBS"/>
-                <constraint firstItem="yb4-SF-TmK" firstAttribute="centerY" secondItem="nAA-pt-IRF" secondAttribute="centerY" id="3Od-JY-u9P"/>
                 <constraint firstItem="nAA-pt-IRF" firstAttribute="leading" secondItem="bMH-Js-jc2" secondAttribute="leading" id="86O-CN-gH4"/>
                 <constraint firstItem="b9x-1U-MxO" firstAttribute="centerY" secondItem="nAA-pt-IRF" secondAttribute="centerY" id="KCA-AJ-yNg"/>
                 <constraint firstItem="b9x-1U-MxO" firstAttribute="leading" secondItem="nAA-pt-IRF" secondAttribute="trailing" constant="10" id="Lfg-HF-uLk"/>
@@ -120,14 +118,12 @@
                 <constraint firstItem="bMH-Js-jc2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Qc4-O3-tL5"/>
                 <constraint firstItem="8uD-UP-FFD" firstAttribute="trailing" secondItem="mRF-2A-wiz" secondAttribute="trailing" id="Uqc-CG-cT5"/>
                 <constraint firstItem="fWG-1p-tbu" firstAttribute="trailing" secondItem="M3Q-Je-xgu" secondAttribute="trailing" id="VJf-hm-Epj"/>
-                <constraint firstItem="yb4-SF-TmK" firstAttribute="trailing" secondItem="b9x-1U-MxO" secondAttribute="trailing" id="XpM-Ik-3lc"/>
                 <constraint firstItem="Xdc-Kh-coZ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="at3-ad-X5h"/>
                 <constraint firstItem="nAA-pt-IRF" firstAttribute="top" secondItem="bMH-Js-jc2" secondAttribute="bottom" constant="25" id="bLD-I0-Nzs"/>
                 <constraint firstItem="b9x-1U-MxO" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-5" id="bX0-CQ-etu"/>
                 <constraint firstItem="fWG-1p-tbu" firstAttribute="bottom" secondItem="M3Q-Je-xgu" secondAttribute="bottom" constant="-11" id="h5A-Vh-PH9"/>
                 <constraint firstItem="8uD-UP-FFD" firstAttribute="bottom" secondItem="mRF-2A-wiz" secondAttribute="bottom" constant="-11" id="mxI-Jv-B2Y"/>
                 <constraint firstItem="bMH-Js-jc2" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="n1A-FK-ISu"/>
-                <constraint firstItem="yb4-SF-TmK" firstAttribute="leading" secondItem="nAA-pt-IRF" secondAttribute="leading" id="nd6-ew-LXP"/>
                 <constraint firstItem="Xdc-Kh-coZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="rY4-HL-p6k"/>
                 <constraint firstItem="EgD-Ps-Qrd" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="wOt-D7-eXS"/>
                 <constraint firstItem="bMH-Js-jc2" firstAttribute="top" secondItem="EgD-Ps-Qrd" secondAttribute="bottom" id="wuF-Ft-LSP"/>

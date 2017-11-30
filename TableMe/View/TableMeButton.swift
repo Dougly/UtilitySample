@@ -52,7 +52,7 @@ class TableMeButton: UIView {
     func addGestures() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tappedButton))
         let longGR = UILongPressGestureRecognizer(target: self, action: #selector(longHold))
-        longGR.minimumPressDuration = 0.1
+        longGR.minimumPressDuration = 0.025
         contentView.addGestureRecognizer(tapGR)
         contentView.addGestureRecognizer(longGR)
     }

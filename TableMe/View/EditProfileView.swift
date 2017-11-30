@@ -20,8 +20,13 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
     @IBOutlet weak var genderTMTextField: TableMeTextFieldView!
     @IBOutlet weak var birthdayTMTextField: TableMeTextFieldView!
     @IBOutlet weak var checkBoxView: UIView!
-    @IBOutlet weak var certifyLabel: UILabel!
-    @IBOutlet weak var certifyView: UIView!
+    @IBAction func dateButtonTapped(_ sender: UIButton) {
+        print("tapped date button")
+        birthdayTMTextField.becomeFirstResponder()
+    }
+    @IBAction func genderButtonTapped(_ sender: UIButton) {
+        genderTMTextField.becomeFirstResponder()
+    }
     
     
     override init(frame: CGRect) {
@@ -44,7 +49,7 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         setViewValues()
         setDelegates()
-        setGesturesAndTargets()
+        setGestures()
     }
     
     func setDelegates() {
@@ -61,7 +66,7 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
         
         fullNameTMTextField.set(labelText: "Full Name")
         fullNameTMTextField.textField.tag = 1
-        fullNameTMTextField.setTextFieldProperties(.name, capitalization: .none, correction: .no, keyboardType: .default, keyboardAppearance: .dark, returnKey: .next)
+        fullNameTMTextField.setTextFieldProperties(.name, capitalization: .words, correction: .no, keyboardType: .default, keyboardAppearance: .dark, returnKey: .next)
         
         emailTMTextField.set(labelText: "Email Address")
         emailTMTextField.textField.tag = 2
@@ -76,14 +81,10 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
         profilePictureButtonView.setProperties(title: "", icon: #imageLiteral(resourceName: "camera"), backgroundImage: nil, backgroundColor: .themeGreen, cornerRadius: 45)
     }
     
-    func setGesturesAndTargets() {
+    func setGestures() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
         checkBoxView.addGestureRecognizer(tapGR)
-        certifyLabel.addGestureRecognizer(tapGR)
-        certifyView.addGestureRecognizer(tapGR)
         checkBoxView.isUserInteractionEnabled = true
-        certifyLabel.isUserInteractionEnabled = true
-        certifyView.isUserInteractionEnabled = true
     }
     
     @objc func checkBoxTapped(_ sender: UITapGestureRecognizer) {
@@ -106,18 +107,11 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
     }
 
     func validateAllFields() -> Bool {
-        print("called validateallfields")
         var allFieldsValid = true
         if fullNameTMTextField.textField.text!.count < 1 {
             allFieldsValid = false
         }
-        if emailTMTextField.textField.text!.count < 1 {
-            allFieldsValid = false
-        }
-        if genderTMTextField.textField.text!.count < 1 {
-            allFieldsValid = false
-        }
-        if birthdayTMTextField.textField.text!.count < 1 {
+        if !emailTMTextField.textField.text!.isValidEmail() {
             allFieldsValid = false
         }
         if !checkBoxSelected {

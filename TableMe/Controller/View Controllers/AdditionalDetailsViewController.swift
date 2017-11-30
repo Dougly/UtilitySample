@@ -87,6 +87,8 @@ class AdditionalDetailsViewController: UIViewController {
         let gender = additionalDetailsView.genderTMTextField.textField.text!
         let birthday = additionalDetailsView.birthdayTMTextField.textField.text!
         database.saveUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil)
+        
+        //present notification and location alerts
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -117,7 +119,7 @@ extension AdditionalDetailsViewController: UIImagePickerControllerDelegate, UINa
     }
     
     func presentPhotoAlert() {
-        let alert = UIAlertController(title: "Profile Photo", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { (takePhotoAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -172,22 +174,46 @@ extension AdditionalDetailsViewController: UITextFieldDelegate, CheckBoxDelegate
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text!.count < 1 {
+            switch textField.tag {
+            case 3:
+                textField.text = "Male"
+            case 4:
+                var componenets = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+                if let day = componenets.day, let month = componenets.month, let year = componenets.year {
+                    textField.text = "\(month) / \(day) / \(year - 21)"
+                }
+            default:
+                break
+            }
+        }
         offsetScrollViewFor(textfield: textField)
     }
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        if additionalDetailsView.validateAllFields() {
-//            nextButton.titleLabel?.textColor = .white
-//        } else {
-//            nextButton.titleLabel?.textColor = .themeGray
-//        }
-//    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        var text = textField.text!
+        if text.count > 0 {
+            switch textField.tag {
+            case 1, 2:
+                let lastChar = text.last
+                if lastChar == " " {
+                    text.removeLast()
+                    textField.text = text
+                }
+            default:
+                break
+            }
+        }
+    }
     
     func checkboxWasTapped() {
         if additionalDetailsView.validateAllFields() {
-            nextButton.titleLabel?.textColor = .white
+            nextButton.isEnabled = true
+            nextButton.alpha = 1.0
         } else {
-            nextButton.titleLabel?.textColor = .themeGray
+            nextButton.isEnabled = false
+            nextButton.alpha = 0.5
         }
     }
     
@@ -204,7 +230,7 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         datePicker.backgroundColor = .black
         datePicker.setValue(false, forKeyPath: "highlightsToday")
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
-        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(dateChanged), for: [.valueChanged, .editingDidBegin])
         additionalDetailsView.birthdayTMTextField.textField.inputView = datePicker
         var components = DateComponents()
         components.year = -21
@@ -218,6 +244,7 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         birthdayToolBar.setItems([spaceButton, doneButton], animated: false)
         birthdayToolBar.isUserInteractionEnabled = true
         additionalDetailsView.birthdayTMTextField.textField.inputAccessoryView = birthdayToolBar
+        
     }
     
     @objc func handleBirthdayDoneButton(_ sender: UIButton) {
@@ -230,6 +257,8 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
             additionalDetailsView.birthdayTMTextField.textField.text = "\(month) / \(day) / \(year)"
         }
     }
+    
+    
     
     //Gender Picker
     func setupGenderPicker() {
