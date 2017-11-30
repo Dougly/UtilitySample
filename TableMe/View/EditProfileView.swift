@@ -8,9 +8,10 @@
 
 import UIKit
 
-class EditProfileView: UIView {
+class EditProfileView: UIView, TableMeTextFieldDelegate {
     
     var checkBoxSelected = false
+    var delegate: CheckBoxDelegate?
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profilePictureButtonView: TableMeButton!
     @IBOutlet weak var stackView: UIStackView!
@@ -42,28 +43,34 @@ class EditProfileView: UIView {
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         setViewValues()
+        setDelegates()
         setGesturesAndTargets()
     }
     
+    func setDelegates() {
+        fullNameTMTextField.delegate = self
+        emailTMTextField.delegate = self
+        genderTMTextField.delegate = self
+        birthdayTMTextField.delegate = self
+    }
+    
     func setViewValues() {
-        //profilePictureButtonView.layer.cornerRadius = 45
-        //profilePictureButtonView.clipsToBounds = true
         checkBoxView.layer.cornerRadius = 2
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
         
-        fullNameTMTextField.setText("Full Name", labelText: "Full Name")
+        fullNameTMTextField.set(labelText: "Full Name")
         fullNameTMTextField.textField.tag = 1
         fullNameTMTextField.setTextFieldProperties(.name, capitalization: .none, correction: .no, keyboardType: .default, keyboardAppearance: .dark, returnKey: .next)
         
-        emailTMTextField.setText("Email Address", labelText: "Email Address")
+        emailTMTextField.set(labelText: "Email Address")
         emailTMTextField.textField.tag = 2
         emailTMTextField.setTextFieldProperties(.emailAddress, capitalization: .none, correction: .no, keyboardType: .emailAddress, keyboardAppearance: .dark, returnKey: .next)
         
-        genderTMTextField.setText("Choose Gender", labelText: "Choose Gender")
+        genderTMTextField.set(labelText: "Choose Gender")
         genderTMTextField.textField.tag = 3
         
-        birthdayTMTextField.setText("Choose Birthday", labelText: "Choose Birthday")
+        birthdayTMTextField.set(labelText: "Choose Birthday")
         birthdayTMTextField.textField.tag = 4
         
         profilePictureButtonView.setProperties(title: "", icon: #imageLiteral(resourceName: "camera"), backgroundImage: nil, backgroundColor: .themeGreen, cornerRadius: 45)
@@ -77,12 +84,6 @@ class EditProfileView: UIView {
         checkBoxView.isUserInteractionEnabled = true
         certifyLabel.isUserInteractionEnabled = true
         certifyView.isUserInteractionEnabled = true
-        
-        //self.profileImageButton.addTarget(self, action: #selector(buttonTouched), for: [.allTouchEvents])
-    }
-    
-    @objc func buttonTouched(_ sender: UIButton) {
-        
     }
     
     @objc func checkBoxTapped(_ sender: UITapGestureRecognizer) {
@@ -96,9 +97,16 @@ class EditProfileView: UIView {
             checkBoxView.backgroundColor = UIColor.themePurple
             checkBoxSelected = true
         }
+        delegate?.checkboxWasTapped()
     }
     
+    //TODO: Not the ideal architecture for this... find a better design pattern.
+    func textFieldDidChange() {
+        delegate?.checkboxWasTapped()
+    }
+
     func validateAllFields() -> Bool {
+        print("called validateallfields")
         var allFieldsValid = true
         if fullNameTMTextField.textField.text!.count < 1 {
             allFieldsValid = false

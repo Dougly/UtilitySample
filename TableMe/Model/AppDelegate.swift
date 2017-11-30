@@ -27,14 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.database().isPersistenceEnabled = true
         
         //signout for testing
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print ("🔥 Error signing out: %@", signOutError)
-        }
+//        do {
+//            try Auth.auth().signOut()
+//        } catch let signOutError as NSError {
+//            print ("🔥 Error signing out: %@", signOutError)
+//        }
         
-        setWindowAndRootNavigationController()
-        //setRootVCForTest()
+        //setWindowAndRootNavigationController()
+        setRootVCForTest()
         return true
     }
     

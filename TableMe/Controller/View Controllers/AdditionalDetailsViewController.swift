@@ -35,6 +35,7 @@ class AdditionalDetailsViewController: UIViewController {
         additionalDetailsView.genderTMTextField.textField.delegate = self
         additionalDetailsView.birthdayTMTextField.textField.delegate = self
         additionalDetailsView.profilePictureButtonView.delegate = self
+        additionalDetailsView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,12 +82,14 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     @IBAction func tappedNextButton(_ sender: UIButton) {
-        print("Attempt to update database")
         let name = additionalDetailsView.fullNameTMTextField.textField.text!
         let email = additionalDetailsView.emailTMTextField.textField.text!
         let gender = additionalDetailsView.genderTMTextField.textField.text!
         let birthday = additionalDetailsView.birthdayTMTextField.textField.text!
         database.saveUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
     }
 }
 
@@ -153,7 +156,7 @@ extension AdditionalDetailsViewController: UIImagePickerControllerDelegate, UINa
 
 
 //MARK: UITextField Delegate
-extension AdditionalDetailsViewController: UITextFieldDelegate {
+extension AdditionalDetailsViewController: UITextFieldDelegate, CheckBoxDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
@@ -172,14 +175,21 @@ extension AdditionalDetailsViewController: UITextFieldDelegate {
         offsetScrollViewFor(textfield: textField)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("checked for valid fields")
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if additionalDetailsView.validateAllFields() {
+//            nextButton.titleLabel?.textColor = .white
+//        } else {
+//            nextButton.titleLabel?.textColor = .themeGray
+//        }
+//    }
+    
+    func checkboxWasTapped() {
         if additionalDetailsView.validateAllFields() {
             nextButton.titleLabel?.textColor = .white
+        } else {
+            nextButton.titleLabel?.textColor = .themeGray
         }
     }
-    
-    
     
 }
 
@@ -200,7 +210,6 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         components.year = -21
         let maxDate = Calendar.current.date(byAdding: components, to: Date())
         datePicker.maximumDate = maxDate
-
         let birthdayToolBar = UIToolbar()
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleBirthdayDoneButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -230,7 +239,6 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         genderPicker.backgroundColor = .black
         genderPicker.setValue(UIColor.white, forKeyPath: "textColor")
         additionalDetailsView.genderTMTextField.textField.inputView = genderPicker
-        
         let genderToolBar = UIToolbar()
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(handleGenderNextButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)

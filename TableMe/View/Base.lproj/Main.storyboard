@@ -768,6 +768,7 @@
                                 </constraints>
                                 <state key="normal" image="Back Button"/>
                                 <connections>
+                                    <action selector="backButtonTapped:" destination="HNI-Nl-Dka" eventType="touchUpInside" id="Czj-l4-anI"/>
                                     <action selector="backButtonTapped:" destination="rrt-6d-Aaj" eventType="touchUpInside" id="E4J-TA-y4M"/>
                                     <action selector="backButtonTapped:" destination="att-mI-6gu" eventType="touchUpInside" id="R3L-7M-zES"/>
                                 </connections>

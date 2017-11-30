@@ -11,6 +11,7 @@ import UIKit
 class TableMeTextFieldView: UIView {
     
     var textFieldIsRisen = false
+    var delegate: TableMeTextFieldDelegate?
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var underlineHighlightView: UIView!
@@ -47,14 +48,14 @@ class TableMeTextFieldView: UIView {
         self.addGestureRecognizer(tapGR)
         self.isUserInteractionEnabled = true
         textField.addTarget(self, action: #selector(raiseLabel), for: [.editingDidEnd, .editingDidBegin])
+        textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
     }
     
     @objc func tappedView() {
         textField.becomeFirstResponder()
     }
     
-    func setText(_ placeholderText: String, labelText: String) {
-        //textField.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: UIColor.themeGray])
+    func set(labelText: String) {
         label.text = labelText
     }
     
@@ -65,6 +66,10 @@ class TableMeTextFieldView: UIView {
         textField.keyboardType = keyboardType
         textField.keyboardAppearance = keyboardAppearance
         textField.returnKeyType = returnKey
+    }
+    
+    @objc func textChanged() {
+        delegate?.textFieldDidChange()
     }
     
     @objc func raiseLabel() {
