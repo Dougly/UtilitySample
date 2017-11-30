@@ -88,7 +88,14 @@ class AdditionalDetailsViewController: UIViewController {
         let birthday = additionalDetailsView.birthdayTMTextField.textField.text!
         database.saveUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil)
         
-        //present notification and location alerts
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let permissionVC = main.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
+        permissionVC.permissionVCType = .notification
+        permissionVC.title = "Notifications"
+        permissionVC.image = #imageLiteral(resourceName: "notificationGraphic")
+        permissionVC.note = "In order to keep you up to date with plans and tables we will need to send you notifications."
+        self.present(permissionVC, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(permissionVC, animated: true)
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {

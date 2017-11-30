@@ -241,6 +241,83 @@
             </objects>
             <point key="canvasLocation" x="98" y="33"/>
         </scene>
+        <!--Permissions View Controller-->
+        <scene sceneID="Vwj-qj-XXF">
+            <objects>
+                <viewController storyboardIdentifier="permissionVC" id="CKz-Jb-oaM" customClass="PermissionsViewController" customModule="TableMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ef6-gN-LVI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3A6-da-SX0">
+                                <rect key="frame" x="166" y="35" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvW-82-69v" userLabel="Back Button">
+                                <rect key="frame" x="16" y="35" width="25" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Bda-4d-Q4K"/>
+                                    <constraint firstAttribute="height" constant="21" id="O3n-NV-jcw"/>
+                                </constraints>
+                                <state key="normal" image="Back Button"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="att-mI-6gu" eventType="touchUpInside" id="4ve-lb-Gcb"/>
+                                    <action selector="backButtonTapped:" destination="HNI-Nl-Dka" eventType="touchUpInside" id="Nud-m7-JiN"/>
+                                    <action selector="backButtonTapped:" destination="CKz-Jb-oaM" eventType="touchUpInside" id="Rfh-p7-acs"/>
+                                    <action selector="backButtonTapped:" destination="rrt-6d-Aaj" eventType="touchUpInside" id="l7l-cn-ZNB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="note label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gup-2R-FKk" userLabel="Note Label">
+                                <rect key="frame" x="37" y="400.5" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmv-aR-EeD" customClass="TableMeButton" customModule="TableMe" customModuleProvider="target">
+                                <rect key="frame" x="149.5" y="573.5" width="75" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="0bn-yH-El4"/>
+                                    <constraint firstAttribute="height" constant="21" id="1p5-oW-ukC"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F9R-OJ-uoK">
+                                <rect key="frame" x="64.5" y="120.5" width="245" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="BOq-WQ-IPv"/>
+                                    <constraint firstAttribute="height" constant="240" id="w6t-vB-fRs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="Wmv-aR-EeD" firstAttribute="centerY" secondItem="yV6-w6-cab" secondAttribute="centerY" multiplier="1.7" id="46X-cc-U4l"/>
+                            <constraint firstItem="cvW-82-69v" firstAttribute="leading" secondItem="yV6-w6-cab" secondAttribute="leading" constant="16" id="BiV-ZI-U1u"/>
+                            <constraint firstItem="Wmv-aR-EeD" firstAttribute="centerX" secondItem="gup-2R-FKk" secondAttribute="centerX" id="FsE-VT-vRz"/>
+                            <constraint firstItem="3A6-da-SX0" firstAttribute="centerX" secondItem="yV6-w6-cab" secondAttribute="centerX" id="PY8-Y8-qmq"/>
+                            <constraint firstItem="cvW-82-69v" firstAttribute="top" secondItem="yV6-w6-cab" secondAttribute="top" constant="15" id="RaJ-t1-9rG"/>
+                            <constraint firstItem="gup-2R-FKk" firstAttribute="top" secondItem="F9R-OJ-uoK" secondAttribute="bottom" constant="40" id="XrU-mF-coL"/>
+                            <constraint firstItem="3A6-da-SX0" firstAttribute="centerY" secondItem="cvW-82-69v" secondAttribute="centerY" id="Xsm-vh-fXn"/>
+                            <constraint firstItem="gup-2R-FKk" firstAttribute="width" secondItem="ef6-gN-LVI" secondAttribute="width" multiplier="0.8" id="a45-kE-maP"/>
+                            <constraint firstItem="F9R-OJ-uoK" firstAttribute="centerX" secondItem="yV6-w6-cab" secondAttribute="centerX" id="k35-Ql-F3H"/>
+                            <constraint firstItem="F9R-OJ-uoK" firstAttribute="centerY" secondItem="yV6-w6-cab" secondAttribute="centerY" multiplier="0.7" id="pAD-up-gMK"/>
+                            <constraint firstItem="gup-2R-FKk" firstAttribute="centerX" secondItem="F9R-OJ-uoK" secondAttribute="centerX" id="zUM-RW-7Qp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yV6-w6-cab"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="Wmv-aR-EeD" id="FFP-Pj-6IG"/>
+                        <outlet property="imageView" destination="F9R-OJ-uoK" id="jpa-2w-0ER"/>
+                        <outlet property="noteLabel" destination="gup-2R-FKk" id="Tsm-kX-2Nc"/>
+                        <outlet property="titleLabel" destination="3A6-da-SX0" id="Eca-5s-cS9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7X-ty-2JC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1604" y="33"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -431,7 +508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYk-em-rW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648.8000000000002" y="-359.37031484257875"/>
+            <point key="canvasLocation" x="644" y="1486"/>
         </scene>
         <!--Club Detail View Controller-->
         <scene sceneID="JCU-7c-wgX">
@@ -702,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkD-0E-DnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3343.1999999999998" y="-359.37031484257875"/>
+            <point key="canvasLocation" x="1511" y="1486"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="yGQ-6f-MFk">
@@ -720,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUb-vD-X6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="1235"/>
+            <point key="canvasLocation" x="-282" y="2758"/>
         </scene>
         <!--My Tables-->
         <scene sceneID="n1j-5n-nPQ">
@@ -738,7 +815,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7w-SN-4Qi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648.8000000000002" y="442.12893553223392"/>
+            <point key="canvasLocation" x="644" y="2376"/>
         </scene>
         <!--Additional Details View Controller-->
         <scene sceneID="n9l-OC-QjH">
@@ -839,7 +916,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6J-rZ-gAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="32.833583208395808"/>
+            <point key="canvasLocation" x="-281" y="1869"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TTh-sJ-cN1">

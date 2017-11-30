@@ -14,6 +14,8 @@ enum TableMeButtonState {
 
 class TableMeButton: UIView {
     
+    //TODO: un-nest buttonedgesview in zib file. Not needed since we are now using cgaffinetransform rather than animating constraints. might be able to remove constraint outlets too.
+    
     var delegate: TableMeButtonDelegate?
     var longTouchStartingPoint = CGPoint(x: 0, y: 0)
     @IBOutlet var contentView: UIView!
