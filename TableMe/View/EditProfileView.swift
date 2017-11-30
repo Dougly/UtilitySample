@@ -98,4 +98,24 @@ class EditProfileView: UIView {
         }
     }
     
+    func validateAllFields() -> Bool {
+        var allFieldsValid = true
+        if fullNameTMTextField.textField.text!.count < 1 {
+            allFieldsValid = false
+        }
+        if emailTMTextField.textField.text!.count < 1 {
+            allFieldsValid = false
+        }
+        if genderTMTextField.textField.text!.count < 1 {
+            allFieldsValid = false
+        }
+        if birthdayTMTextField.textField.text!.count < 1 {
+            allFieldsValid = false
+        }
+        if !checkBoxSelected {
+            allFieldsValid = false
+        }
+        return allFieldsValid
+    }
+    
 }

@@ -757,6 +757,7 @@
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="rrt-6d-Aaj" eventType="touchUpInside" id="11i-72-d39"/>
                                     <action selector="nextButtonTapped:" destination="att-mI-6gu" eventType="touchUpInside" id="C7L-ie-N5K"/>
+                                    <action selector="tappedNextButton:" destination="HNI-Nl-Dka" eventType="touchUpInside" id="hNz-ul-9DD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpu-U3-0rb" userLabel="Back Button">
@@ -807,6 +808,7 @@
                     </view>
                     <connections>
                         <outlet property="additionalDetailsView" destination="HbB-Mr-Zdf" id="c3y-oO-bOW"/>
+                        <outlet property="nextButton" destination="8FO-If-nTk" id="Kd1-L3-gxR"/>
                         <outlet property="scrollView" destination="Ob1-G8-4xG" id="Wtn-JI-Ozh"/>
                         <outlet property="scrollViewBottomConstraint" destination="QPS-d1-68I" id="slO-34-icS"/>
                     </connections>

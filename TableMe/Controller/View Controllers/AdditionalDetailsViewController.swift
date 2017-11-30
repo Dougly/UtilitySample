@@ -14,10 +14,12 @@ class AdditionalDetailsViewController: UIViewController {
         return .lightContent
     }
     
+    let database = FirebaseDatabaseFacade()
     let genderOptions = ["Male", "Female", "Other"]
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var additionalDetailsView: EditProfileView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +79,15 @@ class AdditionalDetailsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
-
+    
+    @IBAction func tappedNextButton(_ sender: UIButton) {
+        print("Attempt to update database")
+        let name = additionalDetailsView.fullNameTMTextField.textField.text!
+        let email = additionalDetailsView.emailTMTextField.textField.text!
+        let gender = additionalDetailsView.genderTMTextField.textField.text!
+        let birthday = additionalDetailsView.birthdayTMTextField.textField.text!
+        database.saveUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil)
+    }
 }
 
 //MARK: Camera And Photo
@@ -161,6 +171,14 @@ extension AdditionalDetailsViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         offsetScrollViewFor(textfield: textField)
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("checked for valid fields")
+        if additionalDetailsView.validateAllFields() {
+            nextButton.titleLabel?.textColor = .white
+        }
+    }
+    
     
     
 }

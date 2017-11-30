@@ -35,9 +35,9 @@ class VerificationCodeViewController: UIViewController {
         let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
         self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
         
-        let loginVC = navigationController?.viewControllers.first as! ViewController
-        loginVC.loginWith(credential: credential)
-        self.navigationController?.popToRootViewController(animated: true)
+//        let loginVC = navigationController?.viewControllers.first as! ViewController
+//        loginVC.loginWith(credential: credential)
+//        self.navigationController?.popToRootViewController(animated: true)
         
     
     }
@@ -49,7 +49,7 @@ class VerificationCodeViewController: UIViewController {
     }
     
     
-    func loginWith(credential: PhoneAuthCredential) -> Bool {
+    func loginWith(credential: PhoneAuthCredential) {
         activityIndicator.startAnimating()
         Auth.auth().signIn(with: credential) { (user, error) in
             self.activityIndicator.stopAnimating()
@@ -57,13 +57,7 @@ class VerificationCodeViewController: UIViewController {
                 print(error)
                 return
             }
-            
-            
-            
-            // User is signed in
-            // ...
         }
-        return true
     }
     
 }

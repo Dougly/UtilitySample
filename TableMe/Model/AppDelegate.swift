@@ -24,12 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         
         //signout for testing
         do {
             try Auth.auth().signOut()
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            print ("🔥 Error signing out: %@", signOutError)
         }
         
         setWindowAndRootNavigationController()
