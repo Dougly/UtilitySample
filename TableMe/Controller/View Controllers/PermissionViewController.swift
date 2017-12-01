@@ -96,9 +96,6 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
         let rootVC = self.navigationController?.viewControllers[0] as! LogInViewController
         let viewControllers = [rootVC, tabBarController]
         self.navigationController?.setViewControllers(viewControllers, animated: true)
-        
-//        self.navigationController?.popToRootViewController(animated: true)
-//        rootVC.enterAppAfterLogin()
     }
     
     

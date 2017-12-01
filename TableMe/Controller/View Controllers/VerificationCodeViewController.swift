@@ -45,8 +45,19 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
     }
     
     @IBAction func resendCodeButtonTapped(_ sender: UIButton) {
-        //TODO: bring in logic to resend code with number
-        
+        if let phoneNumber = phoneNumber {
+            //TODO: Move to FirebaseAuthFacade
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+                if let error = error {
+                    self.activityIndicator.stopAnimating()
+                    self.presentAlert(title: "Error Verifying Phone Number", message: "Please re-enter your phone number on the previous page.")
+                    print(error.localizedDescription)
+                    return
+                }
+                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                self.activityIndicator.stopAnimating()
+            }
+        }
     }
 
     func loginWith(credential: PhoneAuthCredential) {

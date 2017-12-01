@@ -101,37 +101,39 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
         charCount = textField.text!.count
     }
     
+    func verifyPhoneNumber() {
+        self.activityIndicator.startAnimating()
+        var phoneNumber = "+1"
+        let chars = Array(self.tableMeTextField.textField.text!)
+        for char in chars {
+            switch char {
+            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+                phoneNumber.append(char)
+            default:break
+            }
+        }
+        if phoneNumber.count == 12 {
+            //TODO: Move to FirebaseAuthFacade
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+                if let error = error {
+                    self.activityIndicator.stopAnimating()
+                    print(error.localizedDescription)
+                    return
+                }
+                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
+                destVC.phoneNumber = phoneNumber
+                self.navigationController?.pushViewController(destVC, animated: true)
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
     func presentAlert() {
         let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply.", preferredStyle: .alert)
         
         let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
-            self.activityIndicator.startAnimating()
-
-            var phoneNumber = "+1"
-            let chars = Array(self.tableMeTextField.textField.text!)
-            for char in chars {
-                switch char {
-                case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                    phoneNumber.append(char)
-                default:
-                    break
-                }
-            }
-            
-            if phoneNumber.count == 12 {
-                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
-                    if let error = error {
-                        self.activityIndicator.stopAnimating()
-                        print(error.localizedDescription)
-                        return
-                    }
-                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                    let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
-                    destVC.phoneNumber = phoneNumber
-                    self.navigationController?.pushViewController(destVC, animated: true)
-                    self.activityIndicator.stopAnimating()
-                }
-            }
+            self.verifyPhoneNumber()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
