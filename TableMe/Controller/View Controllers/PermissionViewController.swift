@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import UserNotifications
+import CoreLocation
 
 enum PermissionVCType {
     case notification, location
 }
 
-class PermissionsViewController: UIViewController, TableMeButtonDelegate {
+class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLocationManagerDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    let locationManager = CLLocationManager()
     var permissionVCType: PermissionVCType?
     var image: UIImage?
     var note: String?
@@ -50,7 +53,18 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate {
         guard let permissionVCType = self.permissionVCType else { return }
         switch permissionVCType {
         case .notification:
-            //TODO: Present notification permission alert then transition to next vc.
+            let application = UIApplication.shared
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert], completionHandler: { (granted, error) in
+                if error != nil {
+                    print("🔥 \(error!.localizedDescription)")
+                }
+                //enable or disable features based on authorization
+            })
+            
+            if !application.isRegisteredForRemoteNotifications {
+                application.registerForRemoteNotifications()
+            }
             let main = UIStoryboard(name: "Main", bundle: nil)
             let permissionVC = main.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
             permissionVC.permissionVCType = .location
@@ -58,13 +72,22 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate {
             permissionVC.image = #imageLiteral(resourceName: "locationGrapahic")
             permissionVC.note = "Let’s make sure you are always finding clubs that are nearest you. Allow us to access your location."
             self.present(permissionVC, animated: true, completion: nil)
-        //self.navigationController?.pushViewController(permissionVC, animated: true)
+            //self.navigationController?.pushViewController(permissionVC, animated: true)
         case .location:
-            //TODO: present alert and transition to clubVC
-            break
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                locationManager.requestWhenInUseAuthorization()
+
+            case .authorizedWhenInUse, .authorizedAlways:
+                break
+            }
+            self.navigationController?.popToRootViewController(animated: true)
+            
         }
         
+        //TODO: present alert and transition to clubVC
     }
     
-    
 }
+    
+

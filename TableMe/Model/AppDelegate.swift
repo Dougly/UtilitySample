@@ -21,20 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        
+        
         UIApplication.shared.statusBarStyle = .lightContent
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
         
         //signout for testing
-//        do {
-//            try Auth.auth().signOut()
-//        } catch let signOutError as NSError {
-//            print ("🔥 Error signing out: %@", signOutError)
-//        }
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print ("🔥 Error signing out: %@", signOutError)
+        }
         
-        //setWindowAndRootNavigationController()
-        setRootVCForTest()
+        setWindowAndRootNavigationController()
+        //setRootVCForTest()
         return true
     }
     
@@ -69,6 +71,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
     
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("REGISTERED FOR NOTIFICATION ********")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("FAILED TO REGISER NOTIFICATION")
+    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

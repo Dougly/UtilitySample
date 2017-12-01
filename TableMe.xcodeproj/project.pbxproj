@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1101616C1FD1A208006ED8DD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1101616B1FD1A208006ED8DD /* UserNotifications.framework */; };
 		11155E8B1FCF06B8008ADE72 /* TableMeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */; };
 		11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */; };
 		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1101616B1FD1A208006ED8DD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableMeButton.xib; sourceTree = "<group>"; };
 		11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButton.swift; sourceTree = "<group>"; };
 		11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButtonDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1101616C1FD1A208006ED8DD /* UserNotifications.framework in Frameworks */,
 				EFD8FC8E467F4C81DE32AD3C /* Pods_TableMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +276,7 @@
 		2290C7CC2A7D6D2E4A3453B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1101616B1FD1A208006ED8DD /* UserNotifications.framework */,
 				A6E2C675FA515553DDAB917C /* Pods_TableMe.framework */,
 				410A93A9DA72D9AC9B6DE607 /* Pods_TableMeTests.framework */,
 			);

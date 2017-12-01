@@ -30,14 +30,12 @@ class VerificationCodeViewController: UIViewController {
             withVerificationID: verificationID,
             verificationCode: verificationCode)
         
-        self.loginWith(credential: credential)
+        loginWith(credential: credential)
         let main = UIStoryboard(name: "Main", bundle: nil)
         let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
-        self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
         
-//        let loginVC = navigationController?.viewControllers.first as! ViewController
-//        loginVC.loginWith(credential: credential)
-//        self.navigationController?.popToRootViewController(animated: true)
+        //TODO: If user has already created an account go directly into app without presenting additional details or asking for permissions
+        self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
         
     
     }

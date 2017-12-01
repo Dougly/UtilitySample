@@ -146,24 +146,6 @@ class ViewController: UIViewController {
         }
     }
     
-    func loginWith(credential: PhoneAuthCredential) {
-        activityIndicator.startAnimating()
-        
-        Auth.auth().signIn(with: credential) { (user, error) in
-            self.activityIndicator.stopAnimating()
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
-            self.navigationController?.pushViewController(tabBarController, animated: true)
-            
-            // User is signed in
-            // ...
-        }
-    }
 
 
 }

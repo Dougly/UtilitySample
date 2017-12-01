@@ -94,8 +94,8 @@ class AdditionalDetailsViewController: UIViewController {
         permissionVC.title = "Notifications"
         permissionVC.image = #imageLiteral(resourceName: "notificationGraphic")
         permissionVC.note = "In order to keep you up to date with plans and tables we will need to send you notifications."
-        self.present(permissionVC, animated: true, completion: nil)
-        //self.navigationController?.pushViewController(permissionVC, animated: true)
+        //self.present(permissionVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(permissionVC, animated: true)
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
