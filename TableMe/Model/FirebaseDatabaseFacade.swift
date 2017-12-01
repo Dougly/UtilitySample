@@ -65,9 +65,9 @@ class FirebaseDatabaseFacade {
     }
    
     
-    func readValueOnce(at path: String, completion: @escaping ([String : Any]) -> Void) {
+    func readValueOnce(at path: String, completion: @escaping ([String : Any]?) -> Void) {
         ref.child(path).observeSingleEvent(of: .value, with: { (snapshot) in
-            let dict = snapshot.value as? [String : Any] ?? [:]
+            let dict = snapshot.value as? [String : Any]
             completion(dict)
         }) { (error) in
             print("🔥 \(error.localizedDescription)")

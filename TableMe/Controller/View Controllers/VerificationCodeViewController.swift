@@ -9,12 +9,13 @@
 import UIKit
 import FirebaseAuth
 
-class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate {
+class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate, TableMeButtonDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    var phoneNumber: String? // use to resend code and update label
+    var phoneNumber: String?
+    let databaseFacade = FirebaseDatabaseFacade()
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var weSentVerificationLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -38,6 +39,7 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         resendTableMeButton.labelUnderline.backgroundColor = .themeGray
         resendTableMeButton.titleLabel.textColor = .themeGray
         resendTableMeButton.titleLabel.font = UIFont(name: "Avenir", size: 15)
+        resendTableMeButton.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +58,7 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         self.navigationController?.popViewController(animated: true)
     }
     
-    func resendCodeButtonTapped(_ sender: UIButton) {
+    func resendCodeButtonTapped() {
         if let phoneNumber = phoneNumber {
             //TODO: Move to FirebaseAuthFacade
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
@@ -82,11 +84,8 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
             }
             
             if user != nil {
-                let main = UIStoryboard(name: "Main", bundle: nil)
-                let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
-                
-                //TODO: If user has already created an account go directly into app without presenting additional details or asking for permissions
-                self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
+                self.presentNextViewController()
+
             }
         }
     }
@@ -128,6 +127,39 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func presentNextViewController() {
+        guard let phoneNumber = phoneNumber else { return }
+        databaseFacade.readValueOnce(at: "users/\(phoneNumber)") { (dict) in
+            guard let dict = dict else { return }
+            if let name = dict["name"] as? String {
+                self.popToRootAndEnterApp()
+                print("\(name) already signed up - transition to mainVC")
+            } else {
+                self.pushToAdditionalDetails()
+                print("should transition to additional info")
+            }
+        }
+    }
+    
+    func buttonActivted() {
+        resendCodeButtonTapped()
+    }
+    
+    //Duplicate code in PermissionVC
+    func popToRootAndEnterApp() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
+        let rootVC = self.navigationController?.viewControllers[0] as! LogInViewController
+        let viewControllers = [rootVC, tabBarController]
+        self.navigationController?.setViewControllers(viewControllers, animated: true)
+    }
+    
+    func pushToAdditionalDetails() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
+        self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
     }
     
 }
