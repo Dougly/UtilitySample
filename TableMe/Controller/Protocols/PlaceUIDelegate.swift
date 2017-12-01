@@ -12,4 +12,5 @@ protocol PlaceUIDelegate {
     func revealPlaces()
     func hidePlaces()
     func showFilter()
+    func showProfile()
 }

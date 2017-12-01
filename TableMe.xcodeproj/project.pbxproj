@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1101616C1FD1A208006ED8DD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1101616B1FD1A208006ED8DD /* UserNotifications.framework */; };
 		110161701FD1CAB1006ED8DD /* FirebaseAuthFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101616F1FD1CAB1006ED8DD /* FirebaseAuthFacade.swift */; };
+		110161721FD216A4006ED8DD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110161711FD216A4006ED8DD /* EditProfileViewController.swift */; };
 		11155E8B1FCF06B8008ADE72 /* TableMeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */; };
 		11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */; };
 		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		1101616B1FD1A208006ED8DD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		1101616F1FD1CAB1006ED8DD /* FirebaseAuthFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthFacade.swift; sourceTree = "<group>"; };
+		110161711FD216A4006ED8DD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableMeButton.xib; sourceTree = "<group>"; };
 		11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButton.swift; sourceTree = "<group>"; };
 		11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButtonDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */,
 				11D4DA081FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift */,
 				1173E2F51FD0B5EB00B34C96 /* PermissionViewController.swift */,
+				110161711FD216A4006ED8DD /* EditProfileViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110161721FD216A4006ED8DD /* EditProfileViewController.swift in Sources */,
 				1173E2F61FD0B5EB00B34C96 /* PermissionViewController.swift in Sources */,
 				11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */,
 				11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */,

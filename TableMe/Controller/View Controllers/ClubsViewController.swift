@@ -157,6 +157,12 @@ extension ClubsViewController: PlaceUIDelegate {
         }
     }
     
+    func showProfile() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let destVC = main.instantiateViewController(withIdentifier: "editProfileVC")
+        self.tabBarController?.navigationController?.pushViewController(destVC, animated: true)
+    }
+    
     func showFilter() {
         let alert = UIAlertController(title: "Filter by:", message: nil, preferredStyle: .actionSheet)
         

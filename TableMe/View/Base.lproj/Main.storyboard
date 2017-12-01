@@ -192,6 +192,56 @@
             </objects>
             <point key="canvasLocation" x="98" y="33"/>
         </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="C21-hK-dnM">
+            <objects>
+                <viewController storyboardIdentifier="editProfileVC" id="xIS-r0-Nh9" customClass="EditProfileViewController" customModule="TableMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cc7-pd-FiA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-SU-tMO" userLabel="Back Button">
+                                <rect key="frame" x="15" y="35" width="25" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9gX-Mt-U5i"/>
+                                    <constraint firstAttribute="width" constant="25" id="q1x-Zp-av3"/>
+                                </constraints>
+                                <state key="normal" image="Back Button"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="rrt-6d-Aaj" eventType="touchUpInside" id="3CX-Vw-lv1"/>
+                                    <action selector="backButtonTapped:" destination="HNI-Nl-Dka" eventType="touchUpInside" id="8rb-Ow-zCz"/>
+                                    <action selector="backButtonTapped:" destination="att-mI-6gu" eventType="touchUpInside" id="Hs1-Pi-wzv"/>
+                                    <action selector="backButtonTapped:" destination="CKz-Jb-oaM" eventType="touchUpInside" id="Zqv-O7-1o5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBQ-AI-VQy">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <state key="normal" title="Placeholder Logout Button"/>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="xIS-r0-Nh9" eventType="touchUpInside" id="2yd-mP-o8S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="OBQ-AI-VQy" firstAttribute="centerY" secondItem="5fZ-Nb-sgx" secondAttribute="centerY" id="Bhh-QY-owZ"/>
+                            <constraint firstItem="OBQ-AI-VQy" firstAttribute="centerX" secondItem="5fZ-Nb-sgx" secondAttribute="centerX" id="Q1q-75-g8k"/>
+                            <constraint firstItem="uGz-SU-tMO" firstAttribute="top" secondItem="5fZ-Nb-sgx" secondAttribute="top" constant="15" id="U04-JV-GfV"/>
+                            <constraint firstItem="OBQ-AI-VQy" firstAttribute="height" secondItem="Cc7-pd-FiA" secondAttribute="height" id="abx-JZ-ph8"/>
+                            <constraint firstItem="OBQ-AI-VQy" firstAttribute="width" secondItem="Cc7-pd-FiA" secondAttribute="width" id="uZT-Ph-zzw"/>
+                            <constraint firstItem="uGz-SU-tMO" firstAttribute="leading" secondItem="5fZ-Nb-sgx" secondAttribute="leading" constant="15" id="vEy-U3-jAN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5fZ-Nb-sgx"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="uGz-SU-tMO" id="bEe-km-a8W"/>
+                        <outlet property="logoutButton" destination="OBQ-AI-VQy" id="QBA-zl-voy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hOG-PL-5mP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2894" y="786"/>
+        </scene>
         <!--Permissions View Controller-->
         <scene sceneID="Vwj-qj-XXF">
             <objects>
@@ -207,7 +257,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvW-82-69v" userLabel="Back Button">
-                                <rect key="frame" x="16" y="35" width="25" height="21"/>
+                                <rect key="frame" x="15" y="35" width="25" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Bda-4d-Q4K"/>
                                     <constraint firstAttribute="height" constant="21" id="O3n-NV-jcw"/>
@@ -245,7 +295,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Wmv-aR-EeD" firstAttribute="centerY" secondItem="yV6-w6-cab" secondAttribute="centerY" multiplier="1.7" id="46X-cc-U4l"/>
-                            <constraint firstItem="cvW-82-69v" firstAttribute="leading" secondItem="yV6-w6-cab" secondAttribute="leading" constant="16" id="BiV-ZI-U1u"/>
+                            <constraint firstItem="cvW-82-69v" firstAttribute="leading" secondItem="yV6-w6-cab" secondAttribute="leading" constant="15" id="BiV-ZI-U1u"/>
                             <constraint firstItem="Wmv-aR-EeD" firstAttribute="centerX" secondItem="gup-2R-FKk" secondAttribute="centerX" id="FsE-VT-vRz"/>
                             <constraint firstItem="3A6-da-SX0" firstAttribute="centerX" secondItem="yV6-w6-cab" secondAttribute="centerX" id="PY8-Y8-qmq"/>
                             <constraint firstItem="cvW-82-69v" firstAttribute="top" secondItem="yV6-w6-cab" secondAttribute="top" constant="15" id="RaJ-t1-9rG"/>

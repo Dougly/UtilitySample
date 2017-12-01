@@ -49,7 +49,7 @@ class CityStateTitleView: UIView {
     }
     
     @IBAction func profileButtonTapped(_ sender: Any) {
-        print("tapped Profile")
+        delegate?.showProfile()
     }
     
     @IBAction func dropDownButtonTapped(_ sender: Any) {

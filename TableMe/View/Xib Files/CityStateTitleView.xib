@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityStateTitleView" customModule="UtilitySample" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityStateTitleView" customModule="TableMe" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="8yM-Ev-CVe" id="Udr-sJ-VbY"/>
                 <outlet property="cityLabel" destination="v9q-j1-zCj" id="gHE-J4-H26"/>
@@ -117,12 +117,6 @@
             <viewLayoutGuide key="safeArea" id="o6a-FM-XPU"/>
             <point key="canvasLocation" x="-12" y="-194"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hK8-u6-7xJ">
-            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
-            <point key="canvasLocation" x="-158" y="-115"/>
-        </button>
     </objects>
     <resources>
         <image name="downArrow" width="12" height="7"/>

@@ -132,13 +132,14 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
     func presentNextViewController() {
         guard let phoneNumber = phoneNumber else { return }
         databaseFacade.readValueOnce(at: "users/\(phoneNumber)") { (dict) in
-            guard let dict = dict else { return }
-            if let name = dict["name"] as? String {
-                self.popToRootAndEnterApp()
-                print("\(name) already signed up - transition to mainVC")
+            if let dict = dict {
+                if dict["name"] as? String != nil {
+                    self.popToRootAndEnterApp()
+                } else {
+                    self.pushToAdditionalDetails()
+                }
             } else {
                 self.pushToAdditionalDetails()
-                print("should transition to additional info")
             }
         }
     }
