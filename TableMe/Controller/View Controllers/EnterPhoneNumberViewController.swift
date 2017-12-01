@@ -9,23 +9,24 @@
 import UIKit
 import FirebaseAuth
 
-class EnterPhoneNumberViewController: UIViewController {
+class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableMeTextField: TableMeTextFieldView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.becomeFirstResponder()
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        tableMeTextField.set(labelText: "Phone Number")
+        tableMeTextField.delegate = self
+        tableMeTextField.setTextFieldProperties(UITextContentType.telephoneNumber, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
+//        textField.becomeFirstResponder()
+//        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     
@@ -38,11 +39,12 @@ class EnterPhoneNumberViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        underlineView.backgroundColor = .themePurple
-        phoneNumberLabel.textColor = .white
-       
+    func verifyPhoneNumber() -> Bool {
+        return tableMeTextField.textField.text?.count == 16
+    }
+    
+    func textFieldDidChange() {
+        guard let textField = tableMeTextField.textField else { return }
         switch Int(textField.text!.count) {
         case 3, 9:
             let text = textField.text!
@@ -52,14 +54,12 @@ class EnterPhoneNumberViewController: UIViewController {
         }
         
         if verifyPhoneNumber() {
-            nextButton.titleLabel?.textColor = .white
+            nextButton.isEnabled = true
+            nextButton.alpha = 1
         } else {
-            nextButton.titleLabel?.textColor = .themeGray
+            nextButton.isEnabled = false
+            nextButton.alpha = 0.5
         }
-    }
-    
-    func verifyPhoneNumber() -> Bool {
-        return textField.text?.count == 16
     }
     
     func presentAlert() {
@@ -69,7 +69,7 @@ class EnterPhoneNumberViewController: UIViewController {
             self.activityIndicator.startAnimating()
 
             var phoneNumber = "+1"
-            let chars = Array(self.textField.text!)
+            let chars = Array(self.tableMeTextField.textField.text!)
             for char in chars {
                 switch char {
                 case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
