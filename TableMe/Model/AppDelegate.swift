@@ -12,11 +12,14 @@ import Fabric
 import Crashlytics
 import Firebase
 import FirebaseAuth
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let locationManager = CLLocationManager()
+
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -73,11 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("REGISTERED FOR NOTIFICATION ********")
+        //Get notification token here if needed
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("FAILED TO REGISER NOTIFICATION")
+        //Handle notification errors here
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

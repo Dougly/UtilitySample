@@ -20,7 +20,6 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
         return .lightContent
     }
     
-    let locationManager = CLLocationManager()
     var permissionVCType: PermissionVCType?
     var image: UIImage?
     var note: String?
@@ -75,16 +74,28 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
             }
             
         case .location:
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.locationManager.delegate = self
             switch CLLocationManager.authorizationStatus() {
-            case .notDetermined, .restricted, .denied:
-                locationManager.requestWhenInUseAuthorization()
-
-            case .authorizedWhenInUse, .authorizedAlways:
+            case .notDetermined:
+                appDelegate.locationManager.requestWhenInUseAuthorization()
+            case .authorizedWhenInUse, .authorizedAlways, .denied,  .restricted:
+                self.navigationController?.popToRootViewController(animated: true)
                 break
             }
-            self.navigationController?.popToRootViewController(animated: true)
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    deinit {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        print("locationManager delgate: \(appDelegate.locationManager.delegate ?? nil)")
+    }
+    
+    
     
 }
     
