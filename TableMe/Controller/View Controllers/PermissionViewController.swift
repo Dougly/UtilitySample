@@ -91,9 +91,14 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
     }
   
     func popToRootAndEnterApp() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
         let rootVC = self.navigationController?.viewControllers[0] as! LogInViewController
-        self.navigationController?.popToRootViewController(animated: true)
-        rootVC.enterAppAfterLogin()
+        let viewControllers = [rootVC, tabBarController]
+        self.navigationController?.setViewControllers(viewControllers, animated: true)
+        
+//        self.navigationController?.popToRootViewController(animated: true)
+//        rootVC.enterAppAfterLogin()
     }
     
     
