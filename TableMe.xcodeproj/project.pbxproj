@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1101616C1FD1A208006ED8DD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1101616B1FD1A208006ED8DD /* UserNotifications.framework */; };
+		110161701FD1CAB1006ED8DD /* FirebaseAuthFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1101616F1FD1CAB1006ED8DD /* FirebaseAuthFacade.swift */; };
 		11155E8B1FCF06B8008ADE72 /* TableMeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */; };
 		11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */; };
 		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		1101616B1FD1A208006ED8DD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		1101616F1FD1CAB1006ED8DD /* FirebaseAuthFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthFacade.swift; sourceTree = "<group>"; };
 		11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableMeButton.xib; sourceTree = "<group>"; };
 		11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButton.swift; sourceTree = "<group>"; };
 		11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButtonDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				112A2FD11FAE54480031FF64 /* AppDelegate.swift */,
 				1165E84A1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift */,
+				1101616F1FD1CAB1006ED8DD /* FirebaseAuthFacade.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
 				1173E2F31FD0989E00B34C96 /* StringExtension.swift in Sources */,
+				110161701FD1CAB1006ED8DD /* FirebaseAuthFacade.swift in Sources */,
 				11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

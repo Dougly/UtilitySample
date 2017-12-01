@@ -9,23 +9,33 @@
 import UIKit
 import FirebaseAuth
 
-class VerificationCodeViewController: UIViewController {
+class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    var phoneNumber: String? // use to resend code and update label
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var weSentVerificationLabel: UILabel!
-    @IBOutlet weak var fiveDigitCodeLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableMeTextField: TableMeTextFieldView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let last4 = getLastFourChars(of: phoneNumber)
+        weSentVerificationLabel.text = "We sent you a 6 digit code to cell number ending in \(last4). Please enter it below."
+        
+        tableMeTextField.set(labelText: "6 Digit Code")
+        tableMeTextField.setTextFieldProperties(nil, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
+        tableMeTextField.textField.maxLength = 6
+        tableMeTextField.delegate = self
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else { return }
-        let verificationCode = textField.text!
+        let verificationCode = tableMeTextField.textField.text!
         let credential = PhoneAuthProvider.provider().credential(
             withVerificationID: verificationID,
             verificationCode: verificationCode)
@@ -41,12 +51,14 @@ class VerificationCodeViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func resendCodeButtonTapped(_ sender: UIButton) {
+        //TODO: bring in logic to resend code with number
+        
     }
-    
-    
+
     func loginWith(credential: PhoneAuthCredential) {
         activityIndicator.startAnimating()
         Auth.auth().signIn(with: credential) { (user, error) in
@@ -55,6 +67,34 @@ class VerificationCodeViewController: UIViewController {
                 print(error)
                 return
             }
+        }
+    }
+    
+    func verifyCodeLength() -> Bool {
+        return tableMeTextField.textField.text?.count == 6
+    }
+    
+    func getLastFourChars(of phoneNumber: String?) -> String {
+        var lastFourDigits = ""
+        if let phoneNumber = phoneNumber {
+            for (index, char) in phoneNumber.enumerated() {
+                if index > phoneNumber.count - 5 {
+                    lastFourDigits.append(char)
+                }
+            }
+        } else {
+            lastFourDigits = "*no phone number"
+        }
+        return lastFourDigits
+    }
+    
+    func textFieldDidChange() {
+        if verifyCodeLength() {
+            nextButton.isEnabled = true
+            nextButton.alpha = 1
+        } else {
+            nextButton.isEnabled = false
+            nextButton.alpha = 0.5
         }
     }
     

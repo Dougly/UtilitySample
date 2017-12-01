@@ -59,20 +59,21 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
                 if error != nil {
                     print("🔥 \(error!.localizedDescription)")
                 }
-                //enable or disable features based on authorization
+                DispatchQueue.main.async {
+                    let main = UIStoryboard(name: "Main", bundle: nil)
+                    let permissionVC = main.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
+                    permissionVC.permissionVCType = .location
+                    permissionVC.title = "Location"
+                    permissionVC.image = #imageLiteral(resourceName: "locationGrapahic")
+                    permissionVC.note = "Let’s make sure you are always finding clubs that are nearest you. Allow us to access your location."
+                    self.navigationController?.pushViewController(permissionVC, animated: true)
+                }
             })
             
             if !application.isRegisteredForRemoteNotifications {
                 application.registerForRemoteNotifications()
             }
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            let permissionVC = main.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
-            permissionVC.permissionVCType = .location
-            permissionVC.title = "Location"
-            permissionVC.image = #imageLiteral(resourceName: "locationGrapahic")
-            permissionVC.note = "Let’s make sure you are always finding clubs that are nearest you. Allow us to access your location."
-            self.present(permissionVC, animated: true, completion: nil)
-            //self.navigationController?.pushViewController(permissionVC, animated: true)
+            
         case .location:
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined, .restricted, .denied:
@@ -82,10 +83,7 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
                 break
             }
             self.navigationController?.popToRootViewController(animated: true)
-            
         }
-        
-        //TODO: present alert and transition to clubVC
     }
     
 }

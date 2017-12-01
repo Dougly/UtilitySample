@@ -40,6 +40,7 @@ class TableMeTextFieldView: UIView {
         contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         setGesturesAndTargets()
+        textField.delegate = self
 
     }
     
@@ -102,6 +103,14 @@ class TableMeTextFieldView: UIView {
                 self.textFieldIsRisen = false
             })
         }
+    }
+    
+}
+
+extension TableMeTextFieldView: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textChanged()
     }
     
 }

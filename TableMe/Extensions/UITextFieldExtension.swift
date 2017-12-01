@@ -13,7 +13,7 @@ extension UITextField {
     @IBInspectable var maxLength: Int {
         get {
             guard let l = __maxLengths[self] else {
-                return 150 // (global default-limit. or just, Int.max)
+                return Int.max // (global default-limit. or just, Int.max)
             }
             return l
         }
@@ -25,13 +25,6 @@ extension UITextField {
     @objc func fix(textField: UITextField) {
         let t = textField.text
         textField.text = t?.safelyLimitedTo(length: maxLength)
-    }
-}
-
-extension String
-{
-    func safelyLimitedTo(length n: Int)->String {
-        if (self.count <= n) { return self }
-        return String( Array(self).prefix(upTo: n) )
+        textField.delegate?.textFieldDidBeginEditing?(textField)
     }
 }

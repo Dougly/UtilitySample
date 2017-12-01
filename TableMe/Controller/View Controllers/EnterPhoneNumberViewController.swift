@@ -15,6 +15,7 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
         return .lightContent
     }
     
+    var charCount = 0
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableMeTextField: TableMeTextFieldView!
@@ -25,6 +26,7 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
         tableMeTextField.set(labelText: "Phone Number")
         tableMeTextField.delegate = self
         tableMeTextField.setTextFieldProperties(UITextContentType.telephoneNumber, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
+        tableMeTextField.textField.maxLength = 14
 //        textField.becomeFirstResponder()
 //        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
@@ -40,18 +42,12 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
     }
     
     func verifyPhoneNumber() -> Bool {
-        return tableMeTextField.textField.text?.count == 16
+        return tableMeTextField.textField.text?.count == 14
     }
     
     func textFieldDidChange() {
         guard let textField = tableMeTextField.textField else { return }
-        switch Int(textField.text!.count) {
-        case 3, 9:
-            let text = textField.text!
-            textField.text = text + " - "
-        default:
-            break
-        }
+        autoFormatPhoneNumberText(in: textField)
         
         if verifyPhoneNumber() {
             nextButton.isEnabled = true
@@ -60,6 +56,45 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
             nextButton.isEnabled = false
             nextButton.alpha = 0.5
         }
+    }
+    
+    func autoFormatPhoneNumberText(in textField: UITextField) {
+        guard let count = textField.text?.count else { return }
+        if count == 10 && charCount < count {
+            let lastDigit = String(textField.text!.removeLast())
+            let first3Digits = textField.text!
+            let newString = first3Digits + "-" + lastDigit
+            print(newString)
+            textField.text = newString
+        } else if count == 5 {
+            var newString = ""
+            for char in textField.text! {
+                switch char {
+                case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+                    newString.append(char)
+                default:
+                    break
+                }
+            }
+            newString.removeLast()
+            textField.text = newString
+        } else if count == 10  {
+            var newString = textField.text!
+            newString.removeLast()
+            textField.text = newString
+        } else if charCount < count {
+            switch count {
+            case 3:
+                let areaCode = textField.text!
+                let newString = "(\(areaCode)) "
+                textField.text = newString
+            case 9:
+                let newString = textField.text! + "-"
+                textField.text = newString
+            default: break
+            }
+        }
+        charCount = textField.text!.count
     }
     
     func presentAlert() {
@@ -88,6 +123,7 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
                     }
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                     let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
+                    destVC.phoneNumber = phoneNumber
                     self.navigationController?.pushViewController(destVC, animated: true)
                     self.activityIndicator.stopAnimating()
                 }
@@ -102,4 +138,5 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
 }
