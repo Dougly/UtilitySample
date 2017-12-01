@@ -271,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="1604" y="33"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="BYZ-38-t0r" customClass="ViewController" customModule="TableMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="BYZ-38-t0r" customClass="LogInViewController" customModule="TableMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,39 +297,26 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpG-AC-faf">
-                                <rect key="frame" x="28.5" y="558.5" width="318.5" height="50.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22b-Xq-yv5" customClass="TableMeButton" customModule="TableMe" customModuleProvider="target">
+                                <rect key="frame" x="28" y="558.5" width="319" height="51"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="mpG-AC-faf" secondAttribute="height" multiplier="327:52" id="q3n-WI-4hV"/>
+                                    <constraint firstAttribute="width" secondItem="22b-Xq-yv5" secondAttribute="height" multiplier="327:52" id="rqB-WR-qAn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Sign in with Phone Number">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gab-CK-amE"/>
-                                    <segue destination="rrt-6d-Aaj" kind="show" id="Dwh-Zj-cLl"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-oD-oYV">
-                                <rect key="frame" x="177.5" y="419.5" width="20" height="20"/>
-                            </activityIndicatorView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="J5X-oD-oYV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.25" id="0Gh-k1-eja"/>
                             <constraint firstItem="IkN-lC-mjZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.15" id="0qc-pM-kir"/>
                             <constraint firstItem="IkN-lC-mjZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-110" id="35b-E6-Mqd"/>
+                            <constraint firstItem="22b-Xq-yv5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.7" id="3gf-XK-ZGM"/>
                             <constraint firstItem="IkN-lC-mjZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7ZR-Ws-V9U"/>
                             <constraint firstItem="8UI-68-7Wy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BY1-kT-U2V"/>
                             <constraint firstItem="IdI-WL-G2i" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Dg0-wU-rAl"/>
-                            <constraint firstItem="mpG-AC-faf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.7" id="HMH-Fn-zUi"/>
-                            <constraint firstItem="J5X-oD-oYV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HtB-hy-MOC"/>
+                            <constraint firstItem="22b-Xq-yv5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="Key-ri-Z7Q"/>
                             <constraint firstItem="IdI-WL-G2i" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="RTW-Je-dCk"/>
-                            <constraint firstItem="mpG-AC-faf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ULt-Ub-oRt"/>
                             <constraint firstItem="8UI-68-7Wy" firstAttribute="width" secondItem="IdI-WL-G2i" secondAttribute="width" id="Wh5-lj-wAj"/>
-                            <constraint firstItem="mpG-AC-faf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="fHu-25-AEg"/>
+                            <constraint firstItem="22b-Xq-yv5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="prJ-Tt-NUE"/>
                             <constraint firstItem="IdI-WL-G2i" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="t6J-oU-mce"/>
                             <constraint firstItem="8UI-68-7Wy" firstAttribute="bottom" secondItem="IdI-WL-G2i" secondAttribute="top" constant="-5" id="xW8-rj-qFN"/>
                         </constraints>
@@ -337,15 +324,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="5h0-39-iQl"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="J5X-oD-oYV" id="6ay-67-fqU"/>
-                        <outlet property="logoCenterXConstraint" destination="7ZR-Ws-V9U" id="dnO-NQ-IP6"/>
-                        <outlet property="logoImageView" destination="IkN-lC-mjZ" id="ybe-nX-T5a"/>
-                        <outlet property="signUpButtonCenterXConstraint" destination="ULt-Ub-oRt" id="6Ku-CN-Y9p"/>
-                        <outlet property="signUpWithPhoneNumberButton" destination="mpG-AC-faf" id="VSV-Mm-Efv"/>
-                        <outlet property="thisIsTableMeCenterXConstraint" destination="t6J-oU-mce" id="kho-Pf-Zes"/>
-                        <outlet property="thisIsTableMeLabel" destination="IdI-WL-G2i" id="fzk-VX-YOb"/>
-                        <outlet property="welcomeLabel" destination="8UI-68-7Wy" id="tem-xl-RV4"/>
-                        <outlet property="welcomeLabelCenterXConstraint" destination="BY1-kT-U2V" id="QOM-3H-oPN"/>
+                        <outlet property="logoCenterXConstraint" destination="7ZR-Ws-V9U" id="E5Y-kJ-fL3"/>
+                        <outlet property="logoImageView" destination="IkN-lC-mjZ" id="0tJ-wn-zxS"/>
+                        <outlet property="tableMeButton" destination="22b-Xq-yv5" id="2xG-xe-dpc"/>
+                        <outlet property="tableMeButtonCenterXConstraint" destination="prJ-Tt-NUE" id="ROr-jE-bUc"/>
+                        <outlet property="thisIsTableMeCenterXConstraint" destination="t6J-oU-mce" id="g1l-oz-QQF"/>
+                        <outlet property="thisIsTableMeLabel" destination="IdI-WL-G2i" id="HE9-vA-lXU"/>
+                        <outlet property="welcomeLabel" destination="8UI-68-7Wy" id="K6g-ud-Qck"/>
+                        <outlet property="welcomeLabelCenterXConstraint" destination="BY1-kT-U2V" id="U0X-IZ-tqh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

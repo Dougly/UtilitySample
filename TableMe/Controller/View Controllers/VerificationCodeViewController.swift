@@ -36,18 +36,8 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else { return }
         let verificationCode = tableMeTextField.textField.text!
-        let credential = PhoneAuthProvider.provider().credential(
-            withVerificationID: verificationID,
-            verificationCode: verificationCode)
-        
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
         loginWith(credential: credential)
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
-        
-        //TODO: If user has already created an account go directly into app without presenting additional details or asking for permissions
-        self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
-        
-    
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -63,9 +53,17 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         activityIndicator.startAnimating()
         Auth.auth().signIn(with: credential) { (user, error) in
             self.activityIndicator.stopAnimating()
-            if let error = error {
-                print(error)
+            if error != nil {
+                self.presentAlert(title: "Invalid Code", message: "Please use the correct verification code. If you did not recieve the code tap the \"Resend Code\" button.")
                 return
+            }
+            
+            if user != nil {
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
+                
+                //TODO: If user has already created an account go directly into app without presenting additional details or asking for permissions
+                self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
             }
         }
     }
@@ -96,6 +94,17 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
             nextButton.isEnabled = false
             nextButton.alpha = 0.5
         }
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default) { (action) in
+            //print do anything?
+        }
+        
+        alert.addAction(okayAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

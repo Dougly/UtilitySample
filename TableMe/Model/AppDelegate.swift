@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationManager = CLLocationManager()
 
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        
         
         UIApplication.shared.statusBarStyle = .lightContent
         Fabric.with([Crashlytics.self])
@@ -56,18 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let navController = main.instantiateViewController(withIdentifier: "initialNavController") as! UINavigationController
         let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
-        let loginVC: ViewController = main.instantiateViewController(withIdentifier: "loginVC") as! ViewController
-        
+        let loginVC: LogInViewController = main.instantiateViewController(withIdentifier: "loginVC") as! LogInViewController
         navController.navigationBar.isHidden = true
-        //auth.navController = navController
         
         if Auth.auth().currentUser != nil {
             let controllers = [loginVC, tabBarController]
             navController.setViewControllers(controllers, animated: false)
-            //self.currentView = .list
         } else {
             navController.setViewControllers([loginVC], animated: false)
-            //self.currentView = .login
         }
         
         window?.rootViewController = navController

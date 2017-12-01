@@ -80,21 +80,21 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
             case .notDetermined:
                 appDelegate.locationManager.requestWhenInUseAuthorization()
             case .authorizedWhenInUse, .authorizedAlways, .denied,  .restricted:
-                self.navigationController?.popToRootViewController(animated: true)
+                popToRootAndEnterApp()
                 break
             }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        popToRootAndEnterApp()
+    }
+  
+    func popToRootAndEnterApp() {
+        let rootVC = self.navigationController?.viewControllers[0] as! LogInViewController
         self.navigationController?.popToRootViewController(animated: true)
+        rootVC.enterAppAfterLogin()
     }
-    
-    deinit {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        print("locationManager delgate: \(appDelegate.locationManager.delegate ?? nil)")
-    }
-    
     
     
 }

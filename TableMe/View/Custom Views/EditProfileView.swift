@@ -20,14 +20,7 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
     @IBOutlet weak var genderTMTextField: TableMeTextFieldView!
     @IBOutlet weak var birthdayTMTextField: TableMeTextFieldView!
     @IBOutlet weak var checkBoxView: UIView!
-    @IBAction func dateButtonTapped(_ sender: UIButton) {
-        print("tapped date button")
-        birthdayTMTextField.becomeFirstResponder()
-    }
-    @IBAction func genderButtonTapped(_ sender: UIButton) {
-        genderTMTextField.becomeFirstResponder()
-    }
-    
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,7 +94,7 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
         delegate?.checkboxWasTapped()
     }
     
-    //TODO: Not the ideal architecture for this... find a better design pattern.
+    //TODO: Not the ideal architecture for this... find a better design pattern. Textfield changing shouldnt be attached to the checkbox tapped function
     func textFieldDidChange() {
         delegate?.checkboxWasTapped()
     }
@@ -119,5 +112,14 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
         }
         return allFieldsValid
     }
+    
+    @IBAction func dateButtonTapped(_ sender: UIButton) {
+        print("tapped date button")
+        birthdayTMTextField.becomeFirstResponder()
+    }
+    @IBAction func genderButtonTapped(_ sender: UIButton) {
+        genderTMTextField.becomeFirstResponder()
+    }
+    
     
 }

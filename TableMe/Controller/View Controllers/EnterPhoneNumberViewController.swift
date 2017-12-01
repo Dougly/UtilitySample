@@ -27,12 +27,16 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
         tableMeTextField.delegate = self
         tableMeTextField.setTextFieldProperties(UITextContentType.telephoneNumber, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
         tableMeTextField.textField.maxLength = 14
-//        textField.becomeFirstResponder()
-//        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableMeTextField.textField.becomeFirstResponder()
     }
     
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        tableMeTextField.textField.resignFirstResponder()
         presentAlert()
     }
     
@@ -98,7 +102,7 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
     }
     
     func presentAlert() {
-        let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply.", preferredStyle: .alert)
         
         let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
             self.activityIndicator.startAnimating()

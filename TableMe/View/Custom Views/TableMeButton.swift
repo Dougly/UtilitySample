@@ -54,7 +54,7 @@ class TableMeButton: UIView {
     func addGestures() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tappedButton))
         let longGR = UILongPressGestureRecognizer(target: self, action: #selector(longHold))
-        longGR.minimumPressDuration = 0.025
+        longGR.minimumPressDuration = 0.1
         contentView.addGestureRecognizer(tapGR)
         contentView.addGestureRecognizer(longGR)
     }
@@ -65,7 +65,7 @@ class TableMeButton: UIView {
             self.longTouchStartingPoint = sender.location(in: self)
             UIView.animate(withDuration: 0.2, animations: {
                 self.alpha = 0.5
-                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                 self.layoutIfNeeded()
             })
         case .changed:
@@ -100,7 +100,7 @@ class TableMeButton: UIView {
     @objc func tappedButton(_ sender: UITapGestureRecognizer) {
         UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: [.calculationModeCubicPaced], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1, animations: {
-                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.1, animations: {
                 self.transform = CGAffineTransform.identity

@@ -14,7 +14,7 @@
 		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
 		111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */; };
 		112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD11FAE54480031FF64 /* AppDelegate.swift */; };
-		112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* ViewController.swift */; };
+		112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* LogInViewController.swift */; };
 		112A2FD71FAE54480031FF64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FD51FAE54480031FF64 /* Main.storyboard */; };
 		112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD81FAE54480031FF64 /* UtilitySample.xcdatamodeld */; };
 		112A2FDC1FAE54480031FF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112A2FDB1FAE54480031FF64 /* Assets.xcassets */; };
@@ -70,7 +70,7 @@
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		112A2FD31FAE54480031FF64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		112A2FD31FAE54480031FF64 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		112A2FD61FAE54480031FF64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		112A2FD91FAE54480031FF64 /* UtilitySample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UtilitySample.xcdatamodel; sourceTree = "<group>"; };
 		112A2FDB1FAE54480031FF64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		11589AB11FC3249200DDD3BD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				112A2FD31FAE54480031FF64 /* ViewController.swift */,
+				112A2FD31FAE54480031FF64 /* LogInViewController.swift */,
 				111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */,
 				118FD05B1FB49E48009E8B89 /* ClubDetailViewController.swift */,
 				11589ABA1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift */,
@@ -539,7 +539,7 @@
 				11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */,
 				1140402B1FCDD3650040E286 /* TableMeTextFieldView.swift in Sources */,
 				11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */,
-				112A2FD41FAE54480031FF64 /* ViewController.swift in Sources */,
+				112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */,
 				11D4DA091FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,
 				11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */,
