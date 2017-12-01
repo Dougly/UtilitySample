@@ -19,6 +19,7 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
     @IBOutlet weak var weSentVerificationLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableMeTextField: TableMeTextFieldView!
+    @IBOutlet weak var resendTableMeButton: TableMeButton!
     
     
     override func viewDidLoad() {
@@ -31,6 +32,17 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         tableMeTextField.setTextFieldProperties(nil, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
         tableMeTextField.textField.maxLength = 6
         tableMeTextField.delegate = self
+        
+        resendTableMeButton.setProperties(title: "Resend Code", icon: nil, backgroundImage: nil, backgroundColor: .black, cornerRadius: nil)
+        resendTableMeButton.labelUnderline.isHidden = false
+        resendTableMeButton.labelUnderline.backgroundColor = .themeGray
+        resendTableMeButton.titleLabel.textColor = .themeGray
+        resendTableMeButton.titleLabel.font = UIFont(name: "Avenir", size: 15)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(resendTableMeButton.titleLabel.frame.width)
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
@@ -44,7 +56,7 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func resendCodeButtonTapped(_ sender: UIButton) {
+    func resendCodeButtonTapped(_ sender: UIButton) {
         if let phoneNumber = phoneNumber {
             //TODO: Move to FirebaseAuthFacade
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in

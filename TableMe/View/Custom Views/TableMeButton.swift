@@ -23,7 +23,7 @@ class TableMeButton: UIView {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var labelUnderline: UIView!
     @IBOutlet weak var buttonEdgeLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonEdgeTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonEdgeTopConstraint: NSLayoutConstraint!
@@ -63,7 +63,7 @@ class TableMeButton: UIView {
         switch sender.state {
         case .began:
             self.longTouchStartingPoint = sender.location(in: self)
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 self.alpha = 0.5
                 self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                 self.layoutIfNeeded()
@@ -118,7 +118,6 @@ class TableMeButton: UIView {
         self.backgroundImageView.image = backgroundImage
         self.buttonEdgesView.backgroundColor = backgroundColor
         if let cornerRadius = cornerRadius {
-            print("setting corener radius")
             self.layer.cornerRadius = cornerRadius
             self.clipsToBounds = true
         }

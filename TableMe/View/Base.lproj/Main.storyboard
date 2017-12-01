@@ -132,50 +132,47 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-kJ-gUn">
-                                <rect key="frame" x="15" y="135" width="345" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent you a 6 digit code to cell number ending in 5555. Please enter it below." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-kJ-gUn">
+                                <rect key="frame" x="15" y="135" width="285" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28w-Sq-D88">
-                                <rect key="frame" x="15" y="282" width="97" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <state key="normal" title="Resend Code">
-                                    <color key="titleColor" red="0.69019607843137254" green="0.69019607843137254" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="resendCodeButtonTapped:" destination="att-mI-6gu" eventType="touchUpInside" id="UN7-At-JF7"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-Di-i1r">
                                 <rect key="frame" x="273" y="95.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QG-28-yp6" customClass="TableMeTextFieldView" customModule="TableMe" customModuleProvider="target">
-                                <rect key="frame" x="15" y="182" width="337.5" height="70"/>
+                                <rect key="frame" x="15" y="198.5" width="337.5" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Eca-eA-5sP"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4A-1g-12V" customClass="TableMeButton" customModule="TableMe" customModuleProvider="target">
+                                <rect key="frame" x="15" y="288.5" width="91" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="SoG-vN-vin"/>
+                                    <constraint firstAttribute="height" constant="30" id="isc-uc-eeL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="28w-Sq-D88" firstAttribute="top" secondItem="4QG-28-yp6" secondAttribute="bottom" constant="30" id="1zy-6D-Dc0"/>
                             <constraint firstItem="3DB-Jg-PuF" firstAttribute="leading" secondItem="0La-FC-1Zz" secondAttribute="leading" constant="15" id="3qi-ns-77z"/>
                             <constraint firstItem="V1y-kJ-gUn" firstAttribute="top" secondItem="3DB-Jg-PuF" secondAttribute="bottom" constant="10" id="5qz-W7-kRx"/>
                             <constraint firstItem="ykM-Gc-kQd" firstAttribute="leading" secondItem="0La-FC-1Zz" secondAttribute="leading" constant="15" id="6Z2-vV-gvo"/>
                             <constraint firstItem="3DB-Jg-PuF" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ixh-uy-IYo" secondAttribute="trailing" constant="20" symbolic="YES" id="Cmj-eD-17i"/>
                             <constraint firstItem="4QG-28-yp6" firstAttribute="leading" secondItem="3DB-Jg-PuF" secondAttribute="leading" id="Hvv-wN-aTo"/>
+                            <constraint firstItem="n4A-1g-12V" firstAttribute="top" secondItem="4QG-28-yp6" secondAttribute="bottom" constant="20" id="LZ8-Hq-7Cm"/>
                             <constraint firstItem="4QG-28-yp6" firstAttribute="top" secondItem="V1y-kJ-gUn" secondAttribute="bottom" constant="30" id="Qsw-Rg-43h"/>
                             <constraint firstItem="ykM-Gc-kQd" firstAttribute="centerY" secondItem="qUX-aW-hpX" secondAttribute="centerY" id="RJw-yb-The"/>
-                            <constraint firstItem="28w-Sq-D88" firstAttribute="leading" secondItem="4QG-28-yp6" secondAttribute="leading" id="Ud1-LD-LiK"/>
                             <constraint firstItem="3DB-Jg-PuF" firstAttribute="top" secondItem="0La-FC-1Zz" secondAttribute="centerY" multiplier="0.25" id="VS9-n4-Wtr"/>
+                            <constraint firstItem="n4A-1g-12V" firstAttribute="leading" secondItem="4QG-28-yp6" secondAttribute="leading" id="XOM-4B-vRv"/>
                             <constraint firstItem="qUX-aW-hpX" firstAttribute="top" secondItem="0La-FC-1Zz" secondAttribute="top" constant="10" id="Zgz-o4-9Ff"/>
                             <constraint firstItem="4QG-28-yp6" firstAttribute="width" secondItem="ixh-uy-IYo" secondAttribute="width" multiplier="0.9" id="dot-6e-t0I"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="28w-Sq-D88" secondAttribute="trailing" constant="20" symbolic="YES" id="nbr-YT-fx0"/>
                             <constraint firstItem="2fX-Di-i1r" firstAttribute="leading" secondItem="3DB-Jg-PuF" secondAttribute="trailing" constant="15" id="oXt-5a-mM5"/>
-                            <constraint firstItem="V1y-kJ-gUn" firstAttribute="trailing" secondItem="0La-FC-1Zz" secondAttribute="trailing" constant="-15" id="obR-hO-RvZ"/>
+                            <constraint firstItem="V1y-kJ-gUn" firstAttribute="trailing" secondItem="0La-FC-1Zz" secondAttribute="trailing" multiplier="0.8" id="obR-hO-RvZ"/>
                             <constraint firstItem="V1y-kJ-gUn" firstAttribute="leading" secondItem="3DB-Jg-PuF" secondAttribute="leading" id="pSY-70-t2W"/>
                             <constraint firstItem="qUX-aW-hpX" firstAttribute="trailing" secondItem="0La-FC-1Zz" secondAttribute="trailing" constant="-15" id="sPq-Mq-BWQ"/>
                             <constraint firstItem="qUX-aW-hpX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ixh-uy-IYo" secondAttribute="leading" constant="20" symbolic="YES" id="x9k-qh-Ckt"/>
@@ -186,6 +183,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="2fX-Di-i1r" id="shC-77-aZU"/>
                         <outlet property="nextButton" destination="qUX-aW-hpX" id="vHY-Rd-Uhk"/>
+                        <outlet property="resendTableMeButton" destination="n4A-1g-12V" id="SpA-zT-hBg"/>
                         <outlet property="tableMeTextField" destination="4QG-28-yp6" id="59a-Dl-Ijp"/>
                         <outlet property="weSentVerificationLabel" destination="V1y-kJ-gUn" id="I9I-mh-lMk"/>
                     </connections>

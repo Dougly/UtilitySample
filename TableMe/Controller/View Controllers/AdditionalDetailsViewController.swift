@@ -99,6 +99,7 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

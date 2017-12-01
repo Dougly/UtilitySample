@@ -21,6 +21,7 @@
                 <outlet property="buttonEdgesView" destination="tLd-77-EBn" id="A01-aW-jSx"/>
                 <outlet property="contentView" destination="Y3U-DP-hyi" id="c1W-g8-k3y"/>
                 <outlet property="iconImageView" destination="VLo-s8-Tqp" id="T9d-jB-39n"/>
+                <outlet property="labelUnderline" destination="QZl-JM-20S" id="vaa-S9-Sqg"/>
                 <outlet property="titleLabel" destination="tH8-ad-7K0" id="4G8-EK-6zQ"/>
             </connections>
         </placeholder>
@@ -40,12 +41,19 @@
                             <rect key="frame" x="58.5" y="57.5" width="49.5" height="49"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tH8-ad-7K0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tH8-ad-7K0">
                             <rect key="frame" x="83.5" y="82" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZl-JM-20S" userLabel="Label Underline">
+                            <rect key="frame" x="83.5" y="80" width="0.0" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="8oP-z0-12p"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -54,8 +62,11 @@
                         <constraint firstItem="tH8-ad-7K0" firstAttribute="centerX" secondItem="tLd-77-EBn" secondAttribute="centerX" id="AWX-Ql-j2g"/>
                         <constraint firstItem="tTH-ae-vPW" firstAttribute="centerY" secondItem="tLd-77-EBn" secondAttribute="centerY" id="ApH-G4-DMw"/>
                         <constraint firstItem="VLo-s8-Tqp" firstAttribute="height" secondItem="tLd-77-EBn" secondAttribute="height" multiplier="0.3" id="Klk-m9-MCX"/>
+                        <constraint firstItem="QZl-JM-20S" firstAttribute="width" secondItem="tH8-ad-7K0" secondAttribute="width" id="R3c-6k-i9P"/>
+                        <constraint firstItem="QZl-JM-20S" firstAttribute="centerX" secondItem="tH8-ad-7K0" secondAttribute="centerX" id="U7e-ca-FNg"/>
                         <constraint firstItem="VLo-s8-Tqp" firstAttribute="centerX" secondItem="tLd-77-EBn" secondAttribute="centerX" id="hNn-br-G96"/>
                         <constraint firstItem="tTH-ae-vPW" firstAttribute="height" secondItem="tLd-77-EBn" secondAttribute="height" id="iQ2-vm-Y2j"/>
+                        <constraint firstItem="QZl-JM-20S" firstAttribute="top" secondItem="tH8-ad-7K0" secondAttribute="bottom" constant="-2" id="oNo-9K-Z8p"/>
                         <constraint firstItem="tTH-ae-vPW" firstAttribute="centerX" secondItem="tLd-77-EBn" secondAttribute="centerX" id="oPM-Fx-u1e"/>
                         <constraint firstItem="VLo-s8-Tqp" firstAttribute="width" secondItem="tLd-77-EBn" secondAttribute="width" multiplier="0.3" id="qd3-sJ-bCw"/>
                         <constraint firstItem="tTH-ae-vPW" firstAttribute="width" secondItem="tLd-77-EBn" secondAttribute="width" id="qte-u2-WmQ"/>

@@ -42,6 +42,7 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
         continueButton.titleLabel.textColor = .white
         continueButton.titleLabel.text = "Continue"
         continueButton.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        continueButton.buttonEdgesView.backgroundColor = .black
         
     }
     
