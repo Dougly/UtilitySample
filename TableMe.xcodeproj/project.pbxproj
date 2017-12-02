@@ -29,6 +29,7 @@
 		11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */; };
 		11589ABF1FC367D800DDD3BD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589ABE1FC367D800DDD3BD /* UIColorExtension.swift */; };
 		11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11589AC01FC373E000DDD3BD /* UITextFieldExtension.swift */; };
+		116512FF1FD3082C00CAAD06 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116512FE1FD3082C00CAAD06 /* Login.storyboard */; };
 		1165E84B1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165E84A1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift */; };
 		1173E2EF1FD08FA500B34C96 /* CheckBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173E2EE1FD08FA500B34C96 /* CheckBoxDelegate.swift */; };
 		1173E2F11FD093D000B34C96 /* TableMeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173E2F01FD093D000B34C96 /* TableMeTextFieldDelegate.swift */; };
@@ -90,6 +91,7 @@
 		11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		11589ABE1FC367D800DDD3BD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		11589AC01FC373E000DDD3BD /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		116512FE1FD3082C00CAAD06 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		1165E84A1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseFacade.swift; sourceTree = "<group>"; };
 		1173E2EE1FD08FA500B34C96 /* CheckBoxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxDelegate.swift; sourceTree = "<group>"; };
 		1173E2F01FD093D000B34C96 /* TableMeTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeTextFieldDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				112A2FDD1FAE54480031FF64 /* LaunchScreen.storyboard */,
 				112A2FD51FAE54480031FF64 /* Main.storyboard */,
+				116512FE1FD3082C00CAAD06 /* Login.storyboard */,
 				1173E2F41FD0B59E00B34C96 /* Custom Views */,
 				11589AB21FC3250F00DDD3BD /* Xib Files */,
 			);
@@ -405,6 +408,7 @@
 				11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */,
 				11D4DA051FCC947D009FAD98 /* EditProfileView.xib in Resources */,
 				11D4DA011FCC5760009FAD98 /* GoogleService-Info.plist in Resources */,
+				116512FF1FD3082C00CAAD06 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
