@@ -49,7 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginVC: LogInViewController = loginSB.instantiateViewController(withIdentifier: "loginVC") as! LogInViewController
         navController.navigationBar.isHidden = true
         
-        if Auth.auth().currentUser != nil {
+        let auth = FirebaseAuthFacade()
+        if auth.getCurrentUser() != nil {
             let controllers = [loginVC, tabBarController]
             navController.setViewControllers(controllers, animated: false)
         } else {

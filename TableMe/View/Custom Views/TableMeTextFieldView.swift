@@ -56,11 +56,8 @@ class TableMeTextFieldView: UIView {
         textField.becomeFirstResponder()
     }
     
-    func set(labelText: String) {
-        label.text = labelText
-    }
-    
-    func setTextFieldProperties(_ contentType: UITextContentType?, capitalization: UITextAutocapitalizationType, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, keyboardAppearance: UIKeyboardAppearance, returnKey: UIReturnKeyType) {
+    func setTextFieldProperties(title: String, contentType: UITextContentType?, capitalization: UITextAutocapitalizationType, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, keyboardAppearance: UIKeyboardAppearance, returnKey: UIReturnKeyType) {
+        label.text = title
         if contentType != nil { textField.textContentType = contentType! }
         textField.autocapitalizationType = capitalization
         textField.autocorrectionType = correction

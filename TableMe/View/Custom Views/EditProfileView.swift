@@ -57,18 +57,16 @@ class EditProfileView: UIView, TableMeTextFieldDelegate {
         checkBoxView.layer.borderWidth = 1
         checkBoxView.layer.borderColor = UIColor.themeGray.cgColor
         
-        fullNameTMTextField.set(labelText: "Full Name")
         fullNameTMTextField.textField.tag = 1
-        fullNameTMTextField.setTextFieldProperties(.name, capitalization: .words, correction: .no, keyboardType: .default, keyboardAppearance: .dark, returnKey: .next)
+        fullNameTMTextField.setTextFieldProperties(title: "Full Name", contentType: .name, capitalization: .words, correction: .no, keyboardType: .default, keyboardAppearance: .dark, returnKey: .next)
         
-        emailTMTextField.set(labelText: "Email Address")
         emailTMTextField.textField.tag = 2
-        emailTMTextField.setTextFieldProperties(.emailAddress, capitalization: .none, correction: .no, keyboardType: .emailAddress, keyboardAppearance: .dark, returnKey: .next)
+        emailTMTextField.setTextFieldProperties(title: "Email Address", contentType: .emailAddress, capitalization: .none, correction: .no, keyboardType: .emailAddress, keyboardAppearance: .dark, returnKey: .next)
         
-        genderTMTextField.set(labelText: "Choose Gender")
+        genderTMTextField.label.text = "Choose Gender"
         genderTMTextField.textField.tag = 3
         
-        birthdayTMTextField.set(labelText: "Choose Birthday")
+        birthdayTMTextField.label.text = "Choose Birthday"
         birthdayTMTextField.textField.tag = 4
         
         profilePictureButtonView.setProperties(title: "", icon: #imageLiteral(resourceName: "camera"), backgroundImage: nil, backgroundColor: .themeGreen, cornerRadius: 45)

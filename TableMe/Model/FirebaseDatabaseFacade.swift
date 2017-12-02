@@ -16,11 +16,12 @@ enum ProfileValue: String {
 
 class FirebaseDatabaseFacade {
     
+    let auth = FirebaseAuthFacade()
     let ref = Database.database().reference()
     let users = "users"
     
     func saveUserInfo(_ name: String?, email: String?, gender: String?, birthday: String?, profileImageURL: URL?) {
-        guard let currentUser = Auth.auth().currentUser else { return }
+        guard let currentUser = auth.getCurrentUser() else { return }
         guard let phoneNumber = currentUser.phoneNumber else { return }
         let keys: [ProfileValue] = [.name, .email, .gender, .birthday, .profileImage]
         var updateInfo: [String : Any] = [:]
@@ -38,7 +39,7 @@ class FirebaseDatabaseFacade {
     
     
     func updateUserInfo(_ name: String?, email: String?, gender: String?, birthday: String?, profileImageURL: URL?) {
-        guard let currentUser = Auth.auth().currentUser else { return }
+        guard let currentUser = auth.getCurrentUser() else { return }
         guard let phoneNumber = currentUser.phoneNumber else { return }
         let keys: [ProfileValue] = [.name, .email, .gender, .birthday, .profileImage]
         var updateInfo: [String : Any] = [:]
