@@ -27,14 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
-        
-        //signout for testing
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print ("🔥 Error signing out: %@", signOutError)
-        }
-        
         setWindowAndRootNavigationController()
         //setRootVCForTest()
         return true
@@ -42,18 +34,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setRootVCForTest() {
         window = UIWindow()
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let testVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC")
-        window?.rootViewController = testVC
+        let loginSB = UIStoryboard(name: "Login", bundle: nil)
+        let additionalDetailsVC = loginSB.instantiateViewController(withIdentifier: "additionalDetailsVC")
+        window?.rootViewController = additionalDetailsVC
         window?.makeKeyAndVisible()
     }
     
     func setWindowAndRootNavigationController() {
         window = UIWindow()
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let navController = main.instantiateViewController(withIdentifier: "initialNavController") as! UINavigationController
-        let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
-        let loginVC: LogInViewController = main.instantiateViewController(withIdentifier: "loginVC") as! LogInViewController
+        let mainSB = UIStoryboard(name: "Main", bundle: nil)
+        let loginSB = UIStoryboard(name: "Login", bundle: nil)
+        let navController = loginSB.instantiateViewController(withIdentifier: "initialNavController") as! UINavigationController
+        let tabBarController = mainSB.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
+        let loginVC: LogInViewController = loginSB.instantiateViewController(withIdentifier: "loginVC") as! LogInViewController
         navController.navigationBar.isHidden = true
         
         if Auth.auth().currentUser != nil {

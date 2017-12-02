@@ -59,15 +59,15 @@ class LogInViewController: UIViewController, TableMeButtonDelegate {
     }
     
     func buttonActivted() {
-        let main = UIStoryboard.init(name: "Main", bundle: nil)
-        let destVC = main.instantiateViewController(withIdentifier: "enterPhoneVC")
-        self.navigationController?.pushViewController(destVC, animated: true)
+        let loginSB = UIStoryboard.init(name: "Login", bundle: nil)
+        let enterPhoneVC = loginSB.instantiateViewController(withIdentifier: "enterPhoneVC")
+        self.navigationController?.pushViewController(enterPhoneVC, animated: true)
     }
     
     func enterAppAfterLogin() {
-        let main = UIStoryboard.init(name: "Main", bundle: nil)
-        let destVC = main.instantiateViewController(withIdentifier: "mainTabBar")
-        self.navigationController?.pushViewController(destVC, animated: true)
+        let mainSB = UIStoryboard.init(name: "Main", bundle: nil)
+        let mainTabBarVC = mainSB.instantiateViewController(withIdentifier: "mainTabBar")
+        self.navigationController?.pushViewController(mainTabBarVC, animated: true)
     }
     
     func setupForOpeningAnimation() {

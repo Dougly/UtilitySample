@@ -150,16 +150,16 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
     
     //Duplicate code in PermissionVC
     func popToRootAndEnterApp() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
+        let mainSB = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = mainSB.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
         let rootVC = self.navigationController?.viewControllers[0] as! LogInViewController
         let viewControllers = [rootVC, tabBarController]
         self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
     
     func pushToAdditionalDetails() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let additionalDetailsVC = main.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
+        let loginSB = UIStoryboard(name: "Login", bundle: nil)
+        let additionalDetailsVC = loginSB.instantiateViewController(withIdentifier: "additionalDetailsVC") as! AdditionalDetailsViewController
         self.navigationController?.pushViewController(additionalDetailsVC, animated: true)
     }
     

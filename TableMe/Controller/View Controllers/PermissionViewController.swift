@@ -60,8 +60,8 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
                     print("🔥 \(error!.localizedDescription)")
                 }
                 DispatchQueue.main.async {
-                    let main = UIStoryboard(name: "Main", bundle: nil)
-                    let permissionVC = main.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
+                    let loginSB = UIStoryboard(name: "Login", bundle: nil)
+                    let permissionVC = loginSB.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
                     permissionVC.permissionVCType = .location
                     permissionVC.title = "Location"
                     permissionVC.image = #imageLiteral(resourceName: "locationGrapahic")
@@ -92,8 +92,8 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
     }
   
     func popToRootAndEnterApp() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarController = main.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
+        let mainSB = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = mainSB.instantiateViewController(withIdentifier: "mainTabBar") as! UITabBarController
         let rootVC = self.navigationController?.viewControllers[0] as! LogInViewController
         let viewControllers = [rootVC, tabBarController]
         self.navigationController?.setViewControllers(viewControllers, animated: true)

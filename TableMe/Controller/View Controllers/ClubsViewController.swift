@@ -115,9 +115,10 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 cell.clubTableViewCellView.contentView.alpha = 1.0
                 self.view.layoutIfNeeded()
             }, completion: { success in
-                let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailVC") as! ClubDetailViewController
-                destVC.selectedCell = cell
-                self.presentDetail(destVC)
+                let mainSB = UIStoryboard(name: "Main", bundle: nil)
+                let clubDetailVC = mainSB.instantiateViewController(withIdentifier: "ClubDetailVC") as! ClubDetailViewController
+                clubDetailVC.selectedCell = cell
+                self.presentDetail(clubDetailVC)
             })
         } else {
             let cell = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
@@ -158,9 +159,9 @@ extension ClubsViewController: PlaceUIDelegate {
     }
     
     func showProfile() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let destVC = main.instantiateViewController(withIdentifier: "editProfileVC")
-        self.tabBarController?.navigationController?.pushViewController(destVC, animated: true)
+        let profileSB = UIStoryboard(name: "Profile", bundle: nil)
+        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC")
+        self.tabBarController?.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     func showFilter() {

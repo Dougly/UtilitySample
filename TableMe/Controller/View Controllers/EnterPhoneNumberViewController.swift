@@ -121,9 +121,10 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
                     return
                 }
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
-                destVC.phoneNumber = phoneNumber
-                self.navigationController?.pushViewController(destVC, animated: true)
+                let loginSB = UIStoryboard(name: "Login", bundle: nil)
+                let verificationCodeVC = loginSB.instantiateViewController(withIdentifier: "verificationCodeVC") as! VerificationCodeViewController
+                verificationCodeVC.phoneNumber = phoneNumber
+                self.navigationController?.pushViewController(verificationCodeVC, animated: true)
                 self.activityIndicator.stopAnimating()
             }
         }

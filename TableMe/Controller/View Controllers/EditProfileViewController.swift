@@ -19,6 +19,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func logoutTapped(_ sender: Any) {
+        print("logout tapped")
         auth.logout { (success, error) in
             if success {
                 self.navigationController?.popToRootViewController(animated: true)
@@ -26,6 +27,10 @@ class EditProfileViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    @IBAction func tappedBackButton(_ sender: UIButton) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
 }

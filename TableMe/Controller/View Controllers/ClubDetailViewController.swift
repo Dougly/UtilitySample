@@ -163,9 +163,7 @@ extension ClubDetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.contentView.alpha = 1.0
             self.view.layoutIfNeeded()
         }, completion: { success in
-//            let destVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailVC") as! ClubDetailViewController
-//            destVC.selectedCell = cell
-//            self.presentDetail(destVC)
+            //Present table / join table vc
         })
     }
     
