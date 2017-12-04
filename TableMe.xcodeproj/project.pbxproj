@@ -14,6 +14,9 @@
 		11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */; };
 		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
 		111708CD1FD59CF70030AB78 /* FirebaseStorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708CC1FD59CF70030AB78 /* FirebaseStorageFacade.swift */; };
+		111708CF1FD5DD030030AB78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708CE1FD5DD030030AB78 /* ProfileViewController.swift */; };
+		111708D11FD5DF4F0030AB78 /* TableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111708D01FD5DF4F0030AB78 /* TableCellView.xib */; };
+		111708D31FD5DF5D0030AB78 /* TableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D21FD5DF5D0030AB78 /* TableCellView.swift */; };
 		111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */; };
 		112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD11FAE54480031FF64 /* AppDelegate.swift */; };
 		112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* LogInViewController.swift */; };
@@ -73,6 +76,9 @@
 		11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButton.swift; sourceTree = "<group>"; };
 		11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButtonDelegate.swift; sourceTree = "<group>"; };
 		111708CC1FD59CF70030AB78 /* FirebaseStorageFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageFacade.swift; sourceTree = "<group>"; };
+		111708CE1FD5DD030030AB78 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		111708D01FD5DF4F0030AB78 /* TableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellView.xib; sourceTree = "<group>"; };
+		111708D21FD5DF5D0030AB78 /* TableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellView.swift; sourceTree = "<group>"; };
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 				11589ABC1FC35C4900DDD3BD /* VerificationCodeViewController.swift */,
 				11D4DA081FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift */,
 				1173E2F51FD0B5EB00B34C96 /* PermissionViewController.swift */,
+				111708CE1FD5DD030030AB78 /* ProfileViewController.swift */,
 				110161711FD216A4006ED8DD /* EditProfileViewController.swift */,
 			);
 			path = "View Controllers";
@@ -236,6 +243,7 @@
 				11D4DA041FCC947D009FAD98 /* EditProfileView.xib */,
 				1140402C1FCDD37F0040E286 /* TableMeTextFieldView.xib */,
 				11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */,
+				111708D01FD5DF4F0030AB78 /* TableCellView.xib */,
 			);
 			path = "Xib Files";
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 				11D4DA021FCC9447009FAD98 /* EditProfileView.swift */,
 				1140402A1FCDD3650040E286 /* TableMeTextFieldView.swift */,
 				11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */,
+				111708D21FD5DF5D0030AB78 /* TableCellView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 				112A2FD71FAE54480031FF64 /* Main.storyboard in Resources */,
 				116513011FD30B3D00CAAD06 /* Profile.storyboard in Resources */,
 				11F900461FAFC5C700BCDF05 /* ClubTableViewCellView.xib in Resources */,
+				111708D11FD5DF4F0030AB78 /* TableCellView.xib in Resources */,
 				11589AB71FC3551300DDD3BD /* SignInWithPhoneView.xib in Resources */,
 				11D4DA051FCC947D009FAD98 /* EditProfileView.xib in Resources */,
 				11D4DA011FCC5760009FAD98 /* GoogleService-Info.plist in Resources */,
@@ -559,10 +569,12 @@
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
+				111708CF1FD5DD030030AB78 /* ProfileViewController.swift in Sources */,
 				11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */,
 				11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */,
 				1140402B1FCDD3650040E286 /* TableMeTextFieldView.swift in Sources */,
 				11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */,
+				111708D31FD5DF5D0030AB78 /* TableCellView.swift in Sources */,
 				112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */,
 				11D4DA091FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,

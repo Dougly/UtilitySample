@@ -105,7 +105,7 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
     func setTextfieldProperties() {
         tableMeTextField.delegate = self
         tableMeTextField.textField.maxLength = 14
-        tableMeTextField.setTextFieldProperties(title: "PhoneNumber", contentType: .telephoneNumber, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
+        tableMeTextField.setTextFieldProperties(title: "Phone Number", contentType: .telephoneNumber, capitalization: .none, correction: .no, keyboardType: .numberPad, keyboardAppearance: .dark, returnKey: .done)
     }
     
     func autoFormatPhoneNumberText(in textField: UITextField) {

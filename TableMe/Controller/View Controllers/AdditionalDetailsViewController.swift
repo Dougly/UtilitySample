@@ -129,8 +129,7 @@ extension AdditionalDetailsViewController: UIImagePickerControllerDelegate, UINa
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         additionalDetailsView.profilePictureButtonView.iconImageView.image = nil
         picker.dismiss(animated: true, completion: nil)
-        //picker.popViewController(animated: true)
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
         self.additionalDetailsView.profilePictureButtonView.backgroundImageView.image = image
     }
     
