@@ -34,7 +34,9 @@ class FirebaseDatabaseFacade {
             case .profileImage: if profileImageURL != nil { updateInfo[ProfileValue.profileImage.rawValue] = email }
             }
         }
-        ref.child(users).setValue([phoneNumber : updateInfo])
+        //ref.child(users).setValue([phoneNumber : updateInfo])
+        let path = "\(users)/\(phoneNumber)"
+        ref.child(path).setValue(updateInfo)
     }
     
     
