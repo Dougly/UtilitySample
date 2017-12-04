@@ -31,7 +31,7 @@ class FirebaseDatabaseFacade {
             case .email: if email != nil { userInfo[ProfileValue.email.rawValue] = email }
             case .gender: if gender != nil { userInfo[ProfileValue.gender.rawValue] = gender }
             case .birthday: if birthday != nil { userInfo[ProfileValue.birthday.rawValue] = birthday }
-            case .profileImage: if profileImageURL != nil { userInfo[ProfileValue.profileImage.rawValue] = email }
+            case .profileImage: if profileImageURL != nil { userInfo[ProfileValue.profileImage.rawValue] = profileImageURL?.absoluteString }
             }
         }
         let path = "\(users)/\(phoneNumber)"

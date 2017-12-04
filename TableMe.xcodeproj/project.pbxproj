@@ -13,6 +13,7 @@
 		11155E8B1FCF06B8008ADE72 /* TableMeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */; };
 		11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */; };
 		11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */; };
+		111708CD1FD59CF70030AB78 /* FirebaseStorageFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708CC1FD59CF70030AB78 /* FirebaseStorageFacade.swift */; };
 		111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */; };
 		112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD11FAE54480031FF64 /* AppDelegate.swift */; };
 		112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* LogInViewController.swift */; };
@@ -71,6 +72,7 @@
 		11155E8A1FCF06B8008ADE72 /* TableMeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableMeButton.xib; sourceTree = "<group>"; };
 		11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButton.swift; sourceTree = "<group>"; };
 		11155E8E1FCF436B008ADE72 /* TableMeButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMeButtonDelegate.swift; sourceTree = "<group>"; };
+		111708CC1FD59CF70030AB78 /* FirebaseStorageFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageFacade.swift; sourceTree = "<group>"; };
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				11F900401FAFC4D900BCDF05 /* View */,
 				11F900411FAFC4F600BCDF05 /* Controller */,
 				11589AAF1FC323FB00DDD3BD /* Extensions */,
+				11589AB01FC3247000DDD3BD /* Protocols */,
 				112A2FDB1FAE54480031FF64 /* Assets.xcassets */,
 				112A2FE01FAE54480031FF64 /* Info.plist */,
 				112A2FD81FAE54480031FF64 /* UtilitySample.xcdatamodeld */,
@@ -278,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				11589AB11FC3249200DDD3BD /* View Controllers */,
-				11589AB01FC3247000DDD3BD /* Protocols */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,6 +291,7 @@
 				112A2FD11FAE54480031FF64 /* AppDelegate.swift */,
 				1165E84A1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift */,
 				1101616F1FD1CAB1006ED8DD /* FirebaseAuthFacade.swift */,
+				111708CC1FD59CF70030AB78 /* FirebaseStorageFacade.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				1173E2F61FD0B5EB00B34C96 /* PermissionViewController.swift in Sources */,
 				11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */,
 				11155E8F1FCF436B008ADE72 /* TableMeButtonDelegate.swift in Sources */,
+				111708CD1FD59CF70030AB78 /* FirebaseStorageFacade.swift in Sources */,
 				1165E84B1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift in Sources */,
 				1173E2EF1FD08FA500B34C96 /* CheckBoxDelegate.swift in Sources */,
 				118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */,

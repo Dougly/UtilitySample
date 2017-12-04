@@ -15,6 +15,7 @@ class AdditionalDetailsViewController: UIViewController {
     }
     
     let database = FirebaseDatabaseFacade()
+    let storage = FirebaseStorageFacade()
     let genderOptions = ["Male", "Female", "Other"]
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var additionalDetailsView: EditProfileView!
@@ -86,7 +87,15 @@ class AdditionalDetailsViewController: UIViewController {
         let email = additionalDetailsView.emailTMTextField.textField.text!
         let gender = additionalDetailsView.genderTMTextField.textField.text!
         let birthday = additionalDetailsView.birthdayTMTextField.textField.text!
-        database.saveUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil)
+        let image = additionalDetailsView.profilePictureButtonView.backgroundImageView.image!
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        
+        if let imageData = imageData {
+            storage.uploadProfileImage(data: imageData) { (metaData) in
+                let url = metaData.downloadURL()
+                self.database.saveUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: url)
+            }
+        }
         
         let loginSB = UIStoryboard(name: "Login", bundle: nil)
         let permissionVC = loginSB.instantiateViewController(withIdentifier: "permissionVC") as! PermissionsViewController
