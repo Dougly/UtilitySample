@@ -55,8 +55,7 @@ class ProfileViewController: UIViewController, TableMeButtonDelegate {
         editProfileButton.setProperties(title: nil, icon: #imageLiteral(resourceName: "edit"), backgroundImage: nil, backgroundColor: .themePurple, cornerRadius: 25)
         editProfileButton.delegate = self
         
-        self.descriptionLabel.text = "Need something long as a placeholder so the profile view looks a little better. Also scrolling up could potentially be a problem here because the back arrow will overlap with text."
-        
+        self.descriptionLabel.text = "Need something long as a placeholder so the profile view looks a little better. Also scrolling up could potentially be a problem here because the back arrow will overlap with text. Blah Blah Blah."
 
     }
     
