@@ -10,7 +10,7 @@ target 'TableMe' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-
+  pod 'Kingfisher', '~> 4.0'
 
   # Pods for TableMe
 

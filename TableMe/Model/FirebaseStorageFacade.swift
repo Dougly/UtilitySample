@@ -32,18 +32,5 @@ class FirebaseStorageFacade {
         }
     }
     
-    func downloadProfileImage(fileName: String, completion: @escaping (UIImage?) -> ()) {
-        let storageRef = storage.reference()
-        let imageRef = storageRef.child("images/\(fileName)")
-        imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
-            if let error = error {
-                print("🔥 \(error)")
-            } else if let data = data {
-                let image = UIImage(data: data)
-                completion(image)
-            }
-        }
-    }
-    
     
 }

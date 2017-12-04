@@ -7,17 +7,30 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EditProfileViewController: UIViewController {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     let auth = FirebaseAuthFacade()
+    let databse = FirebaseDatabaseFacade()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let phoneNumber = auth.getCurrentUser()?.phoneNumber {
+            databse.readValueOnce(at: "users/\(phoneNumber)") { (userInfo) in
+                guard let userInfo = userInfo else { return }
+                print(userInfo)
+                let urlString = userInfo["profileImage"] as! String
+                let url = URL(string: urlString)
+                self.imageView.kf.setImage(with: url)
+            }
+        }
     }
+    
     @IBAction func logoutTapped(_ sender: Any) {
         print("logout tapped")
         auth.logout { (success, error) in
