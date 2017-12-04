@@ -99,7 +99,6 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         database.readValueOnce(at: "users/\(phoneNumber)") { (dict) in
             if let dict = dict {
                 if dict["name"] as? String != nil {
-                    print("got name \(dict["name"])")
                     self.popToRootAndEnterApp()
                 } else {
                     self.pushToAdditionalDetails()

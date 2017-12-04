@@ -24,19 +24,18 @@ class FirebaseDatabaseFacade {
         guard let currentUser = auth.getCurrentUser() else { return }
         guard let phoneNumber = currentUser.phoneNumber else { return }
         let keys: [ProfileValue] = [.name, .email, .gender, .birthday, .profileImage]
-        var updateInfo: [String : Any] = [:]
+        var userInfo: [String : Any] = [:]
         for key in keys {
             switch key {
-            case .name: if name != nil { updateInfo[ProfileValue.name.rawValue] = name }
-            case .email: if email != nil { updateInfo[ProfileValue.email.rawValue] = email }
-            case .gender: if gender != nil { updateInfo[ProfileValue.gender.rawValue] = gender }
-            case .birthday: if birthday != nil { updateInfo[ProfileValue.birthday.rawValue] = birthday }
-            case .profileImage: if profileImageURL != nil { updateInfo[ProfileValue.profileImage.rawValue] = email }
+            case .name: if name != nil { userInfo[ProfileValue.name.rawValue] = name }
+            case .email: if email != nil { userInfo[ProfileValue.email.rawValue] = email }
+            case .gender: if gender != nil { userInfo[ProfileValue.gender.rawValue] = gender }
+            case .birthday: if birthday != nil { userInfo[ProfileValue.birthday.rawValue] = birthday }
+            case .profileImage: if profileImageURL != nil { userInfo[ProfileValue.profileImage.rawValue] = email }
             }
         }
-        //ref.child(users).setValue([phoneNumber : updateInfo])
         let path = "\(users)/\(phoneNumber)"
-        ref.child(path).setValue(updateInfo)
+        ref.child(path).setValue(userInfo)
     }
     
     
