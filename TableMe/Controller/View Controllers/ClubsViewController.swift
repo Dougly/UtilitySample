@@ -160,7 +160,7 @@ extension ClubsViewController: PlaceUIDelegate {
     
     func showProfile() {
         let profileSB = UIStoryboard(name: "Profile", bundle: nil)
-        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC")
+        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "profileVC")
         self.tabBarController?.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
@@ -209,7 +209,6 @@ extension ClubsViewController: PlaceUIDelegate {
     }
     
     func openingAnimation() {
-        
         UIView.animate(withDuration: 0.3, animations: {
             self.view.alpha = 1
             self.tabBarController?.tabBar.isHidden = false

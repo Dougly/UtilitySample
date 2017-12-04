@@ -43,7 +43,7 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func tappedBackButton(_ sender: UIButton) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

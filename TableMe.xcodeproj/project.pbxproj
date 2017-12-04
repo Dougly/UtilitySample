@@ -17,6 +17,7 @@
 		111708CF1FD5DD030030AB78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708CE1FD5DD030030AB78 /* ProfileViewController.swift */; };
 		111708D11FD5DF4F0030AB78 /* TableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111708D01FD5DF4F0030AB78 /* TableCellView.xib */; };
 		111708D31FD5DF5D0030AB78 /* TableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D21FD5DF5D0030AB78 /* TableCellView.swift */; };
+		111708D51FD5E68B0030AB78 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */; };
 		111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */; };
 		112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD11FAE54480031FF64 /* AppDelegate.swift */; };
 		112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* LogInViewController.swift */; };
@@ -79,6 +80,7 @@
 		111708CE1FD5DD030030AB78 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		111708D01FD5DF4F0030AB78 /* TableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellView.xib; sourceTree = "<group>"; };
 		111708D21FD5DF5D0030AB78 /* TableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellView.swift; sourceTree = "<group>"; };
+		111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				1140402A1FCDD3650040E286 /* TableMeTextFieldView.swift */,
 				11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */,
 				111708D21FD5DF5D0030AB78 /* TableCellView.swift */,
+				111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				111708D31FD5DF5D0030AB78 /* TableCellView.swift in Sources */,
 				112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */,
 				11D4DA091FCCB4E4009FAD98 /* AdditionalDetailsViewController.swift in Sources */,
+				111708D51FD5E68B0030AB78 /* TableCollectionViewCell.swift in Sources */,
 				112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */,
 				11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */,
 				1173E2F11FD093D000B34C96 /* TableMeTextFieldDelegate.swift in Sources */,
