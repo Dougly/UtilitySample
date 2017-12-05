@@ -10,20 +10,28 @@ import UIKit
 import Kingfisher
 
 class PictureTableViewCell: UITableViewCell {
+    @IBOutlet weak var tableMeButton: TableMeButton!
 }
 
 class TextFieldTableViewCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var underlineView: UIView!
     
 }
 
 class DescriptionTableViewCell: UITableViewCell {
-    
+    @IBOutlet weak var descriptionTextLabel: UILabel!
+    @IBOutlet weak var underlineView: UIView!
 }
 
 class VenmoIDTableViewCell: UITableViewCell {
-    
+    @IBOutlet weak var venmoIDLabel: UILabel!
 }
 
+class SingleOptionTableViewCell: UITableViewCell {
+    @IBOutlet weak var optionTitleLabel: UILabel!
+}
 
 
 class EditProfileViewController: UIViewController {

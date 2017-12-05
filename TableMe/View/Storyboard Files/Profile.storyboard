@@ -403,7 +403,7 @@
                                 <rect key="frame" x="0.0" y="119.5" width="375" height="680.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="QUg-nv-9zq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pictureTableViewCell" rowHeight="90" id="QUg-nv-9zq" customClass="PictureTableViewCell" customModule="TableMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QUg-nv-9zq" id="WjE-er-Hgj">
@@ -425,8 +425,11 @@
                                                 <constraint firstItem="v4q-hO-Grq" firstAttribute="centerX" secondItem="WjE-er-Hgj" secondAttribute="centerX" id="HZC-xu-ZQ2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tableMeButton" destination="v4q-hO-Grq" id="lAr-XZ-bty"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="85" id="5Iw-Uq-OQi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textFieldTableViewCell" rowHeight="85" id="5Iw-Uq-OQi" customClass="TextFieldTableViewCell" customModule="TableMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Iw-Uq-OQi" id="RNb-d6-uDS">
@@ -464,8 +467,13 @@
                                                 <constraint firstItem="fko-U5-pT8" firstAttribute="leading" secondItem="RNb-d6-uDS" secondAttribute="leading" constant="15" id="yvn-Z4-wGb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="vJt-xF-keu" id="scx-6h-tZN"/>
+                                            <outlet property="titleLabel" destination="GlA-PV-u4b" id="qgR-7R-uwr"/>
+                                            <outlet property="underlineView" destination="fko-U5-pT8" id="Pah-7N-6e2"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="CRP-cP-0sW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="descriptionTableViewCell" rowHeight="80" id="CRP-cP-0sW" customClass="DescriptionTableViewCell" customModule="TableMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CRP-cP-0sW" id="xad-Vf-7w6">
@@ -504,8 +512,12 @@
                                                 <constraint firstItem="xQV-SN-ygh" firstAttribute="leading" secondItem="Bnv-ki-sTa" secondAttribute="leading" id="qSb-bc-rPs"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionTextLabel" destination="xQV-SN-ygh" id="OUX-sL-7t0"/>
+                                            <outlet property="underlineView" destination="osb-fa-Kld" id="50f-qA-HOw"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="4uf-bK-C1b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="venmoIDTableViewCell" rowHeight="80" id="4uf-bK-C1b" customClass="VenmoIDTableViewCell" customModule="TableMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="283" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4uf-bK-C1b" id="Pck-JT-Hxr">
@@ -544,8 +556,11 @@
                                                 <constraint firstItem="5d7-GO-Zo2" firstAttribute="centerY" secondItem="Pck-JT-Hxr" secondAttribute="centerY" id="vX1-8j-f09"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="venmoIDLabel" destination="VAI-Qf-n1m" id="MZc-3c-cbY"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="Bhz-RO-2QR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="additionalDetailsTableViewCell" rowHeight="80" id="Bhz-RO-2QR">
                                         <rect key="frame" x="0.0" y="363" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bhz-RO-2QR" id="AmE-r4-ATF">
@@ -576,7 +591,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="Usc-WI-Lhb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="singleOptionTableViewCell" rowHeight="80" id="Usc-WI-Lhb" customClass="SingleOptionTableViewCell" customModule="TableMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="443" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Usc-WI-Lhb" id="6Xg-IE-Ga0">
@@ -590,8 +605,8 @@
                                                         <constraint firstAttribute="height" constant="1" id="07W-Ti-d2T"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venom ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-PS-sf4">
-                                                    <rect key="frame" x="15" y="30" width="74" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-PS-sf4">
+                                                    <rect key="frame" x="15" y="30" width="54.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -606,6 +621,9 @@
                                                 <constraint firstItem="Yas-tv-phZ" firstAttribute="leading" secondItem="6Xg-IE-Ga0" secondAttribute="leading" id="vo9-9N-73S"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="optionTitleLabel" destination="5sA-PS-sf4" id="O49-jb-Xgw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
