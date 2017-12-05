@@ -9,11 +9,34 @@
 import UIKit
 import Kingfisher
 
+class PictureTableViewCell: UITableViewCell {
+}
+
+class TextFieldTableViewCell: UITableViewCell {
+    
+}
+
+class DescriptionTableViewCell: UITableViewCell {
+    
+}
+
+class VenmoIDTableViewCell: UITableViewCell {
+    
+}
+
+
+
 class EditProfileViewController: UIViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    @IBOutlet weak var editProfileLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var profilePictureTableMeButton: TableMeButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     let auth = FirebaseAuthFacade()
     let databse = FirebaseDatabaseFacade()
@@ -26,9 +49,37 @@ class EditProfileViewController: UIViewController {
                 print(userInfo)
                 let urlString = userInfo["profileImage"] as! String
                 let url = URL(string: urlString)
-                self.imageView.kf.setImage(with: url)
+                self.profilePictureTableMeButton.backgroundImageView.kf.setImage(with: url)
             }
         }
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: Notification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillAppear(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height
+                self.scrollViewBottomConstraint.constant = keyboardHeight * -1
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+    }
+    
+    @objc func keyboardWillDisappear() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+            self.scrollViewBottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -47,3 +98,33 @@ class EditProfileViewController: UIViewController {
     }
     
 }
+
+extension EditProfileViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let size = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
+//        if size.height != descriptionViewHeightConstraint.constant && size.height > textView.frame.size.height{
+//            descriptionViewHeightConstraint.constant = size.height
+//            textView.setContentOffset(CGPoint.zero, animated: false)
+//        }
+    }
+    
+    func offsetScrollViewFor(view: UIView) {
+        var yOffset: CGFloat = 0
+        switch view.tag {
+        case 1: yOffset = 0
+        case 2: yOffset = 86.5
+        case 3: yOffset = 173
+        case 4: yOffset = 259.5
+        default: break
+        }
+        
+        UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: {
+//            self.scrollView.contentOffset = CGPoint(x: 0.0, y: yOffset)
+//            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+}
+    
+    
+
