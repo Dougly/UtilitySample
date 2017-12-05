@@ -40,6 +40,9 @@ class EditProfileViewController: UIViewController {
         return .lightContent
     }
     
+    var titleLabelYDistance: CGFloat = 0
+    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editProfileLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
@@ -52,7 +55,7 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        titleLabelYDistance = (editProfileLabel.frame.height / 2) + (backButton.frame.height / 2) + 15.0
 //        if let phoneNumber = auth.getCurrentUser()?.phoneNumber {
 //            databse.readValueOnce(at: "users/\(phoneNumber)") { (userInfo) in
 //                guard let userInfo = userInfo else { return }
@@ -136,14 +139,27 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        print(offset)
         let baseBottomConstant: CGFloat = 15
+        let titleLabelXDistance: CGFloat = (view.frame.width / 2) - (editProfileLabel.frame.width / 2) - 30
         let baseLeadingConstant: CGFloat = 0
         
-        if offset > -65 && offset < -15 {
+        if offset > -65 && offset < (titleLabelYDistance - 65) {
+            let increment = (offset + 65) * 0.5
+            let scaleFraction = (65 - increment) / 65
+            let xFraction = titleLabelXDistance / titleLabelYDistance
+            editProfileLabel.transform = CGAffineTransform(scaleX: scaleFraction, y: scaleFraction)
             editProfileBottomConstraint.constant = baseBottomConstant - (offset + 65)
-            editProfileLeadingConstraint.constant = baseLeadingConstant + (offset + 65)
-            
+            editProfileLeadingConstraint.constant = baseLeadingConstant + ((offset + 65) * xFraction)
+        } else if offset > (titleLabelYDistance - 65) {
+            let increment = (titleLabelYDistance) * 0.5
+            let scaleFraction = (65 - increment) / 65
+            editProfileLabel.transform = CGAffineTransform(scaleX: scaleFraction, y: scaleFraction)
+            editProfileBottomConstraint.constant = baseBottomConstant - (titleLabelYDistance)
+            editProfileLeadingConstraint.constant = titleLabelXDistance
+        } else {
+            editProfileLabel.transform = CGAffineTransform.identity
+            editProfileBottomConstraint.constant = baseBottomConstant
+            editProfileLeadingConstraint.constant = baseLeadingConstant
         }
     }
     

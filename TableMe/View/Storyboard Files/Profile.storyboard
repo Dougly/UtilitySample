@@ -643,6 +643,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="backButton" destination="fkR-9I-9si" id="MOA-GO-aRC"/>
                         <outlet property="editProfileBottomConstraint" destination="el5-Xw-SUT" id="hQZ-Nq-DdP"/>
                         <outlet property="editProfileLabel" destination="Jeo-04-TbY" id="LPZ-xb-BL8"/>
                         <outlet property="editProfileLeadingConstraint" destination="zcy-Yr-XrV" id="AbR-Nc-LCc"/>
