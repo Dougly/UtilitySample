@@ -41,25 +41,34 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBOutlet weak var editProfileLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var profilePictureTableMeButton: TableMeButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var editProfileLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editProfileBottomConstraint: NSLayoutConstraint!
     
     let auth = FirebaseAuthFacade()
     let databse = FirebaseDatabaseFacade()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let phoneNumber = auth.getCurrentUser()?.phoneNumber {
-            databse.readValueOnce(at: "users/\(phoneNumber)") { (userInfo) in
-                guard let userInfo = userInfo else { return }
-                print(userInfo)
-                let urlString = userInfo["profileImage"] as! String
-                let url = URL(string: urlString)
-                self.profilePictureTableMeButton.backgroundImageView.kf.setImage(with: url)
-            }
-        }
+        
+//        if let phoneNumber = auth.getCurrentUser()?.phoneNumber {
+//            databse.readValueOnce(at: "users/\(phoneNumber)") { (userInfo) in
+//                guard let userInfo = userInfo else { return }
+//                print(userInfo)
+//                let urlString = userInfo["profileImage"] as! String
+//                let url = URL(string: urlString)
+//                self.profilePictureTableMeButton.backgroundImageView.kf.setImage(with: url)
+//            }
+//        }
+//
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsetsMake(65, 0, 0, 0)
+
+        
+        //let size = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
        
     }
     
@@ -77,7 +86,7 @@ class EditProfileViewController: UIViewController {
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 let keyboardHeight = keyboardRectangle.height
-                self.scrollViewBottomConstraint.constant = keyboardHeight * -1
+                self.tableViewBottomConstraint.constant = keyboardHeight * -1
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
@@ -85,7 +94,7 @@ class EditProfileViewController: UIViewController {
     
     @objc func keyboardWillDisappear() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
-            self.scrollViewBottomConstraint.constant = 0
+            self.tableViewBottomConstraint.constant = 0
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -107,15 +116,38 @@ class EditProfileViewController: UIViewController {
     
 }
 
-extension EditProfileViewController: UITextViewDelegate {
+extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
-    func textViewDidChange(_ textView: UITextView) {
-        let size = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
-//        if size.height != descriptionViewHeightConstraint.constant && size.height > textView.frame.size.height{
-//            descriptionViewHeightConstraint.constant = size.height
-//            textView.setContentOffset(CGPoint.zero, animated: false)
-//        }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "singleOptionTableViewCell") as! SingleOptionTableViewCell
+        cell.optionTitleLabel.text = "Hello"
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        print(offset)
+        let baseBottomConstant: CGFloat = 15
+        let baseLeadingConstant: CGFloat = 0
+        
+        if offset > -65 && offset < -15 {
+            editProfileBottomConstraint.constant = baseBottomConstant - (offset + 65)
+            editProfileLeadingConstraint.constant = baseLeadingConstant + (offset + 65)
+            
+        }
+    }
+    
+    
     
     func offsetScrollViewFor(view: UIView) {
         var yOffset: CGFloat = 0
@@ -133,6 +165,8 @@ extension EditProfileViewController: UITextViewDelegate {
         }, completion: nil)
     }
 }
+
+
     
     
 
