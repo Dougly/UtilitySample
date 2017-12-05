@@ -18,6 +18,11 @@
 		111708D11FD5DF4F0030AB78 /* TableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111708D01FD5DF4F0030AB78 /* TableCellView.xib */; };
 		111708D31FD5DF5D0030AB78 /* TableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D21FD5DF5D0030AB78 /* TableCellView.swift */; };
 		111708D51FD5E68B0030AB78 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */; };
+		111708D81FD72D9B0030AB78 /* PictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D71FD72D9B0030AB78 /* PictureTableViewCell.swift */; };
+		111708DA1FD72DB50030AB78 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708D91FD72DB50030AB78 /* TextFieldTableViewCell.swift */; };
+		111708DC1FD72DDB0030AB78 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708DB1FD72DDB0030AB78 /* DescriptionTableViewCell.swift */; };
+		111708DE1FD72E000030AB78 /* VenmoIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708DD1FD72E000030AB78 /* VenmoIDTableViewCell.swift */; };
+		111708E01FD72E220030AB78 /* SingleOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111708DF1FD72E210030AB78 /* SingleOptionTableViewCell.swift */; };
 		111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */; };
 		112A2FD21FAE54480031FF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD11FAE54480031FF64 /* AppDelegate.swift */; };
 		112A2FD41FAE54480031FF64 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A2FD31FAE54480031FF64 /* LogInViewController.swift */; };
@@ -81,6 +86,11 @@
 		111708D01FD5DF4F0030AB78 /* TableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellView.xib; sourceTree = "<group>"; };
 		111708D21FD5DF5D0030AB78 /* TableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellView.swift; sourceTree = "<group>"; };
 		111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
+		111708D71FD72D9B0030AB78 /* PictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTableViewCell.swift; sourceTree = "<group>"; };
+		111708D91FD72DB50030AB78 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		111708DB1FD72DDB0030AB78 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		111708DD1FD72E000030AB78 /* VenmoIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenmoIDTableViewCell.swift; sourceTree = "<group>"; };
+		111708DF1FD72E210030AB78 /* SingleOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleOptionTableViewCell.swift; sourceTree = "<group>"; };
 		111D831C1FAFA8C500B4DB6E /* ClubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		112A2FCE1FAE54480031FF64 /* TableMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112A2FD11FAE54480031FF64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +162,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111708D61FD72D460030AB78 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */,
+				11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */,
+				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
+				111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */,
+				111708D71FD72D9B0030AB78 /* PictureTableViewCell.swift */,
+				111708D91FD72DB50030AB78 /* TextFieldTableViewCell.swift */,
+				111708DB1FD72DDB0030AB78 /* DescriptionTableViewCell.swift */,
+				111708DD1FD72E000030AB78 /* VenmoIDTableViewCell.swift */,
+				111708DF1FD72E210030AB78 /* SingleOptionTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		112A2FC51FAE54470031FF64 = {
 			isa = PBXGroup;
 			children = (
@@ -266,15 +292,12 @@
 			children = (
 				11F9003C1FAFB9A700BCDF05 /* CityStateTitleView.swift */,
 				11F900431FAFC56F00BCDF05 /* ClubTableViewCellView.swift */,
-				11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */,
-				11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */,
-				118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */,
 				11589AB81FC3552100DDD3BD /* SignInWithPhoneView.swift */,
 				11D4DA021FCC9447009FAD98 /* EditProfileView.swift */,
 				1140402A1FCDD3650040E286 /* TableMeTextFieldView.swift */,
 				11155E8C1FCF06C8008ADE72 /* TableMeButton.swift */,
 				111708D21FD5DF5D0030AB78 /* TableCellView.swift */,
-				111708D41FD5E68B0030AB78 /* TableCollectionViewCell.swift */,
+				111708D61FD72D460030AB78 /* Cells */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -560,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111708D81FD72D9B0030AB78 /* PictureTableViewCell.swift in Sources */,
 				110161721FD216A4006ED8DD /* EditProfileViewController.swift in Sources */,
 				1173E2F61FD0B5EB00B34C96 /* PermissionViewController.swift in Sources */,
 				11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */,
@@ -568,12 +592,15 @@
 				1165E84B1FCF67E9009452B1 /* FirebaseDatabaseFacade.swift in Sources */,
 				1173E2EF1FD08FA500B34C96 /* CheckBoxDelegate.swift in Sources */,
 				118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */,
+				111708DA1FD72DB50030AB78 /* TextFieldTableViewCell.swift in Sources */,
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
+				111708DE1FD72E000030AB78 /* VenmoIDTableViewCell.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				11589ABD1FC35C4900DDD3BD /* VerificationCodeViewController.swift in Sources */,
 				111D831D1FAFA8C500B4DB6E /* ClubsViewController.swift in Sources */,
 				111708CF1FD5DD030030AB78 /* ProfileViewController.swift in Sources */,
 				11155E8D1FCF06C8008ADE72 /* TableMeButton.swift in Sources */,
+				111708DC1FD72DDB0030AB78 /* DescriptionTableViewCell.swift in Sources */,
 				11589AC11FC373E000DDD3BD /* UITextFieldExtension.swift in Sources */,
 				1140402B1FCDD3650040E286 /* TableMeTextFieldView.swift in Sources */,
 				11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */,
@@ -592,6 +619,7 @@
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
 				1173E2F31FD0989E00B34C96 /* StringExtension.swift in Sources */,
 				110161701FD1CAB1006ED8DD /* FirebaseAuthFacade.swift in Sources */,
+				111708E01FD72E220030AB78 /* SingleOptionTableViewCell.swift in Sources */,
 				11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
