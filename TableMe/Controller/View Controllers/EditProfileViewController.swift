@@ -27,10 +27,11 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var editProfileLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var editProfileBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editProfileTopConstraint: NSLayoutConstraint!
     
     let auth = FirebaseAuthFacade()
     let dataStore = DataStore.sharedInstance
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +127,7 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
         switch cellType {
         case .picture:
             let cell = tableView.dequeueReusableCell(withIdentifier: "pictureTableViewCell") as! PictureTableViewCell
+            cell.tableMeButton.setProperties(title: nil, icon: nil, backgroundImage: nil, backgroundColor: .clear, cornerRadius: 43)
             let url = URL(string: dataStore.userInfo["profileImage"] as! String)
             cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
             return cell
@@ -143,6 +145,7 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             return cell
         case .additional:
             let cell = tableView.dequeueReusableCell(withIdentifier: "additionalDetailsTableViewCell")
+            cell?.selectionStyle = .none
             return cell!
         case .single:
             let cell = tableView.dequeueReusableCell(withIdentifier: "singleOptionTableViewCell") as! SingleOptionTableViewCell
@@ -153,26 +156,31 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        let baseBottomConstant: CGFloat = 15
-        let titleLabelXDistance: CGFloat = (view.frame.width / 2) - (editProfileLabel.frame.width / 2) - 30
-        let baseLeadingConstant: CGFloat = 0
+        let baseTopConstant: CGFloat = 15
+        let titleLabelXDistance: CGFloat = (view.frame.width / 2) - (editProfileLabel.frame.width / 2) - 40
+        let baseLeadingConstant: CGFloat = 15
         
         if offset > -65 && offset < (titleLabelYDistance - 65) {
             let increment = (offset + 65) * 0.5
             let scaleFraction = (65 - increment) / 65
             let xFraction = titleLabelXDistance / titleLabelYDistance
             editProfileLabel.transform = CGAffineTransform(scaleX: scaleFraction, y: scaleFraction)
-            editProfileBottomConstraint.constant = baseBottomConstant - (offset + 65)
+            editProfileTopConstraint.constant = baseTopConstant - (offset + 65)
             editProfileLeadingConstraint.constant = baseLeadingConstant + ((offset + 65) * xFraction)
         } else if offset > (titleLabelYDistance - 65) {
             let increment = (titleLabelYDistance) * 0.5
             let scaleFraction = (65 - increment) / 65
             editProfileLabel.transform = CGAffineTransform(scaleX: scaleFraction, y: scaleFraction)
-            editProfileBottomConstraint.constant = baseBottomConstant - (titleLabelYDistance)
-            editProfileLeadingConstraint.constant = titleLabelXDistance
+            editProfileTopConstraint.constant = baseTopConstant - (titleLabelYDistance)
+            editProfileLeadingConstraint.constant = baseLeadingConstant + titleLabelXDistance
+        } else if offset < -65 && editProfileTopConstraint.constant == baseTopConstant {
+            let increment = (-65 - offset) / 8
+            let scale = (65 + increment) / 65
+            editProfileLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+            editProfileLeadingConstraint.constant = baseLeadingConstant + increment
         } else {
             editProfileLabel.transform = CGAffineTransform.identity
-            editProfileBottomConstraint.constant = baseBottomConstant
+            editProfileTopConstraint.constant = baseTopConstant
             editProfileLeadingConstraint.constant = baseLeadingConstant
         }
     }

@@ -11,4 +11,19 @@ import UIKit
 class DescriptionTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionTextLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    func commonInit() {
+        self.selectionStyle = .none
+    }
+    
 }

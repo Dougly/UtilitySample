@@ -11,5 +11,6 @@ import UIKit
 class TableCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var tableCellView: TableCellView!
+
     
 }

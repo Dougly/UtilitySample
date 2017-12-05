@@ -630,6 +630,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Jeo-04-TbY" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" constant="15" id="Iza-yt-3F9"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="bottom" secondItem="jE9-EA-P3z" secondAttribute="bottom" id="Rjr-0N-qNy"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" id="YCm-Ta-0XM"/>
                             <constraint firstItem="fkR-9I-9si" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" constant="15" id="YSd-iZ-2Ij"/>
@@ -637,16 +638,15 @@
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="top" secondItem="fkR-9I-9si" secondAttribute="bottom" constant="15" id="awz-mC-Zti"/>
                             <constraint firstItem="Jeo-04-TbY" firstAttribute="top" secondItem="fkR-9I-9si" secondAttribute="bottom" constant="10" id="el5-Xw-SUT"/>
                             <constraint firstItem="fkR-9I-9si" firstAttribute="top" secondItem="jE9-EA-P3z" secondAttribute="top" constant="15" id="xaI-Bg-T35"/>
-                            <constraint firstItem="Jeo-04-TbY" firstAttribute="leading" secondItem="fkR-9I-9si" secondAttribute="leading" id="zcy-Yr-XrV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jE9-EA-P3z"/>
                     </view>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="backButton" destination="fkR-9I-9si" id="MOA-GO-aRC"/>
-                        <outlet property="editProfileBottomConstraint" destination="el5-Xw-SUT" id="hQZ-Nq-DdP"/>
                         <outlet property="editProfileLabel" destination="Jeo-04-TbY" id="LPZ-xb-BL8"/>
-                        <outlet property="editProfileLeadingConstraint" destination="zcy-Yr-XrV" id="AbR-Nc-LCc"/>
+                        <outlet property="editProfileLeadingConstraint" destination="Iza-yt-3F9" id="FdN-f6-QNR"/>
+                        <outlet property="editProfileTopConstraint" destination="el5-Xw-SUT" id="0sy-Ny-eeq"/>
                         <outlet property="tableView" destination="DGq-Hh-mge" id="8gE-w8-QuS"/>
                         <outlet property="tableViewBottomConstraint" destination="Rjr-0N-qNy" id="sKu-en-Ell"/>
                     </connections>
