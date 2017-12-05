@@ -9,6 +9,9 @@
 import UIKit
 import Kingfisher
 
+enum EditProfileCellType {
+    case picture, textfield, description, additional, venmo, single
+}
 
 class EditProfileViewController: UIViewController {
     
@@ -27,21 +30,12 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var editProfileBottomConstraint: NSLayoutConstraint!
     
     let auth = FirebaseAuthFacade()
-    let databse = FirebaseDatabaseFacade()
+    let dataStore = DataStore.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabelYDistance = (editProfileLabel.frame.height / 2) + (backButton.frame.height / 2) + 15.0
-//        if let phoneNumber = auth.getCurrentUser()?.phoneNumber {
-//            databse.readValueOnce(at: "users/\(phoneNumber)") { (userInfo) in
-//                guard let userInfo = userInfo else { return }
-//                print(userInfo)
-//                let urlString = userInfo["profileImage"] as! String
-//                let url = URL(string: urlString)
-//                self.profilePictureTableMeButton.backgroundImageView.kf.setImage(with: url)
-//            }
-//        }
-//
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentInset = UIEdgeInsetsMake(65, 0, 0, 0)
@@ -103,14 +97,58 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 11
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0, 7: return 100
+        case 1, 2, 3, 4, 5: return 85
+        case 6, 8, 9, 10: return 80
+        default: return 80
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "singleOptionTableViewCell") as! SingleOptionTableViewCell
-        cell.optionTitleLabel.text = "Hello"
-        cell.selectionStyle = .none
-        return cell
+        let row = indexPath.row
+        var cellType: EditProfileCellType = .single
+    
+        switch row {
+        case 0: cellType = .picture
+        case 1, 2, 3, 4: cellType = .textfield
+        case 5: cellType = .description
+        case 6: cellType = .venmo
+        case 7: cellType = .additional
+        case 8, 9, 10: cellType = .single
+        default: break
+        }
+        
+        switch cellType {
+        case .picture:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "pictureTableViewCell") as! PictureTableViewCell
+            let url = URL(string: dataStore.userInfo["profileImage"] as! String)
+            cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
+            return cell
+        case .textfield:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldTableViewCell") as! TextFieldTableViewCell
+            self.setPropertiesFor(textfieldCell: cell, row: row)
+            return cell
+        case .description:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionTableViewCell") as! DescriptionTableViewCell
+            cell.textLabel?.text = dataStore.description
+            return cell
+        case .venmo:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "venmoIDTableViewCell") as! VenmoIDTableViewCell
+            cell.venmoIDLabel.text = dataStore.venmoID
+            return cell
+        case .additional:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "additionalDetailsTableViewCell")
+            return cell!
+        case .single:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "singleOptionTableViewCell") as! SingleOptionTableViewCell
+            self.setPropertiesFor(singleOptionCell: cell, row: row)
+            return cell
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -136,6 +174,34 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             editProfileLabel.transform = CGAffineTransform.identity
             editProfileBottomConstraint.constant = baseBottomConstant
             editProfileLeadingConstraint.constant = baseLeadingConstant
+        }
+    }
+    
+    func setPropertiesFor(textfieldCell: TextFieldTableViewCell, row: Int) {
+        switch row {
+        case 1:
+            textfieldCell.titleLabel.text = "Full Name"
+            textfieldCell.textField.text = dataStore.name
+        case 2:
+            textfieldCell.titleLabel.text = "Email"
+            textfieldCell.textField.text = dataStore.email
+        case 3:
+            textfieldCell.titleLabel.text = "Phone Number"
+            textfieldCell.textField.text = dataStore.phoneNumber
+        case 4:
+            textfieldCell.titleLabel.text = "Gender"
+            textfieldCell.textField.text = dataStore.gender
+        default:
+            break
+        }
+    }
+    
+    func setPropertiesFor(singleOptionCell: SingleOptionTableViewCell, row: Int) {
+        switch row {
+        case 8: singleOptionCell.optionTitleLabel.text = "Support"
+        case 9: singleOptionCell.optionTitleLabel.text = "Terms & Conditions"
+        case 10: singleOptionCell.optionTitleLabel.text = "Log Out"
+        default: break
         }
     }
     

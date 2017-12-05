@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let locationManager = CLLocationManager()
+    let dataStore = DataStore.sharedInstance
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -50,9 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navController.navigationBar.isHidden = true
         
         let auth = FirebaseAuthFacade()
-        if auth.getCurrentUser() != nil {
+        if let user = auth.getCurrentUser() {
             let controllers = [loginVC, tabBarController]
             navController.setViewControllers(controllers, animated: false)
+            
+            //save userinfo to datastore
+            //TODO: when user logs in add listener and update datastore
+            let database = FirebaseDatabaseFacade()
+            guard let phoneNumber = user.phoneNumber else { return }
+            database.setListnerForUser("users/\(phoneNumber)")
+            dataStore.phoneNumber = phoneNumber
         } else {
             navController.setViewControllers([loginVC], animated: false)
         }

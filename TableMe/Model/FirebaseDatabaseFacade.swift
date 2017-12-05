@@ -19,6 +19,7 @@ class FirebaseDatabaseFacade {
     let auth = FirebaseAuthFacade()
     let ref = Database.database().reference()
     let users = "users"
+    let dataStore = DataStore.sharedInstance
     
     func saveUserInfo(_ name: String?, email: String?, gender: String?, birthday: String?, profileImageURL: URL?) {
         guard let currentUser = auth.getCurrentUser() else { return }
@@ -64,6 +65,21 @@ class FirebaseDatabaseFacade {
     
     func deleteInfo(at path: String) {
         ref.child(path).removeValue()
+    }
+    
+    func setListnerForUser(_ path: String) {
+        ref.child(path).observe(.value) { snapshot in
+            let dict = snapshot.value as? [String : Any] ?? [:]
+            self.dataStore.userInfo = dict
+            self.dataStore.name = dict["name"] as? String ?? ""
+            self.dataStore.email = dict["email"] as? String ?? ""
+            self.dataStore.gender = dict["gender"] as? String ?? ""
+            self.dataStore.birthday = dict["birthday"] as? String ?? ""
+            self.dataStore.profileImage = dict["profileImage"] as? String ?? ""
+            self.dataStore.description = dict["description"] as? String ?? ""
+            self.dataStore.venmoID = dict["venmoID"] as? String ?? ""
+            print(self.dataStore.userInfo)
+        }
     }
    
     
