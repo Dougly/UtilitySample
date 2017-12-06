@@ -16,7 +16,7 @@ class AdditionalDetailsViewController: UIViewController {
     
     let database = FirebaseDatabaseFacade()
     let storage = FirebaseStorageFacade()
-    let genderOptions = ["Male", "Female", "Other"]
+    let genderOptions = ["Not Specified", "Male", "Female", "Other"]
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var additionalDetailsView: EditProfileView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -192,7 +192,7 @@ extension AdditionalDetailsViewController: UITextFieldDelegate, CheckBoxDelegate
         if textField.text!.count < 1 {
             switch textField.tag {
             case 3:
-                textField.text = "Male"
+                textField.text = "Not Specified"
             case 4:
                 var componenets = Calendar.current.dateComponents([.year, .month, .day], from: Date())
                 if let day = componenets.day, let month = componenets.month, let year = componenets.year {

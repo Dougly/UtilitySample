@@ -31,13 +31,14 @@ class FirebaseAuthFacade {
         return firebaseAuth.currentUser
     }
     
-    func logout(success: (Bool, String?) -> Void) {
+    func logout(success: (Bool) -> Void) {
         do {
             try firebaseAuth.signOut()
-            success(true, nil)
+            success(true)
         } catch let signOutError as NSError {
             let error = ("🔥 Error signing out: %@", signOutError)
-            success(false, error.0)
+            print(error)
+            success(false)
         }
     }
 

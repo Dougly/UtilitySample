@@ -20,7 +20,8 @@ class EditProfileViewController: UIViewController {
     }
     
     var titleLabelYDistance: CGFloat = 0
-    
+    let genderOptions = ["Not Specified", "Male", "Female", "Other"]
+
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editProfileLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -72,21 +73,12 @@ class EditProfileViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
-    
-    @IBAction func logoutTapped(_ sender: Any) {
-        print("logout tapped")
-        auth.logout { (success, error) in
-            if success {
-                self.navigationController?.popToRootViewController(animated: true)
-            } else if let error = error {
-                print(error)
-            }
-        }
-    }
-    
-    @IBAction func tappedBackButton(_ sender: UIButton) {
+
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
     
 }
 
@@ -190,17 +182,37 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
         case 1:
             textfieldCell.titleLabel.text = "Full Name"
             textfieldCell.textField.text = dataStore.name
+            textfieldCell.textField.keyboardAppearance = .dark
+            textfieldCell.textField.autocapitalizationType = .words
+            textfieldCell.textField.autocorrectionType = .no
         case 2:
             textfieldCell.titleLabel.text = "Email"
             textfieldCell.textField.text = dataStore.email
+            textfieldCell.textField.keyboardAppearance = .dark
+            textfieldCell.textField.autocapitalizationType = .none
+            textfieldCell.textField.keyboardType = .emailAddress
+            textfieldCell.textField.autocorrectionType = .no
         case 3:
             textfieldCell.titleLabel.text = "Phone Number"
             textfieldCell.textField.text = dataStore.phoneNumber
+            textfieldCell.textField.keyboardAppearance = .dark
+            textfieldCell.textField.keyboardType = .numberPad
         case 4:
             textfieldCell.titleLabel.text = "Gender"
             textfieldCell.textField.text = dataStore.gender
+            setupGenderPicker(textField: textfieldCell.textField)
         default:
             break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 10 {
+            auth.logout() { success in
+                if success {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
         }
     }
     
@@ -232,6 +244,57 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     }
 }
 
+
+extension EditProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    //Gender Picker
+    func setupGenderPicker(textField: UITextField) {
+        let genderPicker = UIPickerView()
+        genderPicker.dataSource = self
+        genderPicker.delegate = self
+        genderPicker.backgroundColor = .black
+        genderPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        textField.inputView = genderPicker
+        let genderToolBar = UIToolbar()
+        let nextButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleGenderDoneButton))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        genderToolBar.barStyle = .blackTranslucent
+        genderToolBar.sizeToFit()
+        genderToolBar.setItems([spaceButton, nextButton], animated: false)
+        genderToolBar.isUserInteractionEnabled = true
+        textField.inputAccessoryView = genderToolBar
+    }
+    
+    @objc func handleGenderDoneButton(_ sender: UIBarButtonItem) {
+        let indexPath = IndexPath(item: 4, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell
+        if let cell = cell {
+            cell.textField.resignFirstResponder()
+        }
+    }
+    
+    //MARK: Picker Datasource and Delegate functions
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return genderOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = genderOptions[row]
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 20),NSAttributedStringKey.foregroundColor:UIColor.white])
+        return myTitle
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let indexPath = IndexPath(item: 4, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell
+        if let cell = cell {
+            cell.textField.text = genderOptions[row]
+        }
+    }
+}
 
     
     
