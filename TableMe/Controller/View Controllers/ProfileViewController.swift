@@ -15,50 +15,68 @@ class ProfileViewController: UIViewController, TableMeButtonDelegate {
         return .lightContent
     }
     
+    var headerView: UIView!
+    let headerViewHeight: CGFloat = 200
+
+    
     let database = FirebaseDatabaseFacade()
     let auth = FirebaseAuthFacade()
+    let dataStore = DataStore.sharedInstance
     var userInfo: [String : Any]?
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var editProfileButton: TableMeButton!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var venmoIDLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var profileImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var scrollView: UIScrollView!
-
+    //@IBOutlet weak var nameLabel: UILabel!
+    //@IBOutlet weak var venmoIDLabel: UILabel!
+    //@IBOutlet weak var descriptionLabel: UILabel!
+    //@IBOutlet weak var collectionView: UICollectionView!
+    //@IBOutlet weak var profileImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Replace with safer code after layout is finished
-        let user = auth.getCurrentUser()
-        if let user = user {
-            if let phoneNumber = user.phoneNumber {
-                database.readValueOnce(at: "users/\(phoneNumber)") { (userInfo) in
-                    self.userInfo = userInfo
-                    if let url = URL(string: userInfo!["profileImage"] as! String) {
-                        self.profileImageView.kf.setImage(with: url)
-                    }
-                }
-            }
-        }
+        tableView.delegate = self
+        tableView.dataSource = self
+        headerView = tableView.tableHeaderView
+        tableView.tableHeaderView = nil
+        tableView.addSubview(headerView)
+        tableView.contentInset = UIEdgeInsets(top: headerViewHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentOffset = CGPoint(x: 0, y: -headerViewHeight)
+        updateHeaderView()
         
-        scrollView.delegate = self
+        let url = URL(string: dataStore.profileImage)
+        self.profileImageView.kf.setImage(with: url)
+        
+        
+        
+        
+        
+        //scrollView.delegate = self
         //scrollView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        //collectionView.delegate = self
+        //collectionView.dataSource = self
         
         //profileImageView.layer.cornerRadius = 100
-        profileImageView.clipsToBounds = true
         
         editProfileButton.setProperties(title: nil, icon: #imageLiteral(resourceName: "edit"), backgroundImage: nil, backgroundColor: .themePurple, cornerRadius: 25)
         editProfileButton.delegate = self
-        
-        self.descriptionLabel.text = "Need something long as a placeholder so the profile view looks a little better. Also scrolling up could potentially be a problem here because the back arrow will overlap with text. Blah Blah Blah."
+     
 
     }
+    
+    
+    func updateHeaderView() {
+        var headerRect = CGRect(x: 0, y: -headerViewHeight, width: tableView.bounds.width, height: headerViewHeight)
+        if tableView.contentOffset.y < -headerViewHeight {
+            headerRect.origin.y = tableView.contentOffset.y
+            headerRect.size.height = -tableView.contentOffset.y
+            
+        }
+        headerView.frame = headerRect
+    }
+    
     
     func buttonActivted() {
         //present editVC
@@ -102,18 +120,30 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
 }
 
-extension ProfileViewController: UIScrollViewDelegate {
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "nameAndVenmoCell") as! NameAndVenmoTableViewCell
+        return cell
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        
-        let offset = scrollView.contentOffset
-        let imageHeightBase: CGFloat = 200
-        //let cornerRadiusBase: CGFloat = 100
-        if offset.y < 0 {
-            self.profileImageHeightConstraint.constant = imageHeightBase - offset.y
-            //self.profileImageView.layer.cornerRadius = cornerRadiusBase - (offset.y / 2)
-        }
+        print("hi")
+        updateHeaderView()
+//        let offset = scrollView.contentOffset
+//        //let cornerRadiusBase: CGFloat = 100
+//        if offset.y < 0 {
+//            self.profileImageHeightConstraint.constant = imageHeightBase - offset.y
+//            //self.profileImageView.layer.cornerRadius = cornerRadiusBase - (offset.y / 2)
+//        }
     }
     
 }
