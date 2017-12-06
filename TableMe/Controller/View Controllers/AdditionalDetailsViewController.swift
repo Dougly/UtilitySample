@@ -114,7 +114,7 @@ class AdditionalDetailsViewController: UIViewController {
 //MARK: Camera And Photo
 extension AdditionalDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, TableMeButtonDelegate {
     
-    func buttonActivted() {
+    func tableMeButtonActivted() {
         let textFields = [additionalDetailsView.fullNameTMTextField.textField, additionalDetailsView.emailTMTextField.textField, additionalDetailsView.genderTMTextField.textField, additionalDetailsView.birthdayTMTextField.textField ]
         for textField in textFields {
             if let textField = textField {

@@ -57,7 +57,7 @@ class LogInViewController: UIViewController, TableMeButtonDelegate {
         tableMeButton.delegate = self
     }
     
-    func buttonActivted() {
+    func tableMeButtonActivted() {
         let loginSB = UIStoryboard.init(name: "Login", bundle: nil)
         let enterPhoneVC = loginSB.instantiateViewController(withIdentifier: "enterPhoneVC")
         self.navigationController?.pushViewController(enterPhoneVC, animated: true)

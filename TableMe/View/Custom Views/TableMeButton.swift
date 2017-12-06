@@ -83,7 +83,7 @@ class TableMeButton: UIView {
             sender.isEnabled = true
         case .ended:
             animateToStartingPosition()
-            self.delegate?.buttonActivted()
+            self.delegate?.tableMeButtonActivted()
         case .failed, .possible:
             break
         }
@@ -106,7 +106,7 @@ class TableMeButton: UIView {
                 self.transform = CGAffineTransform.identity
             })
         }) { (success) in
-            self.delegate?.buttonActivted()
+            self.delegate?.tableMeButtonActivted()
         }
     }
     

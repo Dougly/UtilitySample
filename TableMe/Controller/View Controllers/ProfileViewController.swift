@@ -10,32 +10,37 @@ import UIKit
 import FirebaseAuth
 
 class ProfileViewController: UIViewController, TableMeButtonDelegate {
-    
+   
+    let headerViewHeight: CGFloat = 250
+    let auth = FirebaseAuthFacade()
+    let dataStore = DataStore.sharedInstance
+    var headerView: UIView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var editProfileButton: TableMeButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var gradientView: UIView!
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    var headerView: UIView!
-    let headerViewHeight: CGFloat = 200
-
-    
-    let database = FirebaseDatabaseFacade()
-    let auth = FirebaseAuthFacade()
-    let dataStore = DataStore.sharedInstance
-    var userInfo: [String : Any]?
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var editProfileButton: TableMeButton!
-    //@IBOutlet weak var nameLabel: UILabel!
-    //@IBOutlet weak var venmoIDLabel: UILabel!
-    //@IBOutlet weak var descriptionLabel: UILabel!
-    //@IBOutlet weak var collectionView: UICollectionView!
-    //@IBOutlet weak var profileImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tableView: UITableView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupTableView()
+        setupEditProfileButton()
+    }
+    
+    func tableMeButtonActivted() {
+        let profileSB = UIStoryboard(name: "Profile", bundle: nil)
+        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC")
+        self.navigationController?.pushViewController(editProfileVC, animated: true)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         headerView = tableView.tableHeaderView
@@ -44,55 +49,18 @@ class ProfileViewController: UIViewController, TableMeButtonDelegate {
         tableView.contentInset = UIEdgeInsets(top: headerViewHeight, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y: -headerViewHeight)
         updateHeaderView()
-        
         let url = URL(string: dataStore.profileImage)
         self.profileImageView.kf.setImage(with: url)
-        
-        
-        
-        
-        
-        //scrollView.delegate = self
-        //scrollView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
-        
-        //collectionView.delegate = self
-        //collectionView.dataSource = self
-        
-        //profileImageView.layer.cornerRadius = 100
-        
+        addGradient()
+    }
+    
+    func setupEditProfileButton() {
         editProfileButton.setProperties(title: nil, icon: #imageLiteral(resourceName: "edit"), backgroundImage: nil, backgroundColor: .themePurple, cornerRadius: 25)
         editProfileButton.delegate = self
-     
-
     }
-    
-    
-    func updateHeaderView() {
-        var headerRect = CGRect(x: 0, y: -headerViewHeight, width: tableView.bounds.width, height: headerViewHeight)
-        if tableView.contentOffset.y < -headerViewHeight {
-            headerRect.origin.y = tableView.contentOffset.y
-            headerRect.size.height = -tableView.contentOffset.y
-            
-        }
-        headerView.frame = headerRect
-    }
-    
-    
-    func buttonActivted() {
-        //present editVC
-        let profileSB = UIStoryboard(name: "Profile", bundle: nil)
-        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC")
-        self.navigationController?.pushViewController(editProfileVC, animated: true)
-    }
-    
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    
     
 }
+
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -120,6 +88,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
 }
 
+
+
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -127,23 +97,67 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0: return 60
+        case 1: return 50
+        case 2:
+            tableView.estimatedRowHeight = 44
+            return UITableViewAutomaticDimension
+        case 3: return 275
+        default: return 44
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "nameAndVenmoCell") as! NameAndVenmoTableViewCell
-        return cell
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "nameAndVenmoCell") as! NameAndVenmoTableViewCell
+            cell.nameLabel.text = dataStore.name
+            cell.venmoIDLabel.text = "VenmoID - \(dataStore.venmoID)"
+            return cell
+        case 1:
+             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionTitle")
+             return cell!
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionLabelTableViewCell") as! DescriptionLabelTableViewCell
+            cell.label.text = "Placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder tex"
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tablesTableViewCell") as! TablesTableViewCell
+            cell.collectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("hi")
         updateHeaderView()
-//        let offset = scrollView.contentOffset
-//        //let cornerRadiusBase: CGFloat = 100
-//        if offset.y < 0 {
-//            self.profileImageHeightConstraint.constant = imageHeightBase - offset.y
-//            //self.profileImageView.layer.cornerRadius = cornerRadiusBase - (offset.y / 2)
-//        }
+    }
+    
+    func updateHeaderView() {
+        var headerRect = CGRect(x: 0, y: -headerViewHeight, width: tableView.bounds.width, height: headerViewHeight)
+        if tableView.contentOffset.y < -headerViewHeight {
+            headerRect.origin.y = tableView.contentOffset.y
+            headerRect.size.height = -tableView.contentOffset.y
+        }
+        headerView.frame = headerRect
+    }
+    
+    func addGradient() {
+        let startingColorOfGradient = UIColor.black.cgColor
+        let endingColorOFGradient = UIColor.clear.cgColor
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = gradientView.bounds
+        gradient.bounds = gradientView.bounds
+        gradient.colors = [endingColorOFGradient, startingColorOfGradient]
+        gradient.startPoint = CGPoint(x: 0, y: 1)
+        gradient.endPoint = CGPoint(x: 0, y: 0)
+        gradientView.layer.insertSublayer(gradient, at: 0)
     }
     
 }

@@ -49,7 +49,7 @@ class PermissionsViewController: UIViewController, TableMeButtonDelegate, CLLoca
     @IBAction func backButtonTapped(_ sender: Any) {
     }
     
-    func buttonActivted() {
+    func tableMeButtonActivted() {
         guard let permissionVCType = self.permissionVCType else { return }
         switch permissionVCType {
         case .notification:

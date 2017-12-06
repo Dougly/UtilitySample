@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TableMeButtonDelegate {
-    func buttonActivted()
+    func tableMeButtonActivted()
 }

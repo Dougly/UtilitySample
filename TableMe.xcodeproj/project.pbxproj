@@ -52,6 +52,7 @@
 		118FD0641FB4BD57009E8B89 /* AvailableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */; };
 		11A39A231FD8597500F522D8 /* TablesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A39A221FD8597500F522D8 /* TablesTableViewCell.swift */; };
 		11A39A251FD8598B00F522D8 /* NameAndVenmoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A39A241FD8598B00F522D8 /* NameAndVenmoTableViewCell.swift */; };
+		11A39A291FD88A1300F522D8 /* DescriptionLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A39A281FD88A1300F522D8 /* DescriptionLabelTableViewCell.swift */; };
 		11D4DA011FCC5760009FAD98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */; };
 		11D4DA031FCC9447009FAD98 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D4DA021FCC9447009FAD98 /* EditProfileView.swift */; };
 		11D4DA051FCC947D009FAD98 /* EditProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D4DA041FCC947D009FAD98 /* EditProfileView.xib */; };
@@ -128,6 +129,7 @@
 		118FD0631FB4BD57009E8B89 /* AvailableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTableCell.swift; sourceTree = "<group>"; };
 		11A39A221FD8597500F522D8 /* TablesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesTableViewCell.swift; sourceTree = "<group>"; };
 		11A39A241FD8598B00F522D8 /* NameAndVenmoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAndVenmoTableViewCell.swift; sourceTree = "<group>"; };
+		11A39A281FD88A1300F522D8 /* DescriptionLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabelTableViewCell.swift; sourceTree = "<group>"; };
 		11D4DA001FCC5760009FAD98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11D4DA021FCC9447009FAD98 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		11D4DA041FCC947D009FAD98 /* EditProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileView.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				111708DF1FD72E210030AB78 /* SingleOptionTableViewCell.swift */,
 				11A39A221FD8597500F522D8 /* TablesTableViewCell.swift */,
 				11A39A241FD8598B00F522D8 /* NameAndVenmoTableViewCell.swift */,
+				11A39A281FD88A1300F522D8 /* DescriptionLabelTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				111708DA1FD72DB50030AB78 /* TextFieldTableViewCell.swift in Sources */,
 				11A39A251FD8598B00F522D8 /* NameAndVenmoTableViewCell.swift in Sources */,
 				11F9003D1FAFB9A700BCDF05 /* CityStateTitleView.swift in Sources */,
+				11A39A291FD88A1300F522D8 /* DescriptionLabelTableViewCell.swift in Sources */,
 				111708DE1FD72E000030AB78 /* VenmoIDTableViewCell.swift in Sources */,
 				11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */,
 				111708E21FD734900030AB78 /* DataStore.swift in Sources */,

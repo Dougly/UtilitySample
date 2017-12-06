@@ -109,7 +109,7 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         }
     }
     
-    func buttonActivted() {
+    func tableMeButtonActivted() {
         resendCodeButtonTapped()
     }
     
