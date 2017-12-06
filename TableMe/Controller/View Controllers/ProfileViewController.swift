@@ -45,11 +45,12 @@ class ProfileViewController: UIViewController, TableMeButtonDelegate {
         }
         
         scrollView.delegate = self
+        //scrollView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        profileImageView.layer.cornerRadius = 100
+        //profileImageView.layer.cornerRadius = 100
         profileImageView.clipsToBounds = true
         
         editProfileButton.setProperties(title: nil, icon: #imageLiteral(resourceName: "edit"), backgroundImage: nil, backgroundColor: .themePurple, cornerRadius: 25)
@@ -108,10 +109,10 @@ extension ProfileViewController: UIScrollViewDelegate {
         
         let offset = scrollView.contentOffset
         let imageHeightBase: CGFloat = 200
-        let cornerRadiusBase: CGFloat = 100
+        //let cornerRadiusBase: CGFloat = 100
         if offset.y < 0 {
             self.profileImageHeightConstraint.constant = imageHeightBase - offset.y
-            self.profileImageView.layer.cornerRadius = cornerRadiusBase - (offset.y / 2)
+            //self.profileImageView.layer.cornerRadius = cornerRadiusBase - (offset.y / 2)
         }
     }
     
