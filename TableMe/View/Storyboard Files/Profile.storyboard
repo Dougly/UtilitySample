@@ -42,7 +42,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="7MP-Ag-CTc" firstAttribute="top" secondItem="vhM-AS-gPk" secondAttribute="top" id="5vF-js-BpF"/>
                                         <constraint firstItem="7MP-Ag-CTc" firstAttribute="leading" secondItem="vhM-AS-gPk" secondAttribute="leading" id="DEd-wY-Yem"/>
@@ -208,7 +208,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgo-t2-ef9" userLabel="Gradient">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKm-Kc-eLL" userLabel="Back Button">
@@ -232,7 +232,7 @@
                             <constraint firstItem="NMj-0e-gqf" firstAttribute="trailing" secondItem="iEA-Od-WPD" secondAttribute="trailing" id="Azs-js-fRR"/>
                             <constraint firstItem="NMj-0e-gqf" firstAttribute="bottom" secondItem="iEA-Od-WPD" secondAttribute="bottom" id="CZ9-Lr-lvc"/>
                             <constraint firstItem="iEA-Od-WPD" firstAttribute="top" secondItem="Ohb-4W-DiX" secondAttribute="top" id="LJI-8A-4fJ"/>
-                            <constraint firstItem="cgo-t2-ef9" firstAttribute="bottom" secondItem="SKm-Kc-eLL" secondAttribute="bottom" constant="25" id="XN1-WR-2Sh"/>
+                            <constraint firstItem="cgo-t2-ef9" firstAttribute="bottom" secondItem="SKm-Kc-eLL" secondAttribute="top" constant="-15" id="XN1-WR-2Sh"/>
                             <constraint firstItem="SKm-Kc-eLL" firstAttribute="leading" secondItem="NMj-0e-gqf" secondAttribute="leading" constant="15" id="bgy-LE-Skd"/>
                             <constraint firstItem="cgo-t2-ef9" firstAttribute="leading" secondItem="NMj-0e-gqf" secondAttribute="leading" id="dCK-Ao-rOF"/>
                             <constraint firstItem="cgo-t2-ef9" firstAttribute="top" secondItem="Ohb-4W-DiX" secondAttribute="top" id="nh6-ua-G4Z"/>

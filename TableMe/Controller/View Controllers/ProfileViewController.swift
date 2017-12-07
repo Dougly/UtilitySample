@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController, TableMeButtonDelegate {
         let profileSB = UIStoryboard(name: "Profile", bundle: nil)
         let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC") as! EditProfileViewController
         editProfileVC.profileTableView = self.tableView
+        editProfileVC.profileImageView = self.profileImageView
         self.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
@@ -150,8 +151,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     func addGradient() {
-        let startingColorOfGradient = UIColor.black.cgColor
-        let endingColorOFGradient = UIColor.clear.cgColor
+        let startingColorOfGradient = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        let endingColorOFGradient = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = gradientView.bounds
         gradient.bounds = gradientView.bounds

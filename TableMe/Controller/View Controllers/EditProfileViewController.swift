@@ -24,6 +24,7 @@ class EditProfileViewController: UIViewController {
     var changes: [String : String] = [:]
     var newImage: UIImage?
     weak var profileTableView: UITableView?
+    weak var profileImageView: UIImageView?
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editProfileLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -85,16 +86,27 @@ class EditProfileViewController: UIViewController {
         let description = changes["description"]
         let venmoID = changes["venmoID"]
         
-        print(changes)
-    
         updateImageData() { (url) in
             self.database.updateUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: url, venmoID: venmoID, description: description)
+            
+            // Update info locally so profile is updated immediatley after popping this view controller.
+            if let url = url { self.dataStore.profileImage = url.absoluteString }
+            if let name = name { self.dataStore.name = name }
+            if let email = email { self.dataStore.email = email }
+            if let birthday = birthday { self.dataStore.birthday = birthday }
+            if let gender = gender { self.dataStore.gender = gender }
+            if let description = description { self.dataStore.description = description }
+            if let venmoID = venmoID { self.dataStore.venmoID = venmoID }
+            
             self.activityIndicator.stopAnimating()
+            if let newImage = self.newImage {
+                self.profileImageView?.image = newImage
+            }
             self.profileTableView?.reloadData()
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
+
     
     func updateImageData(completion: @escaping (URL?) -> Void) {
         if let image = self.newImage {
@@ -107,20 +119,6 @@ class EditProfileViewController: UIViewController {
             completion(nil)
         }
     }
-    
-    
-//    func getTextAt(indexPath: IndexPath) -> String {
-//        if indexPath.row < 5 {
-//            let cell = tableView.cellForRow(at: indexPath) as! TextFieldTableViewCell
-//            return cell.textField.text!
-//        } else if indexPath.row == 5 {
-//            let cell = tableView.cellForRow(at: indexPath) as! DescriptionTableViewCell
-//            return cell.textLabel!.text!
-//        } else {
-//            let cell = tableView.cellForRow(at: indexPath) as! VenmoIDTableViewCell
-//            return cell.venmoIDLabel.text!
-//        }
-//    }
 
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -148,7 +146,8 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
         switch indexPath.row {
         case 0, 7: return 100
         case 1, 2, 3, 4, 5: return 85
-        case 6, 8, 9, 10: return 80
+        case 6: return 90
+        case 8, 9, 10: return 80
         default: return 80
         }
     }
