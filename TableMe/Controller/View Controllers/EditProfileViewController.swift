@@ -21,13 +21,16 @@ class EditProfileViewController: UIViewController {
     let dataStore = DataStore.sharedInstance
     let genderOptions = ["Not Specified", "Male", "Female", "Other"]
     var titleLabelYDistance: CGFloat = 0
-    var imageChanged = false
+    var changes: [String : String] = [:]
+    var newImage: UIImage?
+    weak var profileTableView: UITableView?
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editProfileLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var editProfileLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var editProfileTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -74,59 +77,50 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        //Upload new profile image
-        let name = getTextAt(indexPath: IndexPath(row: 1, section: 0))
-        let email = getTextAt(indexPath: IndexPath(row: 2, section: 0))
-        let birthday = getTextAt(indexPath: IndexPath(row: 3, section: 0))
-        let gender = getTextAt(indexPath: IndexPath(row: 4, section: 0))
-        let description = getTextAt(indexPath: IndexPath(row: 5, section: 0))
-        let venmoID = getTextAt(indexPath: IndexPath(row: 6, section: 0))
+        activityIndicator.startAnimating()
+        let name = changes["name"]
+        let email = changes["email"]
+        let birthday = changes["birthday"]
+        let gender = changes["gender"]
+        let description = changes["description"]
+        let venmoID = changes["venmoID"]
         
-        if imageChanged {
-            updateImageData() { (url) in
-                self.database.updateUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: url, venmoID: venmoID, description: description)
-                self.navigationController?.popViewController(animated: true)
-            }
-        } else {
-            database.updateUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil, venmoID: venmoID, description: description)
+        print(changes)
+    
+        updateImageData() { (url) in
+            self.database.updateUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: url, venmoID: venmoID, description: description)
+            self.activityIndicator.stopAnimating()
+            self.profileTableView?.reloadData()
             self.navigationController?.popViewController(animated: true)
         }
-        
-        
-        
-        
-        //update database values
-        
-        
-        //once database is updated reload tableView and dismiss to previous VC(datastore should have proper values and update the profile)
     }
+    
     
     func updateImageData(completion: @escaping (URL?) -> Void) {
-        let indexPath = IndexPath(item: 0, section: 0)
-        let cell = tableView.cellForRow(at: indexPath) as! PictureTableViewCell
-        let image = cell.tableMeButton.backgroundImageView.image!
-        let data = UIImageJPEGRepresentation(image, 0.5)
-        storage.uploadProfileImage(data: data!) { (metaData) in
-            let url = metaData.downloadURL()
-            print(url)
-            print(url?.absoluteString)
-            completion(url)
-        }
-    }
-    
-    
-    func getTextAt(indexPath: IndexPath) -> String {
-        if indexPath.row < 5 {
-            let cell = tableView.cellForRow(at: indexPath) as! TextFieldTableViewCell
-            return cell.textField.text!
-        } else if indexPath.row == 5 {
-            let cell = tableView.cellForRow(at: indexPath) as! DescriptionTableViewCell
-            return cell.textLabel!.text!
+        if let image = self.newImage {
+            let data = UIImageJPEGRepresentation(image, 0.5)
+            storage.uploadProfileImage(data: data!) { (metaData) in
+                let url = metaData.downloadURL()
+                completion(url)
+            }
         } else {
-            let cell = tableView.cellForRow(at: indexPath) as! VenmoIDTableViewCell
-            return cell.venmoIDLabel.text!
+            completion(nil)
         }
     }
+    
+    
+//    func getTextAt(indexPath: IndexPath) -> String {
+//        if indexPath.row < 5 {
+//            let cell = tableView.cellForRow(at: indexPath) as! TextFieldTableViewCell
+//            return cell.textField.text!
+//        } else if indexPath.row == 5 {
+//            let cell = tableView.cellForRow(at: indexPath) as! DescriptionTableViewCell
+//            return cell.textLabel!.text!
+//        } else {
+//            let cell = tableView.cellForRow(at: indexPath) as! VenmoIDTableViewCell
+//            return cell.venmoIDLabel.text!
+//        }
+//    }
 
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -136,6 +130,8 @@ class EditProfileViewController: UIViewController {
     
     
 }
+
+
 
 extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
@@ -181,6 +177,8 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             return cell
         case .textfield:
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldTableViewCell") as! TextFieldTableViewCell
+            cell.textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+            cell.textField.tag = indexPath.row
             self.setPropertiesFor(textfieldCell: cell, row: row)
             return cell
         case .description:
@@ -199,6 +197,23 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             let cell = tableView.dequeueReusableCell(withIdentifier: "singleOptionTableViewCell") as! SingleOptionTableViewCell
             self.setPropertiesFor(singleOptionCell: cell, row: row)
             return cell
+        }
+    }
+    
+    @objc func textFieldChanged(_ sender: UITextField) {
+        print("text Field changed")
+        switch sender.tag {
+        case 1:
+            changes["name"] = sender.text!
+        case 2:
+            changes["email"] = sender.text!
+        case 3:
+            changes["birthday"] = sender.text!
+        case 4:
+            changes["gender"] = sender.text!
+            print("birhtday changed")
+        default:
+            break
         }
     }
     
@@ -249,10 +264,9 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             textfieldCell.textField.keyboardType = .emailAddress
             textfieldCell.textField.autocorrectionType = .no
         case 3:
-            textfieldCell.titleLabel.text = "Phone Number"
-            textfieldCell.textField.text = dataStore.phoneNumber
-            textfieldCell.textField.keyboardAppearance = .dark
-            textfieldCell.textField.keyboardType = .numberPad
+            textfieldCell.titleLabel.text = "Birthday"
+            textfieldCell.textField.text = dataStore.birthday
+            self.setupDatePicker(textField: textfieldCell.textField)
         case 4:
             textfieldCell.titleLabel.text = "Gender"
             textfieldCell.textField.text = dataStore.gender
@@ -302,6 +316,55 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
 
 
 extension EditProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    //Date Picker
+    func setupDatePicker(textField: UITextField) {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .black
+        datePicker.setValue(false, forKeyPath: "highlightsToday")
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        datePicker.addTarget(self, action: #selector(dateChanged), for: [.valueChanged, .editingDidBegin])
+        textField.inputView = datePicker
+        var components = DateComponents()
+        components.year = -21
+        let maxDate = Calendar.current.date(byAdding: components, to: Date())
+        datePicker.maximumDate = maxDate
+        let birthdayToolBar = UIToolbar()
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleBirthdayDoneButton))
+        doneButton.tintColor = .white
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        birthdayToolBar.barStyle = .blackTranslucent
+        birthdayToolBar.sizeToFit()
+        birthdayToolBar.setItems([spaceButton, doneButton], animated: false)
+        birthdayToolBar.isUserInteractionEnabled = true
+        textField.inputAccessoryView = birthdayToolBar
+        
+    }
+    
+    @objc func handleBirthdayDoneButton(_ sender: UIButton) {
+        let indexPath = IndexPath(item: 3, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell
+        if let cell = cell {
+            cell.textField.resignFirstResponder()
+        }
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        let indexPath = IndexPath(item: 3, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell
+        
+        let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = componenets.day, let month = componenets.month, let year = componenets.year {
+            if let cell = cell {
+                let birthday = "\(month) / \(day) / \(year)"
+                self.changes["birthday"] = birthday
+                cell.textField.text = birthday
+            }
+        }
+    }
+    
+    
     //Gender Picker
     func setupGenderPicker(textField: UITextField) {
         let genderPicker = UIPickerView()
@@ -311,11 +374,12 @@ extension EditProfileViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         genderPicker.setValue(UIColor.white, forKeyPath: "textColor")
         textField.inputView = genderPicker
         let genderToolBar = UIToolbar()
-        let nextButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleGenderDoneButton))
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleGenderDoneButton))
+        doneButton.tintColor = .white
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         genderToolBar.barStyle = .blackTranslucent
         genderToolBar.sizeToFit()
-        genderToolBar.setItems([spaceButton, nextButton], animated: false)
+        genderToolBar.setItems([spaceButton, doneButton], animated: false)
         genderToolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = genderToolBar
     }
@@ -347,6 +411,7 @@ extension EditProfileViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         let indexPath = IndexPath(item: 4, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell
         if let cell = cell {
+            self.changes["gender"] = genderOptions[row]
             cell.textField.text = genderOptions[row]
         }
     }
@@ -365,7 +430,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         let indexPath = IndexPath(item: 0, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! PictureTableViewCell
         cell.tableMeButton.backgroundImageView.image = image
-        self.imageChanged = true
+        self.newImage = image
     }
     
     func presentPhotoAlert() {

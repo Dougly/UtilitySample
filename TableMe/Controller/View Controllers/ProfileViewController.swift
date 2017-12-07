@@ -32,7 +32,8 @@ class ProfileViewController: UIViewController, TableMeButtonDelegate {
     
     func tableMeButtonActivted() {
         let profileSB = UIStoryboard(name: "Profile", bundle: nil)
-        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC")
+        let editProfileVC = profileSB.instantiateViewController(withIdentifier: "editProfileVC") as! EditProfileViewController
+        editProfileVC.profileTableView = self.tableView
         self.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
@@ -102,7 +103,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0: return 60
+        case 0: return 70
         case 1: return 50
         case 2:
             tableView.estimatedRowHeight = 44

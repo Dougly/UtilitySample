@@ -61,13 +61,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aNv-ke-1mS">
-                                                    <rect key="frame" x="15" y="5" width="360" height="33.5"/>
+                                                    <rect key="frame" x="15" y="10" width="360" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szK-lq-x3B">
-                                                    <rect key="frame" x="15" y="43.5" width="360" height="19.5"/>
+                                                    <rect key="frame" x="15" y="48.5" width="360" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                                 <constraint firstItem="aNv-ke-1mS" firstAttribute="leading" secondItem="2r4-Ob-ITb" secondAttribute="leading" constant="15" id="7o5-1x-ec0"/>
                                                 <constraint firstItem="szK-lq-x3B" firstAttribute="top" secondItem="aNv-ke-1mS" secondAttribute="bottom" constant="5" id="Xmc-m9-OOH"/>
                                                 <constraint firstItem="aNv-ke-1mS" firstAttribute="trailing" secondItem="2r4-Ob-ITb" secondAttribute="trailing" id="hy3-e5-gjt"/>
-                                                <constraint firstItem="aNv-ke-1mS" firstAttribute="top" secondItem="2r4-Ob-ITb" secondAttribute="top" constant="5" id="vcY-90-ZJX"/>
+                                                <constraint firstItem="aNv-ke-1mS" firstAttribute="top" secondItem="2r4-Ob-ITb" secondAttribute="top" constant="10" id="vcY-90-ZJX"/>
                                                 <constraint firstItem="szK-lq-x3B" firstAttribute="trailing" secondItem="2r4-Ob-ITb" secondAttribute="trailing" id="zlq-as-dow"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -512,9 +512,13 @@
                                     <action selector="saveButtonTapped:" destination="eRH-br-4vE" eventType="touchUpInside" id="Uvy-ES-LVD"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xoh-K4-cOi">
+                                <rect key="frame" x="299" y="35" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xoh-K4-cOi" firstAttribute="trailing" secondItem="dTq-qU-aQe" secondAttribute="leading" constant="-5" id="7OU-oQ-F6l"/>
                             <constraint firstItem="dTq-qU-aQe" firstAttribute="trailing" secondItem="jE9-EA-P3z" secondAttribute="trailing" constant="-15" id="8nH-kS-tRU"/>
                             <constraint firstItem="Jeo-04-TbY" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" constant="15" id="Iza-yt-3F9"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="bottom" secondItem="jE9-EA-P3z" secondAttribute="bottom" id="Rjr-0N-qNy"/>
@@ -524,12 +528,14 @@
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="trailing" secondItem="jE9-EA-P3z" secondAttribute="trailing" id="ZAx-dC-8qb"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="top" secondItem="fkR-9I-9si" secondAttribute="bottom" constant="15" id="awz-mC-Zti"/>
                             <constraint firstItem="Jeo-04-TbY" firstAttribute="top" secondItem="fkR-9I-9si" secondAttribute="bottom" constant="10" id="el5-Xw-SUT"/>
+                            <constraint firstItem="xoh-K4-cOi" firstAttribute="centerY" secondItem="dTq-qU-aQe" secondAttribute="centerY" id="ev5-fz-Nma"/>
                             <constraint firstItem="fkR-9I-9si" firstAttribute="top" secondItem="jE9-EA-P3z" secondAttribute="top" constant="15" id="xaI-Bg-T35"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jE9-EA-P3z"/>
                     </view>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="xoh-K4-cOi" id="7kg-Yb-PBo"/>
                         <outlet property="backButton" destination="fkR-9I-9si" id="MOA-GO-aRC"/>
                         <outlet property="editProfileLabel" destination="Jeo-04-TbY" id="LPZ-xb-BL8"/>
                         <outlet property="editProfileLeadingConstraint" destination="Iza-yt-3F9" id="FdN-f6-QNR"/>
