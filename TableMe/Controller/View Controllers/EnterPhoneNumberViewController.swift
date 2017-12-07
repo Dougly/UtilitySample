@@ -36,8 +36,12 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        tableMeTextField.textField.resignFirstResponder()
-        presentAlert()
+        let phone = self.checkForValidPhoneNumber()
+        if phone.isValid {
+            self.loginWith(phoneNumber: phone.phoneNumber)
+        }
+//        tableMeTextField.textField.resignFirstResponder()
+//        presentAlert()
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -86,21 +90,21 @@ class EnterPhoneNumberViewController: UIViewController, TableMeTextFieldDelegate
         }
     }
     
-    func presentAlert() {
-        let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply.", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
-            let phone = self.checkForValidPhoneNumber()
-            if phone.isValid {
-                self.loginWith(phoneNumber: phone.phoneNumber)
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(okayAction)
-        self.present(alert, animated: true, completion: nil)
-    }
+//    func presentAlert() {
+//        let alert = UIAlertController(title: "Rates May Apply", message: "Signing up with your phone number will send a text message to your phone. Standard rates may apply.", preferredStyle: .alert)
+//        let okayAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
+//            let phone = self.checkForValidPhoneNumber()
+//            if phone.isValid {
+//                self.loginWith(phoneNumber: phone.phoneNumber)
+//            }
+//        }
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
+//            self.navigationController?.popToRootViewController(animated: true)
+//        }
+//        alert.addAction(cancelAction)
+//        alert.addAction(okayAction)
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
     func setTextfieldProperties() {
         tableMeTextField.delegate = self

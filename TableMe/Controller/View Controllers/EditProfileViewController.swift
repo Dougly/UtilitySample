@@ -310,6 +310,14 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.contentView.backgroundColor = .themeDarkGray
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            cell?.contentView.backgroundColor = .black
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
         if indexPath.row == 12 {
             auth.logout() { success in
                 if success {
@@ -332,9 +340,9 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     
     func setPropertiesFor(singleOptionCell: SingleOptionTableViewCell, row: Int) {
         switch row {
-        case 8: singleOptionCell.optionTitleLabel.text = "Support"
-        case 9: singleOptionCell.optionTitleLabel.text = "Terms & Conditions"
-        case 10: singleOptionCell.optionTitleLabel.text = "Log Out"
+        case 10: singleOptionCell.optionTitleLabel.text = "Support"
+        case 11: singleOptionCell.optionTitleLabel.text = "Terms & Conditions"
+        case 12: singleOptionCell.optionTitleLabel.text = "Log Out"
         default: break
         }
     }

@@ -35,6 +35,11 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
         setTextfieldProperties()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableMeTextField.textField.becomeFirstResponder()
+    }
+    
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else { return }
         let verificationCode = tableMeTextField.textField.text!
@@ -73,6 +78,9 @@ class VerificationCodeViewController: UIViewController, TableMeTextFieldDelegate
             }
             if user != nil {
                 self.presentNextViewController()
+                if let phone = self.phoneNumber {
+                    self.database.setListnerForUser("users/" + phone)
+                }
             }
         }
     }

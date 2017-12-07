@@ -22,7 +22,13 @@ extension UIColor {
         return UIColor(red: 108/255, green: 114/255, blue: 124/255, alpha: 1)
     }
     
+    static var themeDarkGray: UIColor {
+        return UIColor(red: 20/255, green: 20/255, blue: 20/255, alpha: 1)
+    }
+    
     static var themeGreen: UIColor {
         return UIColor(red: 0/255, green: 255/255, blue: 208/255, alpha: 1)
     }
+    
+   
 }

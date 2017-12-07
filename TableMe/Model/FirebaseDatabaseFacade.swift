@@ -87,7 +87,6 @@ class FirebaseDatabaseFacade {
             self.dataStore.profileImage = dict["profileImage"] as? String ?? ""
             self.dataStore.description = dict["description"] as? String ?? ""
             self.dataStore.venmoID = dict["venmoID"] as? String ?? ""
-            print(self.dataStore.userInfo)
         }
     }
    
