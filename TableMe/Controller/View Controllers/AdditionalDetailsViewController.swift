@@ -273,8 +273,6 @@ extension AdditionalDetailsViewController: UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    
-    
     //Gender Picker
     func setupGenderPicker() {
         let genderPicker = UIPickerView()

@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 enum ProfileValue: String {
-    case name, email, gender, birthday, profileImage
+    case name, email, gender, birthday, profileImage, venmoID, description
 }
 
 class FirebaseDatabaseFacade {
@@ -28,11 +28,18 @@ class FirebaseDatabaseFacade {
         var userInfo: [String : Any] = [:]
         for key in keys {
             switch key {
-            case .name: if name != nil { userInfo[ProfileValue.name.rawValue] = name }
-            case .email: if email != nil { userInfo[ProfileValue.email.rawValue] = email }
-            case .gender: if gender != nil { userInfo[ProfileValue.gender.rawValue] = gender }
-            case .birthday: if birthday != nil { userInfo[ProfileValue.birthday.rawValue] = birthday }
-            case .profileImage: if profileImageURL != nil { userInfo[ProfileValue.profileImage.rawValue] = profileImageURL?.absoluteString }
+            case .name:
+                if name != nil { userInfo[ProfileValue.name.rawValue] = name }
+            case .email:
+                if email != nil { userInfo[ProfileValue.email.rawValue] = email }
+            case .gender:
+                if gender != nil { userInfo[ProfileValue.gender.rawValue] = gender }
+            case .birthday:
+                if birthday != nil { userInfo[ProfileValue.birthday.rawValue] = birthday }
+            case .profileImage:
+                if profileImageURL != nil { userInfo[ProfileValue.profileImage.rawValue] = profileImageURL?.absoluteString }
+            case .venmoID, .description:
+                break
             }
         }
         let path = "\(users)/\(phoneNumber)"
@@ -40,18 +47,20 @@ class FirebaseDatabaseFacade {
     }
     
     
-    func updateUserInfo(_ name: String?, email: String?, gender: String?, birthday: String?, profileImageURL: URL?) {
+    func updateUserInfo(_ name: String?, email: String?, gender: String?, birthday: String?, profileImageURL: URL?, venmoID: String?, description: String?) {
         guard let currentUser = auth.getCurrentUser() else { return }
         guard let phoneNumber = currentUser.phoneNumber else { return }
         let keys: [ProfileValue] = [.name, .email, .gender, .birthday, .profileImage]
         var updateInfo: [String : Any] = [:]
         for key in keys {
             switch key {
-            case .name: if name != nil { updateInfo[ProfileValue.name.rawValue] = name }
-            case .email: if email != nil { updateInfo[ProfileValue.email.rawValue] = email }
-            case .gender: if gender != nil { updateInfo[ProfileValue.gender.rawValue] = gender }
-            case .birthday: if birthday != nil { updateInfo[ProfileValue.birthday.rawValue] = birthday }
-            case .profileImage: if profileImageURL != nil { updateInfo[ProfileValue.profileImage.rawValue] = email }
+            case .name: if name != nil { updateInfo[ProfileValue.name.rawValue] = name! }
+            case .email: if email != nil { updateInfo[ProfileValue.email.rawValue] = email! }
+            case .gender: if gender != nil { updateInfo[ProfileValue.gender.rawValue] = gender! }
+            case .birthday: if birthday != nil { updateInfo[ProfileValue.birthday.rawValue] = birthday! }
+            case .profileImage: if profileImageURL != nil { updateInfo[ProfileValue.profileImage.rawValue] = profileImageURL?.absoluteString }
+            case .venmoID: if venmoID != nil { updateInfo[ProfileValue.profileImage.rawValue] = venmoID! }
+            case .description: if description != nil { updateInfo[ProfileValue.description.rawValue] = description! }
             }
         }
         

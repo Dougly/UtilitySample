@@ -15,24 +15,23 @@ enum EditProfileCellType {
 
 class EditProfileViewController: UIViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    var titleLabelYDistance: CGFloat = 0
+    let storage = FirebaseStorageFacade()
+    let auth = FirebaseAuthFacade()
+    let database = FirebaseDatabaseFacade()
+    let dataStore = DataStore.sharedInstance
     let genderOptions = ["Not Specified", "Male", "Female", "Other"]
-
+    var titleLabelYDistance: CGFloat = 0
+    var imageChanged = false
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editProfileLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var editProfileLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var editProfileTopConstraint: NSLayoutConstraint!
     
-    let auth = FirebaseAuthFacade()
-    let dataStore = DataStore.sharedInstance
-
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +72,63 @@ class EditProfileViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        //Upload new profile image
+        let name = getTextAt(indexPath: IndexPath(row: 1, section: 0))
+        let email = getTextAt(indexPath: IndexPath(row: 2, section: 0))
+        let birthday = getTextAt(indexPath: IndexPath(row: 3, section: 0))
+        let gender = getTextAt(indexPath: IndexPath(row: 4, section: 0))
+        let description = getTextAt(indexPath: IndexPath(row: 5, section: 0))
+        let venmoID = getTextAt(indexPath: IndexPath(row: 6, section: 0))
+        
+        if imageChanged {
+            updateImageData() { (url) in
+                self.database.updateUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: url, venmoID: venmoID, description: description)
+                self.navigationController?.popViewController(animated: true)
+            }
+        } else {
+            database.updateUserInfo(name, email: email, gender: gender, birthday: birthday, profileImageURL: nil, venmoID: venmoID, description: description)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        
+        
+        
+        //update database values
+        
+        
+        //once database is updated reload tableView and dismiss to previous VC(datastore should have proper values and update the profile)
+    }
+    
+    func updateImageData(completion: @escaping (URL?) -> Void) {
+        let indexPath = IndexPath(item: 0, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! PictureTableViewCell
+        let image = cell.tableMeButton.backgroundImageView.image!
+        let data = UIImageJPEGRepresentation(image, 0.5)
+        storage.uploadProfileImage(data: data!) { (metaData) in
+            let url = metaData.downloadURL()
+            print(url)
+            print(url?.absoluteString)
+            completion(url)
+        }
+    }
+    
+    
+    func getTextAt(indexPath: IndexPath) -> String {
+        if indexPath.row < 5 {
+            let cell = tableView.cellForRow(at: indexPath) as! TextFieldTableViewCell
+            return cell.textField.text!
+        } else if indexPath.row == 5 {
+            let cell = tableView.cellForRow(at: indexPath) as! DescriptionTableViewCell
+            return cell.textLabel!.text!
+        } else {
+            let cell = tableView.cellForRow(at: indexPath) as! VenmoIDTableViewCell
+            return cell.venmoIDLabel.text!
+        }
+    }
 
+    
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -122,6 +177,7 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             cell.tableMeButton.setProperties(title: nil, icon: nil, backgroundImage: nil, backgroundColor: .clear, cornerRadius: 43)
             let url = URL(string: dataStore.userInfo["profileImage"] as! String)
             cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
+            cell.tableMeButton.delegate = self
             return cell
         case .textfield:
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldTableViewCell") as! TextFieldTableViewCell
@@ -294,6 +350,58 @@ extension EditProfileViewController: UIPickerViewDelegate, UIPickerViewDataSourc
             cell.textField.text = genderOptions[row]
         }
     }
+}
+
+//MARK: Camera And Photo
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, TableMeButtonDelegate {
+    
+    func tableMeButtonActivted() {
+        presentPhotoAlert()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
+        let indexPath = IndexPath(item: 0, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! PictureTableViewCell
+        cell.tableMeButton.backgroundImageView.image = image
+        self.imageChanged = true
+    }
+    
+    func presentPhotoAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default) { (takePhotoAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+                //self.navigationController?.pushViewController(imagePicker, animated: true)
+            }
+        }
+        
+        let choosePhotoAction = UIAlertAction(title: "Choose From Library", style: .default) { (choosePhotoAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let photoLib = UIImagePickerController()
+                photoLib.delegate = self
+                photoLib.sourceType = .photoLibrary
+                photoLib.allowsEditing = true
+                self.present(photoLib, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
+            //dismiss?
+        }
+        
+        alert.addAction(takePhotoAction)
+        alert.addAction(choosePhotoAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
     

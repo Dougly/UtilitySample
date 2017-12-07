@@ -503,11 +503,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTq-qU-aQe">
+                                <rect key="frame" x="324" y="29.5" width="36" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="eRH-br-4vE" eventType="touchUpInside" id="Uvy-ES-LVD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dTq-qU-aQe" firstAttribute="trailing" secondItem="jE9-EA-P3z" secondAttribute="trailing" constant="-15" id="8nH-kS-tRU"/>
                             <constraint firstItem="Jeo-04-TbY" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" constant="15" id="Iza-yt-3F9"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="bottom" secondItem="jE9-EA-P3z" secondAttribute="bottom" id="Rjr-0N-qNy"/>
+                            <constraint firstItem="dTq-qU-aQe" firstAttribute="centerY" secondItem="fkR-9I-9si" secondAttribute="centerY" id="Rta-wM-rI4"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" id="YCm-Ta-0XM"/>
                             <constraint firstItem="fkR-9I-9si" firstAttribute="leading" secondItem="jE9-EA-P3z" secondAttribute="leading" constant="15" id="YSd-iZ-2Ij"/>
                             <constraint firstItem="DGq-Hh-mge" firstAttribute="trailing" secondItem="jE9-EA-P3z" secondAttribute="trailing" id="ZAx-dC-8qb"/>
@@ -529,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LwY-Yk-ATp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2990" y="859"/>
+            <point key="canvasLocation" x="3167" y="853"/>
         </scene>
     </scenes>
     <resources>
