@@ -190,8 +190,10 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             if self.newImage != nil {
                 cell.tableMeButton.backgroundImageView.image = self.newImage
             } else {
-                let url = URL(string: dataStore.userInfo["profileImage"] as! String)
-                cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
+                if let profileURL = dataStore.userInfo["profileImage"] as? String {
+                    let url = URL(string: profileURL)
+                    cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
+                }
             }
             cell.tableMeButton.delegate = self
             return cell
