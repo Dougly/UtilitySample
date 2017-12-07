@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 enum EditProfileCellType {
-    case picture, textfield, description, additional, venmo, single
+    case picture, textfield, descriptionTitle, descriptionLabel, descriptionUnderline, additional, venmo, single
 }
 
 class EditProfileViewController: UIViewController {
@@ -23,6 +23,7 @@ class EditProfileViewController: UIViewController {
     var titleLabelYDistance: CGFloat = 0
     var changes: [String : String] = [:]
     var newImage: UIImage?
+    var newDescription: String?
     weak var profileTableView: UITableView?
     weak var profileImageView: UIImageView?
     @IBOutlet weak var backButton: UIButton!
@@ -139,15 +140,22 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 11
+        return 13
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0, 7: return 100
-        case 1, 2, 3, 4, 5: return 85
-        case 6: return 90
-        case 8, 9, 10: return 80
+        case 0, 9:
+            return 100
+        case 5:
+            return 30 // description title and underline
+        case 6:
+            tableView.estimatedRowHeight = 44
+            return UITableViewAutomaticDimension
+        case 1, 2, 3, 4:
+            return 85
+        case 7, 8, 10, 11, 12:
+            return 80
         default: return 80
         }
     }
@@ -156,12 +164,21 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
         let row = indexPath.row
         var cellType: EditProfileCellType = .single
     
+        // 5 = description title
+        // 6 = description label
+        // 7 = underline
+        // 8 = venmoid
+        // 9 = additonal details header
+        // 10 / 11 / 12 are 3 additonal options
+        
         switch row {
         case 0: cellType = .picture
         case 1, 2, 3, 4: cellType = .textfield
-        case 5: cellType = .description
-        case 6: cellType = .venmo
-        case 7: cellType = .additional
+        case 5: cellType = .descriptionTitle
+        case 6: cellType = .descriptionLabel
+        case 7: cellType = .descriptionUnderline
+        case 8: cellType = .venmo
+        case 9: cellType = .additional
         case 8, 9, 10: cellType = .single
         default: break
         }
@@ -170,8 +187,12 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
         case .picture:
             let cell = tableView.dequeueReusableCell(withIdentifier: "pictureTableViewCell") as! PictureTableViewCell
             cell.tableMeButton.setProperties(title: nil, icon: nil, backgroundImage: nil, backgroundColor: .clear, cornerRadius: 43)
-            let url = URL(string: dataStore.userInfo["profileImage"] as! String)
-            cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
+            if self.newImage != nil {
+                cell.tableMeButton.backgroundImageView.image = self.newImage
+            } else {
+                let url = URL(string: dataStore.userInfo["profileImage"] as! String)
+                cell.tableMeButton.backgroundImageView.kf.setImage(with: url)
+            }
             cell.tableMeButton.delegate = self
             return cell
         case .textfield:
@@ -180,10 +201,24 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             cell.textField.tag = indexPath.row
             self.setPropertiesFor(textfieldCell: cell, row: row)
             return cell
-        case .description:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionTableViewCell") as! DescriptionTableViewCell
-            cell.textLabel?.text = dataStore.description
+        case .descriptionTitle:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionTitleCell")
+            cell?.selectionStyle = .none
+            return cell!
+        case .descriptionLabel:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionLabelTableViewCell") as! DescriptionLabelTableViewCell
+            if let newDescription = self.newDescription {
+                cell.label.text = newDescription
+            } else if dataStore.description == "" {
+                cell.label.text = "Add Description"
+            } else {
+                cell.label.text = dataStore.description
+            }
             return cell
+        case .descriptionUnderline:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionUnderLineCell")
+            cell?.selectionStyle = .none
+            return cell!
         case .venmo:
             let cell = tableView.dequeueReusableCell(withIdentifier: "venmoIDTableViewCell") as! VenmoIDTableViewCell
             cell.venmoIDLabel.text = dataStore.venmoID
@@ -210,7 +245,6 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
             changes["birthday"] = sender.text!
         case 4:
             changes["gender"] = sender.text!
-            print("birhtday changed")
         default:
             break
         }
@@ -276,12 +310,23 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 10 {
+        if indexPath.row == 12 {
             auth.logout() { success in
                 if success {
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
+        } else if indexPath.row == 6 {
+            let profileSB = UIStoryboard(name: "Profile", bundle: nil)
+            let descriptionVC = profileSB.instantiateViewController(withIdentifier: "descriptionVC") as! DescriptionViewController
+            descriptionVC.editProfileVC = self
+            self.navigationController?.pushViewController(descriptionVC, animated: true)
+        } else if indexPath.row == 8 {
+            let profileSB = UIStoryboard(name: "Profile", bundle: nil)
+            let venmoIDVC = profileSB.instantiateViewController(withIdentifier: "venmoIDVC") as! VenmoIDViewController
+            venmoIDVC.tableView = self.tableView
+            venmoIDVC.editProfileVC = self
+            self.navigationController?.pushViewController(venmoIDVC, animated: true)
         }
     }
     
@@ -296,21 +341,21 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
     
     
     
-    func offsetScrollViewFor(view: UIView) {
-        var yOffset: CGFloat = 0
-        switch view.tag {
-        case 1: yOffset = 0
-        case 2: yOffset = 86.5
-        case 3: yOffset = 173
-        case 4: yOffset = 259.5
-        default: break
-        }
-        
-        UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: {
-//            self.scrollView.contentOffset = CGPoint(x: 0.0, y: yOffset)
-//            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
+//    func offsetScrollViewFor(view: UIView) {
+//        var yOffset: CGFloat = 0
+//        switch view.tag {
+//        case 1: yOffset = 0
+//        case 2: yOffset = 86.5
+//        case 3: yOffset = 173
+//        case 4: yOffset = 259.5
+//        default: break
+//        }
+//
+//        UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseInOut], animations: {
+////            self.scrollView.contentOffset = CGPoint(x: 0.0, y: yOffset)
+////            self.view.layoutIfNeeded()
+//        }, completion: nil)
+//    }
 }
 
 

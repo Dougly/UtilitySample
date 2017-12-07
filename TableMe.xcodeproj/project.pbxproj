@@ -64,6 +64,8 @@
 		11F900481FAFDE2F00BCDF05 /* ClubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */; };
 		11F9004A1FAFF70600BCDF05 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */; };
 		11F9004C1FB0029300BCDF05 /* PlaceUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */; };
+		11FC371C1FD9A20A0067E905 /* VenmoIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC371B1FD9A20A0067E905 /* VenmoIDViewController.swift */; };
+		11FC371E1FD9B6800067E905 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC371D1FD9B6800067E905 /* DescriptionViewController.swift */; };
 		D6E7AF834A38B67539316085 /* Pods_TableMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410A93A9DA72D9AC9B6DE607 /* Pods_TableMeTests.framework */; };
 		EFD8FC8E467F4C81DE32AD3C /* Pods_TableMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E2C675FA515553DDAB917C /* Pods_TableMe.framework */; };
 /* End PBXBuildFile section */
@@ -141,6 +143,8 @@
 		11F900471FAFDE2F00BCDF05 /* ClubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubTableViewCell.swift; sourceTree = "<group>"; };
 		11F900491FAFF70600BCDF05 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		11F9004B1FB0029300BCDF05 /* PlaceUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceUIDelegate.swift; sourceTree = "<group>"; };
+		11FC371B1FD9A20A0067E905 /* VenmoIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenmoIDViewController.swift; sourceTree = "<group>"; };
+		11FC371D1FD9B6800067E905 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		1264A81E497BD166267EB0D1 /* Pods-TableMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableMe/Pods-TableMe.release.xcconfig"; sourceTree = "<group>"; };
 		410A93A9DA72D9AC9B6DE607 /* Pods_TableMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F00FDDDD4ED38127B02591 /* Pods-TableMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableMeTests/Pods-TableMeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 				1173E2F51FD0B5EB00B34C96 /* PermissionViewController.swift */,
 				111708CE1FD5DD030030AB78 /* ProfileViewController.swift */,
 				110161711FD216A4006ED8DD /* EditProfileViewController.swift */,
+				11FC371B1FD9A20A0067E905 /* VenmoIDViewController.swift */,
+				11FC371D1FD9B6800067E905 /* DescriptionViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				1173E2F11FD093D000B34C96 /* TableMeTextFieldDelegate.swift in Sources */,
 				118FD0621FB4BB1C009E8B89 /* UIViewControllerExtension.swift in Sources */,
 				11589AB91FC3552100DDD3BD /* SignInWithPhoneView.swift in Sources */,
+				11FC371C1FD9A20A0067E905 /* VenmoIDViewController.swift in Sources */,
 				11589ABF1FC367D800DDD3BD /* UIColorExtension.swift in Sources */,
 				118FD05C1FB49E48009E8B89 /* ClubDetailViewController.swift in Sources */,
 				11F900441FAFC56F00BCDF05 /* ClubTableViewCellView.swift in Sources */,
@@ -635,6 +642,7 @@
 				112A2FDA1FAE54480031FF64 /* UtilitySample.xcdatamodeld in Sources */,
 				1173E2F31FD0989E00B34C96 /* StringExtension.swift in Sources */,
 				110161701FD1CAB1006ED8DD /* FirebaseAuthFacade.swift in Sources */,
+				11FC371E1FD9B6800067E905 /* DescriptionViewController.swift in Sources */,
 				111708E01FD72E220030AB78 /* SingleOptionTableViewCell.swift in Sources */,
 				11589ABB1FC3561900DDD3BD /* EnterPhoneNumberViewController.swift in Sources */,
 			);

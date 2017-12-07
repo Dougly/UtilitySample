@@ -50,7 +50,7 @@ class FirebaseDatabaseFacade {
     func updateUserInfo(_ name: String?, email: String?, gender: String?, birthday: String?, profileImageURL: URL?, venmoID: String?, description: String?) {
         guard let currentUser = auth.getCurrentUser() else { return }
         guard let phoneNumber = currentUser.phoneNumber else { return }
-        let keys: [ProfileValue] = [.name, .email, .gender, .birthday, .profileImage]
+        let keys: [ProfileValue] = [.name, .email, .gender, .birthday, .profileImage, .venmoID, .description]
         var updateInfo: [String : Any] = [:]
         for key in keys {
             switch key {
@@ -59,7 +59,7 @@ class FirebaseDatabaseFacade {
             case .gender: if gender != nil { updateInfo[ProfileValue.gender.rawValue] = gender! }
             case .birthday: if birthday != nil { updateInfo[ProfileValue.birthday.rawValue] = birthday! }
             case .profileImage: if profileImageURL != nil { updateInfo[ProfileValue.profileImage.rawValue] = profileImageURL?.absoluteString }
-            case .venmoID: if venmoID != nil { updateInfo[ProfileValue.profileImage.rawValue] = venmoID! }
+            case .venmoID: if venmoID != nil { updateInfo[ProfileValue.venmoID.rawValue] = venmoID! }
             case .description: if description != nil { updateInfo[ProfileValue.description.rawValue] = description! }
             }
         }

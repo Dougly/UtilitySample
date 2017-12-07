@@ -44,7 +44,7 @@ class TableMeTextFieldView: UIView {
 
     }
     
-    func setGesturesAndTargets() {
+    private func setGesturesAndTargets() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tappedView))
         self.addGestureRecognizer(tapGR)
         self.isUserInteractionEnabled = true

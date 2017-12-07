@@ -105,10 +105,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0: return 70
-        case 1: return 50
+        case 1:
+            if dataStore.description == "" {
+                return 0
+            } else {
+                return 50
+            }
         case 2:
-            tableView.estimatedRowHeight = 44
-            return UITableViewAutomaticDimension
+            if dataStore.description == "" {
+                return 0
+            } else {
+                tableView.estimatedRowHeight = 44
+                return UITableViewAutomaticDimension
+                
+            }
         case 3: return 275
         default: return 44
         }
@@ -126,7 +136,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, UIS
              return cell!
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionLabelTableViewCell") as! DescriptionLabelTableViewCell
-            cell.label.text = "Placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder tex"
+            cell.label.text = dataStore.description
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "tablesTableViewCell") as! TablesTableViewCell
