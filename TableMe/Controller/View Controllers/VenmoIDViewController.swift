@@ -16,6 +16,9 @@ class VenmoIDViewController: UIViewController, TableMeTextFieldDelegate, UITextF
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var tableMeTextField: TableMeTextFieldView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
