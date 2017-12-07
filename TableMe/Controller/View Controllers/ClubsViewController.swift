@@ -39,6 +39,7 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.delegate = self
         cityStateTitleView.delegate = self
+       
         placesTableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
         placesTableView.tableFooterView = UIView()
         self.view.alpha = 0
@@ -54,6 +55,9 @@ class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         openingAnimation()
+        if let tabBarHeight = self.tabBarController?.tabBar.frame.height {
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tabBarHeight, right: 0)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -214,9 +218,9 @@ extension ClubsViewController: PlaceUIDelegate {
             self.tabBarController?.tabBar.isHidden = false
             self.view.layoutIfNeeded()
         }) { (success) in
-            if let tabBarHeight = self.tabBarController?.tabBar.frame.height {
-                self.clubsTableViewBottomConstraint.constant = tabBarHeight * -1
-            }
+//            if let tabBarHeight = self.tabBarController?.tabBar.frame.height {
+//                self.clubsTableViewBottomConstraint.constant = tabBarHeight * -1
+//            }
         }
     }
     
